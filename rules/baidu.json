@@ -1,0 +1,89 @@
+{
+	"platform": "baidu",
+	"version": "2026.07.1",
+	"read_on": null,
+	"source_title": "Third-party guides, not Baidu’s own help",
+	"fetch": {
+		"interval_hours": 24,
+		"agents": [
+			"baidu"
+		]
+	},
+	"limits": {
+		"max_urls": 1000,
+		"url_max_chars": 2048,
+		"first_read_days": 14
+	},
+	"rules": {
+		"sitemap.format": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "Design review log, Channel-baidu: third-party guides, not Baidu’s own help",
+			"read_on": null,
+			"note": "An XML or text sitemap in UTF-8. News Distribution builds XML. Baidu’s own page was not read."
+		},
+		"sitemap.max_urls": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "One file per language, 1,000 URLs at most. This is News Distribution’s own cap. Baidu’s own limit was not confirmed, so none is stated."
+		},
+		"url.length": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "An article address longer than 2,048 characters is left out of the search sitemap. This is News Distribution’s own limit for the sitemap it builds. Baidu’s own limit was not read."
+		},
+		"sitemap.language": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Each sitemap holds only articles of its own language."
+		},
+		"sitemap.first_read": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "News Distribution waits 14 days for the first fetch before it says the channel needs attention. This is its own yardstick: no Baidu figure was confirmed, so the longer wait avoids a false alarm."
+		},
+		"sitemap.shared": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "The same plain search sitemap that Bing and Yandex read. News Distribution does not build a second one for Baidu."
+		},
+		"site.address": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "Design review log, Channel-baidu: third-party guides, not Baidu’s own help",
+			"read_on": null,
+			"note": "Baidu may treat http and https as different sites, so add the site with the address you publish under. Could not be confirmed from Baidu’s own page, so the copy says may."
+		},
+		"verify.methods": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "Design review log, Verification: Baidu’s methods could not be confirmed in two attempts",
+			"read_on": null,
+			"note": "Baidu may offer an HTML tag, a file upload or a DNS record such as a CNAME. Could not be confirmed, so the copy says may and the DNS record stays with the person."
+		},
+		"account.registration": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "Design review log, Channel-baidu: could not confirm a phone number is required in two attempts",
+			"read_on": null,
+			"note": "Registering may ask for a phone number, and Baidu decides who can register. Not stated as a requirement."
+		},
+		"submit.path": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "Design review log, Channel-baidu: third-party guides, not Baidu’s own help",
+			"read_on": null,
+			"note": "In the console: Resource submission, then Normal submission, then the Sitemap tab. The menu names come from third-party guides, and Baidu can rename them."
+		}
+	}
+}

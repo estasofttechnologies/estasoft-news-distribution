@@ -1,0 +1,149 @@
+{
+	"platform": "smartnews",
+	"version": "2026.09.1",
+	"read_on": "2026-10-21",
+	"fetch": {
+		"interval_hours": 1,
+		"agents": [ "smartnews" ],
+		"confidence": "unverified",
+		"note": "SmartNews decides how often it fetches. One hour is News Distribution's own guess, used only to say when a fetch is later than usual."
+	},
+	"limits": {
+		"logo_width": 700,
+		"logo_height": 100,
+		"description_recommended_max": 30,
+		"thumbnail_long_edge_min": 1500,
+		"window_hours": 168,
+		"feed_items": 100,
+		"feed_bytes": 1000000,
+		"deleted_days": 3
+	},
+	"rules": {
+		"logo.size": {
+			"severity": "warn",
+			"confidence": "softened",
+			"source": "https://rebelmouse.com/smart-news-best-practices",
+			"read_on": "2026-10-21",
+			"note": "SmartNews recommends a 700 x 100 PNG with a transparent background, in a dark and a light version. Read on a third-party summary (RebelMouse); the SmartNews specification could not be fetched."
+		},
+		"logo.dark": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://rebelmouse.com/smart-news-best-practices",
+			"read_on": "2026-10-21",
+			"note": "SmartNews recommends adding a dark-mode logo. Same third-party source as the logo size."
+		},
+		"logo.required": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "News Distribution asks for a logo before it saves the brand details, so the feed always carries one. It is not stated as a SmartNews requirement."
+		},
+		"description.length": {
+			"severity": "warn",
+			"confidence": "softened",
+			"source": "https://rebelmouse.com/smart-news-best-practices",
+			"read_on": "2026-10-21",
+			"note": "SmartNews recommends fewer than 30 characters for the site description. Same third-party source."
+		},
+		"thumbnail.size": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "A warning when the long edge of a thumbnail is under 1,500 px. The 1,500 px figure could not be confirmed against SmartNews, so it is News Distribution's own threshold. The article stays in the feed."
+		},
+		"item.thumbnail": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "An item needs a thumbnail. Articles without a featured image are left out of this feed. SmartNews's own specification could not be fetched to confirm it."
+		},
+		"item.author": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Every item carries an author. When WordPress holds no person's name, News Distribution uses the newsroom name from the author settings."
+		},
+		"title.missing": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Every item needs a title."
+		},
+		"url.missing": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Every item needs the article address."
+		},
+		"body.empty": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "An article with no text has nothing to send in content:encoded."
+		},
+		"feed.format": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "https://rebelmouse.com/smart-news-best-practices",
+			"read_on": "2026-10-21",
+			"note": "One SmartFormat feed per language: RSS 2.0 in UTF-8 with the content, dc, media and snf namespaces. The namespace addresses are written from public descriptions of SmartFormat; the specification itself could not be fetched."
+		},
+		"feed.size": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "News Distribution keeps the feed to about 100 items and under 1 MB. It could not confirm a SmartNews limit, so this is its own habit."
+		},
+		"item.canonical": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "The link of an item is the article's canonical address, with utm_ and other tracking parameters removed."
+		},
+		"item.date": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "Dates are written in RFC 822 form with a time zone, as RSS 2.0 asks."
+		},
+		"item.fulltext": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "The full text and the lead image go in content:encoded."
+		},
+		"item.deleted": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "An unpublished or deleted article stays in the feed for 3 days with media:status state=\"deleted\". The deletion marker is written from public descriptions of SmartFormat and could not be confirmed against the specification."
+		},
+		"ttl.hint": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://www.rssboard.org/rss-specification",
+			"read_on": "2026-10-21",
+			"note": "News Distribution writes ttl into the feed as a hint. SmartNews decides how often it fetches, so it is not a promise."
+		}
+	}
+}

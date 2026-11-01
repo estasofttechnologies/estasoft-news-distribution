@@ -1,0 +1,76 @@
+/* Channel pages that read as steps: WebSub, IndexNow, Microsoft Start and Yahoo News. */
+
+/* One card of numbered steps. The step that waits for the person is tinted. */
+.estasoft-nd .estasoft-nd-card--steps { overflow: hidden; }
+.estasoft-nd .estasoft-nd-step__body { flex: 1 1 auto; min-inline-size: 0; display: flex; flex-direction: column; gap: var(--space-12); }
+.estasoft-nd .estasoft-nd-step--now { background: var(--primary-tint); }
+.estasoft-nd .estasoft-nd-step__body .estasoft-nd-title { overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-step__body > .estasoft-nd-cluster { gap: var(--space-8) var(--space-12); }
+
+/* A feed address with what is known about it. */
+.estasoft-nd .estasoft-nd-address-line { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8) var(--space-12); }
+.estasoft-nd .estasoft-nd-address-line > .estasoft-nd-address { flex: 1 1 380px; min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-address-line__facts { flex: 0 1 auto; min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-address-line__facts .estasoft-nd-status { font-size: 13px; line-height: 18px; color: var(--text); }
+
+/* Hub rows: the second and third stay out of the way until a script is there to add them. */
+.estasoft-nd .estasoft-nd-hub-add { display: none; }
+.estasoft-nd.has-js .estasoft-nd-hub-add { display: flex; }
+.estasoft-nd.has-js .estasoft-nd-hub-extra:not(.is-shown) { display: none; }
+.estasoft-nd .estasoft-nd-hub-extra input[type="url"],
+.estasoft-nd .estasoft-nd-hub-extra input[type="text"] { max-inline-size: 100%; }
+
+/* The key and its Regenerate button. */
+.estasoft-nd .estasoft-nd-keyline { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8) var(--space-12); }
+.estasoft-nd .estasoft-nd-keyline > .estasoft-nd-url { flex: 1 1 260px; }
+
+/* The ordered list on a note card. */
+.estasoft-nd .estasoft-nd-numbered { list-style: decimal; padding-inline-start: var(--space-20); }
+.estasoft-nd .estasoft-nd-numbered > li { padding-inline-start: var(--space-4); }
+.estasoft-nd .estasoft-nd-numbered > li::marker { font-weight: 600; }
+.estasoft-nd .estasoft-nd-facts-list { display: flex; flex-direction: column; gap: var(--space-8); }
+.estasoft-nd .estasoft-nd-facts-list > li { display: flex; gap: var(--space-8); align-items: flex-start; }
+.estasoft-nd .estasoft-nd-facts-list .estasoft-nd-icon { flex: none; margin-block-start: 2px; color: var(--neutral-icon); }
+.estasoft-nd .estasoft-nd-names { display: flex; flex-direction: column; gap: var(--space-8); }
+
+/* Tables of what was sent. The columns are set here; the markup is Admin\Ui\Grid. */
+.estasoft-nd .estasoft-nd-cols-pings { --cols: 72px minmax(160px, 1.6fr) 96px minmax(130px, 1fr) minmax(180px, 1.6fr); }
+.estasoft-nd .estasoft-nd-cols-submissions { --cols: 72px 72px minmax(220px, 2fr) minmax(220px, 1.6fr); }
+.estasoft-nd .estasoft-nd-cols-batches { --cols: 72px 112px minmax(220px, 1fr); }
+.estasoft-nd .estasoft-nd-grid-wrap .estasoft-nd-table { min-inline-size: 640px; }
+.estasoft-nd .estasoft-nd-grid-wrap .estasoft-nd-cols-batches,
+.estasoft-nd .estasoft-nd-grid-wrap .estasoft-nd-cols-batches ~ .estasoft-nd-grid-row { min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-grid-wrap [role="cell"] { min-inline-size: 0; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-grid-wrap .estasoft-nd-stack { align-items: flex-start; }
+
+/* What the catch-up is about to do, and how it is going. */
+.estasoft-nd .estasoft-nd-facts { display: flex; flex-direction: column; }
+.estasoft-nd .estasoft-nd-fact { display: grid; grid-template-columns: minmax(120px, 244px) 1fr; column-gap: var(--space-12); align-items: baseline; padding: var(--space-16) var(--space-20); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-fact dt { font-weight: 600; }
+.estasoft-nd .estasoft-nd-fact dd { min-inline-size: 0; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-run { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-8) var(--space-20) var(--space-16); }
+.estasoft-nd .estasoft-nd-run__buttons { display: flex; flex-wrap: wrap; gap: var(--space-8); }
+.estasoft-nd .estasoft-nd-run__words { display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-12); align-items: baseline; }
+.estasoft-nd .estasoft-nd-run .estasoft-nd-progress { margin-block-start: var(--space-8); }
+.estasoft-nd .estasoft-nd-start { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-8) var(--space-20) var(--space-16); }
+.estasoft-nd .estasoft-nd-start .estasoft-nd-form-control select { max-inline-size: 100%; }
+
+/* The status line of the application record. */
+.estasoft-nd .estasoft-nd-record { display: flex; flex-direction: column; gap: var(--space-12); }
+.estasoft-nd .estasoft-nd-record input[type="date"] { min-inline-size: 160px; max-inline-size: 100%; }
+
+@media (max-width: 782px) {
+	.estasoft-nd .estasoft-nd-fact { grid-template-columns: 1fr; row-gap: var(--space-4); padding: var(--space-12) var(--space-16); }
+	.estasoft-nd .estasoft-nd-run,
+	.estasoft-nd .estasoft-nd-start { padding-inline: var(--space-16); }
+}
+
+@media (max-width: 520px) {
+	.estasoft-nd .estasoft-nd-step { gap: var(--space-12); padding: var(--space-16); }
+	.estasoft-nd .estasoft-nd-address-line > .estasoft-nd-address { flex-basis: 100%; }
+}
+
+/* Buttons that cannot be used yet, and the heading action that has a note under it. */
+.estasoft-nd .estasoft-nd-btn:disabled,
+.estasoft-nd .estasoft-nd-btn[disabled] { opacity: 0.5; cursor: not-allowed; }
+.estasoft-nd .estasoft-nd-test-action { align-items: flex-end; text-align: end; }

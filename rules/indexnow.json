@@ -1,0 +1,70 @@
+{
+	"platform": "indexnow",
+	"version": "2026.09.1",
+	"read_on": "2026-10-21",
+	"source_title": "IndexNow documentation",
+	"source_url": "https://www.indexnow.org/documentation",
+	"limits": {
+		"urls_per_request": 10000,
+		"catchup_batch": 1000,
+		"catchup_pause_seconds": 60
+	},
+	"rules": {
+		"request.max_urls": {
+			"severity": "block",
+			"confidence": "confirmed",
+			"source": "https://www.indexnow.org/documentation",
+			"read_on": "2026-10-21",
+			"note": "One request carries up to 10,000 addresses."
+		},
+		"key.file": {
+			"severity": "block",
+			"confidence": "confirmed",
+			"source": "https://www.indexnow.org/documentation",
+			"read_on": "2026-10-21",
+			"note": "The key is also a text file named after it, at the root of the site, and the file contains the key."
+		},
+		"key.format": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "https://www.indexnow.org/documentation",
+			"read_on": null,
+			"note": "News Distribution makes a random key of 32 letters and digits. The documented length and character limits were not re-read."
+		},
+		"urls.same_host": {
+			"severity": "block",
+			"confidence": "confirmed",
+			"source": "https://www.indexnow.org/documentation",
+			"read_on": "2026-10-21",
+			"note": "Only addresses on the site that owns the key are accepted. A key or host that does not match is refused with 403 or 422."
+		},
+		"answer.too_many": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://www.indexnow.org/documentation",
+			"read_on": "2026-10-21",
+			"note": "429 means too many requests. News Distribution tries again later."
+		},
+		"answer.accepted": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://www.indexnow.org/documentation",
+			"read_on": null,
+			"note": "200 and 202 count as accepted. 400 is a request IndexNow could not read. News Distribution does not retry 400, 403 or 422."
+		},
+		"engines.shared": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://www.indexnow.org/faq",
+			"read_on": "2026-10-21",
+			"note": "One submission is shared with every engine that takes part: Amazon, Bing, Naver, Seznam.cz, Yandex and Yep."
+		},
+		"google.not_listed": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://www.indexnow.org/faq",
+			"read_on": "2026-10-21",
+			"note": "Google is not on IndexNow's list of engines, and the IndexNow pages do not say either way, so the Google News sitemap stays."
+		}
+	}
+}

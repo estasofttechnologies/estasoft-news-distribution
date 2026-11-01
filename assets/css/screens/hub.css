@@ -1,0 +1,61 @@
+/* Channels hub: the search, the five groups and their rows. Loaded only on the Channels list. */
+
+/* Search and filter bar */
+.estasoft-nd .estasoft-nd-hub-search { display: flex; flex: 1 1 240px; gap: var(--space-8); max-inline-size: 340px; }
+.estasoft-nd .estasoft-nd-hub-search .estasoft-nd-field { flex: 1 1 auto; min-inline-size: 0; }
+.estasoft-nd.has-js .estasoft-nd-hub-go { display: none; }
+.estasoft-nd .estasoft-nd-hub-filter { display: flex; max-inline-size: 100%; }
+.estasoft-nd .estasoft-nd-hub-note { flex: 1 1 260px; max-inline-size: 420px; align-self: center; }
+
+/* A row or group the search has ruled out; the display rules below would otherwise beat the hidden attribute. */
+.estasoft-nd .estasoft-nd-hub-row[hidden],
+.estasoft-nd .estasoft-nd-hub-group[hidden] { display: none; }
+
+/* Two columns that fall back to one, in the same order */
+.estasoft-nd .estasoft-nd-hub-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: var(--space-16); align-items: start; }
+.estasoft-nd .estasoft-nd-hub-column { display: flex; flex-direction: column; gap: var(--space-16); min-inline-size: 0; }
+
+/* A group is a closed or open details element */
+.estasoft-nd .estasoft-nd-hub-group__summary { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-12); padding: var(--space-16) var(--space-20); cursor: pointer; list-style: none; }
+.estasoft-nd .estasoft-nd-hub-group__summary::-webkit-details-marker { display: none; }
+.estasoft-nd .estasoft-nd-hub-group__summary::marker { content: ""; }
+.estasoft-nd .estasoft-nd-hub-group__summary:hover { background: var(--surface-subtle); }
+.estasoft-nd .estasoft-nd-hub-group__summary:focus-visible { outline-offset: -2px; }
+.estasoft-nd .estasoft-nd-hub-group details[open] > .estasoft-nd-hub-group__summary { border-block-end: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-hub-group__end { display: inline-flex; align-items: center; gap: var(--space-8); flex: none; }
+.estasoft-nd .estasoft-nd-hub-group__quiet { display: none; }
+.estasoft-nd .estasoft-nd-hub-group details:not([open])[data-quiet="true"] .estasoft-nd-hub-group__quiet { display: inline; }
+.estasoft-nd .estasoft-nd-hub-group__chevron { color: var(--text-secondary); }
+.estasoft-nd .estasoft-nd-hub-group details[open] .estasoft-nd-hub-group__chevron { transform: rotate(180deg); }
+@media (prefers-reduced-motion: no-preference) {
+	.estasoft-nd .estasoft-nd-hub-group__chevron { transition: transform .15s ease; }
+}
+
+/* A row: the switch, the name with its summary, then the status and the way in */
+.estasoft-nd .estasoft-nd-hub-row { display: grid; grid-template-columns: var(--size-toggle-w) minmax(0, 1fr) auto; align-items: center; gap: var(--space-8) var(--space-16); }
+.estasoft-nd:not(.has-js) .estasoft-nd-hub-row { grid-template-columns: 5.5rem minmax(0, 1fr) auto; }
+.estasoft-nd .estasoft-nd-hub-row .estasoft-nd-group-row__name { min-inline-size: 0; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-hub-row__end { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: var(--space-8) var(--space-12); }
+.estasoft-nd .estasoft-nd-hub-switch { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); margin: 0; min-inline-size: var(--size-toggle-w); }
+.estasoft-nd.has-js .estasoft-nd-hub-apply { display: none; }
+
+/* WordPress styles input[type=checkbox] with more weight than .estasoft-nd-toggle, so the switch is restated here. */
+.estasoft-nd input[type=checkbox].estasoft-nd-hub-toggle { -webkit-appearance: none; appearance: none; box-sizing: border-box; inline-size: var(--size-toggle-w); min-inline-size: var(--size-toggle-w); block-size: var(--size-toggle-h); margin: 0; border: 1px solid var(--border-control); border-radius: var(--radius-pill); background: var(--surface); box-shadow: none; position: relative; flex: none; cursor: pointer; }
+.estasoft-nd input[type=checkbox].estasoft-nd-hub-toggle::before { content: none; display: none; }
+.estasoft-nd input[type=checkbox].estasoft-nd-hub-toggle::after { content: ""; position: absolute; inset-block-start: 2px; inset-inline-start: 3px; inline-size: 14px; block-size: 14px; border-radius: var(--radius-round); background: var(--text-secondary); transition: none; }
+.estasoft-nd input[type=checkbox].estasoft-nd-hub-toggle:checked { background: var(--primary); border-color: var(--primary); }
+.estasoft-nd input[type=checkbox].estasoft-nd-hub-toggle:checked::before { content: none; display: none; }
+.estasoft-nd input[type=checkbox].estasoft-nd-hub-toggle:checked::after { inset-inline-start: 21px; background: var(--text-inverse); }
+.estasoft-nd input[type=checkbox].estasoft-nd-hub-toggle:disabled { opacity: .5; cursor: not-allowed; }
+/* Until the script turns it on, the button beside the switch is the control, so the switch only shows the state. */
+.estasoft-nd input[type=checkbox].estasoft-nd-hub-toggle[data-hub-toggle]:disabled { opacity: 1; cursor: default; }
+.estasoft-nd input[type=checkbox].estasoft-nd-hub-toggle[aria-busy="true"] { opacity: .5; cursor: progress; }
+
+@media (max-width: 520px) {
+	.estasoft-nd .estasoft-nd-hub-row { grid-template-columns: var(--size-toggle-w) minmax(0, 1fr); }
+	.estasoft-nd:not(.has-js) .estasoft-nd-hub-row { grid-template-columns: 5.5rem minmax(0, 1fr); }
+	.estasoft-nd .estasoft-nd-hub-row__end { grid-column: 2; justify-content: flex-start; }
+	.estasoft-nd .estasoft-nd-hub-search { max-inline-size: none; }
+	.estasoft-nd .estasoft-nd-hub-filter { inline-size: 100%; }
+	.estasoft-nd .estasoft-nd-hub-group details:not([open])[data-quiet="true"] .estasoft-nd-hub-group__quiet { display: none; }
+}

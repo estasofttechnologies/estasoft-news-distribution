@@ -1,0 +1,143 @@
+{
+	"platform": "apple-news",
+	"version": "2026.10.1",
+	"read_on": "2026-10-22",
+	"fetch": {
+		"interval_hours": 24,
+		"agents": [ "applebot" ],
+		"confidence": "unverified",
+		"note": "Apple does not say how often it fetches a feed. 24 hours is News Distribution's own guess, used only to say when a fetch is later than usual."
+	},
+	"limits": {
+		"title_recommended_min": 15,
+		"title_recommended_max": 60,
+		"window_hours": 168,
+		"max_items": 100
+	},
+	"rules": {
+		"feed.atom_self": {
+			"severity": "block",
+			"confidence": "confirmed",
+			"source": "https://support.apple.com/en-gu/guide/news-publisher/apdc2c7520ff/icloud",
+			"read_on": "2026-10-22",
+			"note": "Include the atom:link tag with rel=\"self\" for RSS and Atom feeds."
+		},
+		"title.length": {
+			"severity": "warn",
+			"confidence": "confirmed",
+			"source": "https://support.apple.com/en-gu/guide/news-publisher/apdc2c7520ff/icloud",
+			"read_on": "2026-10-22",
+			"note": "Apple's guide says titles should be between 15 and 60 characters long, but there is no minimum. It is a recommendation, so News Distribution only warns and keeps the article in the feed."
+		},
+		"page.image_tag": {
+			"severity": "warn",
+			"confidence": "softened",
+			"source": "https://support.apple.com/en-gu/guide/news-publisher/apdc2c7520ff/icloud",
+			"read_on": "2026-10-22",
+			"note": "Apple's guide names og:image as a source for the feed thumbnail. It does not call it a rule, so a missing tag is a risk, not an error."
+		},
+		"page.author_tag": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A check News Distribution adds: an author tag (meta author or article:author) on the article page. Apple's page does not say how it finds the author."
+		},
+		"page.language_tag": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A check News Distribution adds: a language tag (og:locale) on the article page. Apple's page does not say how it finds the language."
+		},
+		"content.marking": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "Apple Support, \"AI-generated content in Apple News\" (link to be confirmed)",
+			"read_on": "2026-10-22",
+			"note": "Apple asks publishers to mark syndicated and AI-generated content in News Publisher. News Distribution cannot mark it there; it lists the articles you labeled."
+		},
+		"feed.format": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "https://support.apple.com/en-gu/guide/news-publisher/apdc2c7520ff/icloud",
+			"read_on": "2026-10-22",
+			"note": "RSS 2.0 in UTF-8. The HTTPS part is checked by News Distribution; Apple's page was not re-read for it."
+		},
+		"item.required_fields": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A title, a link and a description on every item. RSS 2.0 asks for these; Apple's page was not re-read for a stricter rule."
+		},
+		"title.missing": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Every item needs a title."
+		},
+		"url.missing": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Every item needs the article address."
+		},
+		"body.empty": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "An article with no text has nothing to send in the feed."
+		},
+		"author.missing": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "No author name could be found for the article."
+		},
+		"body.full_text": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "News Distribution sends the full text of each article in content:encoded."
+		},
+		"body.clean": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "News Distribution removes ad blocks, related-story blocks and social share links from the body. This is its own tidy-up, not an Apple rule."
+		},
+		"markup.wordpress": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "The hidden notes WordPress adds around blocks, and shortcodes, are removed from the feed when this option is on."
+		},
+		"guid.stable": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "An item keeps the same guid when the article is updated, so a reader of the feed sees one article, not a new one."
+		},
+		"feed.delay": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "A new article joins the feed after the index-first delay when that option is on."
+		}
+	}
+}

@@ -1,0 +1,95 @@
+{
+	"platform": "news-break",
+	"version": "2026.08.2",
+	"read_on": "2026-10-21",
+	"fetch": {
+		"interval_hours": 24,
+		"agents": [ "newsbreak" ],
+		"confidence": "unverified",
+		"note": "News Break does not publish how often it fetches. News Distribution serves no feed for it yet."
+	},
+	"limits": {
+		"preview_articles": 30
+	},
+	"rules": {
+		"focus.local": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://www.rebelmouse.com/distribution-platforms-guide",
+			"read_on": "2026-10-21",
+			"note": "News Break focuses on local news, so local categories are the usual choice. Read on a third-party guide (RebelMouse). Publishers apply on News Break's publisher page (Apply to be a Partner)."
+		},
+		"rules.category_not_included": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "When a list of categories to include is set, an article has to be in one of them."
+		},
+		"rules.category_excluded": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "An article in an excluded category is left out of this channel."
+		},
+		"rules.tag_excluded": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "An article with an excluded tag is left out of this channel."
+		},
+		"rules.author_not_listed": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "When authors are limited, an article by someone else is left out of this channel."
+		},
+		"rules.post_type_off": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "An article of a post type that is not ticked is left out of this channel."
+		},
+		"rules.language_off": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "An article in a language that is not ticked is left out of this channel."
+		},
+		"rules.image_missing": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "When a featured image is required, an article without one is left out of this channel. News Break's own image rule could not be confirmed, so this is the owner's choice."
+		},
+		"rules.not_local": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "An article that an add-on has classified as not local is left out of this channel. Nothing sets it unless an add-on does."
+		},
+		"channel.manual": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"origin": "plugin",
+			"note": "News Distribution serves no feed for News Break yet and cannot see News Break's answer to an application. The rules decide what would go into a feed."
+		}
+	}
+}

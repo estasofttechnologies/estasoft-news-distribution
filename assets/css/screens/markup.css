@@ -1,0 +1,13 @@
+/* Settings, Page markup. Loaded only on that screen. */
+.estasoft-nd-form-row--wide{display:block;padding:0}
+.estasoft-nd-tagrows{display:flex;flex-direction:column}
+.estasoft-nd-tagrow{display:grid;grid-template-columns:auto minmax(0,1fr) minmax(0,1.2fr);align-items:center;gap:var(--space-8) var(--space-16);padding:var(--space-16) var(--space-20)}
+.estasoft-nd-tagrow+.estasoft-nd-tagrow{border-top:1px solid var(--border)}
+.estasoft-nd-tagrow__text{display:flex;flex-direction:column;gap:var(--space-2);min-width:0;cursor:pointer}
+.estasoft-nd-tagrow__name{font-family:var(--font-mono);font-weight:700;font-size:13px;background:none;padding:0}
+.estasoft-nd-tagrow .estasoft-nd-status{justify-self:end;text-align:end}
+.estasoft-nd-tagrows__foot{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-8) var(--space-12);padding:var(--space-12) var(--space-20) var(--space-16);border-top:1px solid var(--border)}
+@media (max-width:782px){
+	.estasoft-nd-tagrow{grid-template-columns:auto minmax(0,1fr)}
+	.estasoft-nd-tagrow .estasoft-nd-status{grid-column:2;justify-self:start;text-align:start}
+}

@@ -1,0 +1,20 @@
+/* Applications tab: the table of platforms, the open platform and the application email. Loaded only on that tab. */
+.estasoft-nd .estasoft-nd-cols-apps { --cols: minmax(160px, 1.2fr) 150px 100px minmax(200px, 1.4fr) minmax(190px, 1.3fr); }
+.estasoft-nd .estasoft-nd-table:has(.estasoft-nd-cols-apps) { min-inline-size: 860px; }
+.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-apps > [role="cell"] { min-inline-size: 0; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-apps:has(a[aria-current="true"]) { background: var(--primary-tint); }
+
+/* The open platform and the email sit side by side, then stack. */
+.estasoft-nd .estasoft-nd-apps-detail { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(380px, 100%), 1fr)); gap: var(--space-16); align-items: start; }
+.estasoft-nd .estasoft-nd-apps-form { display: flex; flex-direction: column; gap: var(--space-24); }
+.estasoft-nd .estasoft-nd-apps-card { min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-apps-card > .estasoft-nd-form-row:first-of-type { border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-apps-email .estasoft-nd-code { white-space: pre-wrap; }
+.estasoft-nd .estasoft-nd-apps-email .estasoft-nd-code code { background: none; padding: 0; }
+
+/* The copy button needs the script; without it the email is plain text to select. */
+.estasoft-nd:not(.has-js) .estasoft-nd-apps-copy { display: none; }
+
+#estasoft-nd-app-detail,
+#estasoft-nd-app-add,
+#estasoft-nd-app-remove { scroll-margin-block-start: var(--space-48); }

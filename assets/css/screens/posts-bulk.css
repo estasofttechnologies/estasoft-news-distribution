@@ -1,0 +1,213 @@
+/*
+ * News Distribution on the Posts list: the result notice, the hold dialog and the Quick Edit field.
+ *
+ * This screen is WordPress's own, so nothing here depends on the plugin's admin style. Logical properties
+ * throughout, so the notice and the dialog follow right-to-left languages.
+ */
+
+/* ---------- The result notice ---------- */
+
+.estasoft-nd-bulk-notice {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px 16px;
+	padding-block: 8px;
+	padding-inline: 12px;
+}
+
+.estasoft-nd-bulk-notice__body {
+	flex: 1 1 320px;
+	min-inline-size: 0;
+}
+
+.estasoft-nd-bulk-notice p {
+	margin: 4px 0;
+	padding: 0;
+}
+
+.estasoft-nd-bulk-notice__line {
+	font-size: 14px;
+}
+
+.estasoft-nd-bulk-notice .description {
+	color: #646970;
+}
+
+.estasoft-nd-bulk-notice__bar {
+	display: block;
+	inline-size: 100%;
+	max-inline-size: 420px;
+	block-size: 8px;
+	margin-block: 6px;
+}
+
+.estasoft-nd-bulk-notice__skipped {
+	margin-block: 4px;
+	margin-inline: 1.4em 0;
+	padding: 0;
+	list-style: disc;
+}
+
+.estasoft-nd-bulk-notice__skipped li {
+	margin: 0 0 2px;
+}
+
+.estasoft-nd-bulk-notice .estasoft-nd-bulk-notice__actions {
+	display: flex;
+	flex: none;
+	align-items: center;
+	gap: 16px;
+	margin: 0;
+}
+
+/* ---------- The reason for a hold ---------- */
+
+.estasoft-nd-bulk-dialog {
+	position: fixed;
+	inset: 0;
+	z-index: 100100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 16px;
+	background: rgb(0 0 0 / 50%);
+}
+
+.estasoft-nd-bulk-dialog[hidden] {
+	display: none;
+}
+
+.estasoft-nd-bulk-dialog__panel {
+	box-sizing: border-box;
+	inline-size: 100%;
+	max-inline-size: 460px;
+	padding-block: 20px;
+	padding-inline: 24px;
+	border-radius: 4px;
+	background: #fff;
+	box-shadow: 0 8px 24px rgb(0 0 0 / 25%);
+}
+
+.estasoft-nd-bulk-dialog__panel h2 {
+	margin: 0 0 8px;
+	font-size: 18px;
+}
+
+.estasoft-nd-bulk-dialog__panel p {
+	margin: 0 0 12px;
+}
+
+.estasoft-nd-bulk-dialog__panel label {
+	display: block;
+	margin-block-end: 4px;
+	font-weight: 600;
+}
+
+.estasoft-nd-bulk-dialog__error {
+	color: #cc1818;
+	font-weight: 600;
+}
+
+.estasoft-nd-bulk-dialog .estasoft-nd-bulk-dialog__actions {
+	display: flex;
+	gap: 8px;
+	margin: 16px 0 0;
+}
+
+/* ---------- Quick Edit ---------- */
+
+.inline-edit-row .estasoft-nd-qe {
+	box-sizing: border-box;
+	clear: both;
+	float: none;
+	inline-size: auto;
+	max-inline-size: 560px;
+	margin-block: 8px 0;
+	margin-inline: 12px;
+	padding: 0 0 8px;
+	border: 1px solid #c3c4c7;
+	border-radius: 2px;
+}
+
+.inline-edit-row .estasoft-nd-qe[hidden] {
+	display: none;
+}
+
+.inline-edit-row .estasoft-nd-qe .inline-edit-legend {
+	padding-inline: 4px;
+	margin-inline-start: -4px;
+	font-size: 13px;
+	font-weight: 600;
+}
+
+.estasoft-nd-qe__hold[hidden],
+.estasoft-nd-qe__reason[hidden],
+.estasoft-nd-qe__error[hidden] {
+	display: none;
+}
+
+.estasoft-nd-qe__check {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-block: 4px;
+	font-weight: 600;
+}
+
+.inline-edit-row .estasoft-nd-qe__check .checkbox-title {
+	margin: 0;
+}
+
+.estasoft-nd-qe__reason {
+	display: block;
+	margin-block: 6px;
+}
+
+.estasoft-nd-qe .estasoft-nd-qe__error {
+	margin: 4px 0;
+	color: #cc1818;
+	font-weight: 600;
+}
+
+.inline-edit-row .estasoft-nd-qe .inline-edit-col {
+	padding-block: 4px 0;
+	padding-inline: 12px;
+}
+
+.estasoft-nd-qe .description {
+	margin-block: 6px 0;
+	color: #646970;
+}
+
+@media screen and (max-width: 782px) {
+	.estasoft-nd-bulk-notice .estasoft-nd-bulk-notice__actions {
+		flex-wrap: wrap;
+	}
+
+	.inline-edit-row .estasoft-nd-qe {
+		margin-inline: 0;
+		max-inline-size: none;
+	}
+}
+
+/* ---------- The help tab ---------- */
+
+.estasoft-nd-help-table {
+	inline-size: 100%;
+	border-collapse: collapse;
+}
+
+.estasoft-nd-help-table th,
+.estasoft-nd-help-table td {
+	padding-block: 6px;
+	padding-inline: 8px;
+	border-block-end: 1px solid #dcdcde;
+	text-align: start;
+	vertical-align: top;
+}
+
+.estasoft-nd-help-table thead th {
+	background: #f6f7f7;
+}

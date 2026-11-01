@@ -1,0 +1,160 @@
+{
+	"platform": "outlets",
+	"version": "2026.10.1",
+	"read_on": "2026-10-21",
+	"source_title": "Telegram Bot API, Mastodon documentation, Bluesky documentation, Medium Help Center",
+	"source_url": "https://docs.joinmastodon.org/user/posting/",
+	"limits": {
+		"telegram_message_max": 4096,
+		"mastodon_default_max": 500,
+		"mastodon_link_length": 23,
+		"bluesky_graphemes_max": 300,
+		"bluesky_bytes_max": 3000,
+		"bluesky_blob_max_bytes": 950000,
+		"webhook_timeout_seconds": 15,
+		"webhook_max_endpoints": 5,
+		"medium_window_days": 7
+	},
+	"rules": {
+		"post.headline_too_long": {
+			"severity": "block",
+			"confidence": "confirmed",
+			"source": "https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json",
+			"read_on": "2026-10-21",
+			"note": "The headline and the link are never cut, so a headline that cannot fit beside the link in the account's limit is not posted there. Mastodon counts every link as 23 characters; Bluesky allows 300 graphemes and 3000 bytes."
+		},
+		"post.no_account": {
+			"severity": "warn",
+			"confidence": "confirmed",
+			"source": "News Distribution",
+			"read_on": "2026-10-21",
+			"note": "A post goes to the account for its own language. A language with no account is skipped for that outlet, and the other outlets still post."
+		},
+		"post.no_image": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://docs.bsky.app/docs/tutorials/creating-a-post",
+			"read_on": "2026-10-21",
+			"note": "Bluesky does not build the link card itself, so News Distribution uploads the thumbnail with the post. Without an image the card has a title and a description only."
+		},
+		"telegram.length": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://docs.aiogram.dev/en/v3.29.1/api/methods/send_message.html",
+			"read_on": "2026-10-21",
+			"note": "A message holds 1 to 4096 characters after entities are parsed. Read through a mirror of the Bot API documentation, so the copy says up to 4,096."
+		},
+		"telegram.rate": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://core.telegram.org/bots/faq",
+			"read_on": "2026-10-21",
+			"note": "The FAQ gives about one message a second in one chat, about 20 a minute in one group and about 30 a second in bulk. It gives no figure for channels, so none is stated for them."
+		},
+		"telegram.link_preview": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "https://core.telegram.org/bots/api#linkpreviewoptions",
+			"read_on": null,
+			"note": "The link_preview_options object of sendMessage. The shape was written from memory and could not be read here."
+		},
+		"mastodon.length": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://docs.joinmastodon.org/user/posting/",
+			"read_on": "2026-10-21",
+			"note": "The default character limit is 500, and every link is counted as 23 characters. A server may set its own limit, so the plugin asks the server and falls back to 500."
+		},
+		"mastodon.instance_limit": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "https://docs.joinmastodon.org/entities/Instance/",
+			"read_on": null,
+			"note": "The limit is read from configuration.statuses.max_characters of the instance document. The field names were written from memory and could not be read here."
+		},
+		"mastodon.scopes": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "https://docs.joinmastodon.org/api/oauth-scopes/",
+			"read_on": null,
+			"note": "The permissions the token needs were written from memory and could not be read here: write:statuses to post, and profile (or read:accounts) for the call that checks the token without posting. A token without the second one is refused by the check with a message that names both."
+		},
+		"mastodon.idempotency": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://docs.joinmastodon.org/methods/statuses/",
+			"read_on": "2026-10-21",
+			"note": "An Idempotency-Key header is stored for up to one hour, so a retry inside that hour does not post twice."
+		},
+		"mastodon.preview": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://docs.joinmastodon.org/entities/PreviewCard/",
+			"read_on": "2026-10-21",
+			"note": "A preview card is generated from OpenGraph tags. The documentation does not say which server fetches it, so the copy says Mastodon adds its own preview."
+		},
+		"bluesky.length": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://github.com/bluesky-social/atproto/blob/main/lexicons/app/bsky/feed/post.json",
+			"read_on": "2026-10-21",
+			"note": "text has a maximum of 3000 bytes and 300 graphemes."
+		},
+		"bluesky.card": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://docs.bsky.app/docs/tutorials/creating-a-post",
+			"read_on": "2026-10-21",
+			"note": "The link card is a separate embed that the client builds, including the thumbnail blob upload."
+		},
+		"bluesky.public": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://bsky.social/about/blog/5-19-2023-user-faq",
+			"read_on": "2026-10-21",
+			"note": "Bluesky describes itself as a public social network. The FAQ is from 2023, so the screen says only that posts are public."
+		},
+		"bluesky.session": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "https://docs.bsky.app/docs/api/com-atproto-server-create-session",
+			"read_on": null,
+			"note": "createSession, createRecord, uploadBlob and listRecords were written from memory and could not be read here. The server that holds the account is taken from the session answer when it names one, else bsky.social."
+		},
+		"bluesky.blob_limit": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "https://docs.bsky.app/docs/advanced-guides/posts",
+			"read_on": null,
+			"note": "A conservative thumbnail ceiling of 950,000 bytes is used because the exact blob limit could not be read here."
+		},
+		"medium.no_integration": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://help.medium.com/hc/en-us/articles/213480228-API-Importing",
+			"read_on": "2026-10-21",
+			"note": "Medium will not issue new integration tokens and does not allow new integrations, so stories are imported by hand."
+		},
+		"medium.canonical": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://help.medium.com/hc/en-us/articles/214550207",
+			"read_on": "2026-10-21",
+			"note": "Medium's import tool applies a canonical URL that points to the original source. It is a hint to search engines, not a guarantee."
+		},
+		"medium.import_page": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "https://help.medium.com/hc/en-us/articles/214550207",
+			"read_on": null,
+			"note": "The address of Medium's import page was written from memory and could not be read here."
+		},
+		"webhook.signature": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "News Distribution",
+			"read_on": "2026-10-21",
+			"note": "News Distribution's own format: HMAC-SHA256 of the timestamp, a full stop and the request body, sent as X-Estasoft-Signature. There is no outside platform to confirm it against."
+		}
+	}
+}

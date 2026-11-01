@@ -1,0 +1,248 @@
+/*
+ * The AI assistant's screens: settings, the confirmation dialog, the states page, the Article check tabs
+ * (AI suggestions, Ask the assistant, Image helper), the Translation draft and AI log reports, the SmartNews
+ * helper, News Break local news and the weekly summary tab.
+ *
+ * The AI mark (.estasoft-nd-ai), the suggestion card (.estasoft-nd-suggest), the focal-point frame
+ * (.estasoft-nd-crop) and the skeleton come from admin.css. Everything here works without a script.
+ */
+
+/* WordPress styles input[type=checkbox] with more weight than .estasoft-nd-toggle, so the switch is restated here. */
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle { -webkit-appearance: none; appearance: none; box-sizing: border-box; inline-size: var(--size-toggle-w); min-inline-size: var(--size-toggle-w); block-size: var(--size-toggle-h); margin: 0; border: 1px solid var(--border-control); border-radius: var(--radius-pill); background: var(--surface); box-shadow: none; position: relative; flex: none; cursor: pointer; }
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle::before { content: none; display: none; }
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle::after { content: ""; position: absolute; inset-block-start: 2px; inset-inline-start: 3px; inline-size: 14px; block-size: 14px; border-radius: var(--radius-round); background: var(--text-secondary); transition: none; }
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle:checked { background: var(--primary); border-color: var(--primary); }
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle:checked::before { content: none; display: none; }
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle:checked::after { inset-inline-start: 21px; background: var(--text-inverse); }
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle:disabled { opacity: 0.5; cursor: not-allowed; }
+.estasoft-nd .estasoft-nd-switch { display: flex; align-items: center; gap: var(--space-12); cursor: pointer; }
+
+/* A table that fits its card, and scrolls sideways on a narrow screen instead of being cut off. */
+.estasoft-nd .estasoft-nd-ai-fit { overflow-x: auto; max-inline-size: 100%; }
+.estasoft-nd .estasoft-nd-ai-fit .estasoft-nd-table { min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-ai-fit .estasoft-nd-grid-row > * { min-inline-size: 0; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-ai-fit .estasoft-nd-grid-row--head > * { overflow-wrap: normal; }
+.estasoft-nd .estasoft-nd-ai-fit:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+
+/* Checks a suggestion passed: a tick, a warning or a cross in front of each line. */
+.estasoft-nd .estasoft-nd-ai-ticks { display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-16); }
+.estasoft-nd .estasoft-nd-ai-tick { display: flex; align-items: flex-start; gap: var(--space-8); font-size: 13px; line-height: 18px; min-inline-size: 0; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-ai-tick .estasoft-nd-icon { flex: none; inline-size: 16px; block-size: 16px; margin-block-start: 1px; }
+.estasoft-nd .estasoft-nd-ai-tick--ok .estasoft-nd-icon { color: var(--success-icon); }
+.estasoft-nd .estasoft-nd-ai-tick--warn .estasoft-nd-icon { color: var(--warning-icon); }
+.estasoft-nd .estasoft-nd-ai-tick--no .estasoft-nd-icon { color: var(--danger-icon); }
+.estasoft-nd .estasoft-nd-ai-tick--none .estasoft-nd-icon { color: var(--neutral-icon); }
+.estasoft-nd .estasoft-nd-ai-tick--info .estasoft-nd-icon { color: var(--primary); }
+.estasoft-nd .estasoft-nd-card--note .estasoft-nd-ai-ticks,
+.estasoft-nd .estasoft-nd-ai-draftcard .estasoft-nd-ai-ticks,
+.estasoft-nd .estasoft-nd-ai-form.estasoft-nd-suggest .estasoft-nd-ai-ticks { flex-direction: column; flex-wrap: nowrap; }
+.estasoft-nd .estasoft-nd-card--note .estasoft-nd-ai-ticks .estasoft-nd-ai-tick { font-size: 14px; line-height: 20px; }
+.estasoft-nd .estasoft-nd-ai-inline { display: inline-flex; align-items: flex-start; gap: var(--space-6); font-size: 13px; line-height: 18px; }
+.estasoft-nd .estasoft-nd-ai-inline .estasoft-nd-icon { flex: none; inline-size: 16px; block-size: 16px; margin-block-start: 1px; }
+.estasoft-nd .estasoft-nd-ai-inline--ok .estasoft-nd-icon { color: var(--success-icon); }
+.estasoft-nd .estasoft-nd-ai-inline--none { color: var(--text-secondary); }
+.estasoft-nd .estasoft-nd-ai-inline--none .estasoft-nd-icon { color: var(--neutral-icon); }
+.estasoft-nd .estasoft-nd-ai-decided { display: inline-flex; align-items: center; gap: var(--space-6); font-size: 13px; line-height: 18px; }
+.estasoft-nd .estasoft-nd-ai-decided .estasoft-nd-icon { inline-size: 16px; block-size: 16px; color: var(--success-icon); }
+
+/* Forms: each posts to the screen that printed it, and a script only adds the waiting state. */
+.estasoft-nd .estasoft-nd-ai-form { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8); min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-card--flush > .estasoft-nd-ai-form { display: block; }
+.estasoft-nd .estasoft-nd-ai-form .estasoft-nd-ai-wait { flex: 1 1 100%; }
+.estasoft-nd .estasoft-nd-ai-actions { gap: var(--space-8); }
+.estasoft-nd .estasoft-nd-ai-form.estasoft-nd-suggest,
+.estasoft-nd .estasoft-nd-ai-reviewform { flex-direction: column; align-items: stretch; }
+.estasoft-nd .estasoft-nd-ai-form[aria-busy="true"] button { cursor: progress; }
+.estasoft-nd.has-js .estasoft-nd-ai-nojs { display: none; }
+
+/* Gray placeholders and a line saying what is being waited for. */
+.estasoft-nd .estasoft-nd-ai-wait { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-12) var(--space-16); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-subtle); }
+.estasoft-nd .estasoft-nd-ai-wait[hidden] { display: none; }
+.estasoft-nd .estasoft-nd-ai-wait__a { inline-size: 75%; }
+.estasoft-nd .estasoft-nd-ai-wait__b { inline-size: 45%; }
+@media (prefers-reduced-motion: no-preference) {
+	.estasoft-nd .estasoft-nd-ai-wait .estasoft-nd-skeleton { animation: estasoft-nd-ai-pulse 1.4s ease-in-out infinite; }
+}
+@keyframes estasoft-nd-ai-pulse { 50% { opacity: 0.55; } }
+
+/* Two columns: the work, and notes beside it. */
+.estasoft-nd .estasoft-nd-ai-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, 320px); gap: var(--space-24); align-items: start; }
+.estasoft-nd .estasoft-nd-ai-grid__main,
+.estasoft-nd .estasoft-nd-ai-grid__side { display: flex; flex-direction: column; gap: var(--space-16); min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-ai-bar { margin-block-end: var(--space-16); }
+.estasoft-nd .estasoft-nd-ai-trio { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-16); align-items: start; }
+.estasoft-nd .estasoft-nd-ai-notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-16); align-items: start; }
+.estasoft-nd .estasoft-nd-ai-trio > .estasoft-nd-card--note,
+.estasoft-nd .estasoft-nd-ai-notes > .estasoft-nd-card--note,
+.estasoft-nd .estasoft-nd-ai-grid__side > .estasoft-nd-card--note,
+.estasoft-nd .estasoft-nd-ai-grid__main > .estasoft-nd-card { flex: none; }
+.estasoft-nd .estasoft-nd-ai-rows { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-4) var(--space-20) var(--space-20); min-inline-size: 0; }
+
+/* Article check: AI suggestions. */
+.estasoft-nd .estasoft-nd-ai-tab { display: flex; flex-direction: column; gap: var(--space-16); }
+.estasoft-nd .estasoft-nd-ai-panel { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-16) var(--space-20); background: var(--primary-tint); border-block: 1px solid var(--primary-border); }
+.estasoft-nd .estasoft-nd-ai-current { font-size: 14px; line-height: 20px; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-suggest strong { overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-ai-edit { display: inline-block; }
+.estasoft-nd .estasoft-nd-ai-edit > summary { list-style: none; cursor: pointer; }
+.estasoft-nd .estasoft-nd-ai-edit > summary::-webkit-details-marker { display: none; }
+.estasoft-nd .estasoft-nd-ai-edit[open] { flex: 1 1 100%; }
+.estasoft-nd .estasoft-nd-ai-edit[open] > summary { margin-block-end: var(--space-8); }
+.estasoft-nd .estasoft-nd-ai-editform { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8); }
+
+/* Article check: one row per thing that can be fixed. */
+.estasoft-nd .estasoft-nd-ai-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(130px, 220px) auto; align-items: start; gap: var(--space-8) var(--space-16); padding: var(--space-16) var(--space-20); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ai-row__text { display: flex; flex-direction: column; gap: var(--space-2); min-inline-size: 0; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-ai-row__title { font-size: 16px; line-height: 22px; font-weight: 600; }
+.estasoft-nd .estasoft-nd-ai-row__status { font-size: 12px; line-height: 16px; padding-block-start: var(--space-4); }
+.estasoft-nd .estasoft-nd-ai-row__action { text-align: end; white-space: nowrap; }
+.estasoft-nd .estasoft-nd-ai-row__action:empty { display: none; }
+.estasoft-nd .estasoft-nd-ai-row__action .estasoft-nd-ai-form { justify-content: flex-end; }
+
+/* Article check: Ask the assistant. */
+.estasoft-nd .estasoft-nd-ai-ask { display: grid; grid-template-columns: minmax(0, 11fr) minmax(0, 10fr); gap: var(--space-16); align-items: start; }
+.estasoft-nd .estasoft-nd-ai-ask__left,
+.estasoft-nd .estasoft-nd-ai-ask__right { display: flex; flex-direction: column; gap: var(--space-16); min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-ai-chat { display: flex; flex-direction: column; gap: var(--space-16); padding: var(--space-16) var(--space-20); }
+.estasoft-nd .estasoft-nd-ai-ask__thread { display: flex; flex-direction: column; gap: var(--space-12); }
+.estasoft-nd .estasoft-nd-ai-ask__thread:empty { display: none; }
+.estasoft-nd .estasoft-nd-ai-ask__q { align-self: flex-end; max-inline-size: 85%; padding: var(--space-8) var(--space-16); border-radius: 12px; background: var(--surface-hover); overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-ai-ask__a { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-8); padding: var(--space-12) var(--space-16); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-ai-ask__a--none { background: var(--surface-subtle); color: var(--text-secondary); }
+.estasoft-nd .estasoft-nd-ai-ask__try { align-items: center; }
+.estasoft-nd .estasoft-nd-ai-chip { display: inline-flex; }
+.estasoft-nd .estasoft-nd-ai-ask__box .estasoft-nd-field { min-inline-size: 0; flex: 1 1 200px; }
+.estasoft-nd .estasoft-nd-cols-ai-packs { --cols: minmax(110px, 1.1fr) minmax(110px, 1.2fr) minmax(160px, 2fr); }
+
+/* Article check: Image helper. */
+.estasoft-nd .estasoft-nd-ai-focal { max-inline-size: 520px; }
+.estasoft-nd .estasoft-nd-ai-focal img,
+.estasoft-nd .estasoft-nd-ai-thumb img { position: absolute; inset: 0; inline-size: 100%; block-size: 100%; object-fit: cover; }
+.estasoft-nd .estasoft-nd-ai-ring { position: absolute; inline-size: 28px; block-size: 28px; margin: -14px 0 0 -14px; border-radius: 50%; }
+.estasoft-nd .estasoft-nd-ai-ring--today { border: 2px dashed #fff; background: rgba(25, 33, 44, 0.25); outline: 1px solid rgba(25, 33, 44, 0.45); }
+.estasoft-nd .estasoft-nd-ai-ring--suggested { border: 3px solid #fff; background: var(--primary); box-shadow: 0 0 0 1px rgba(25, 33, 44, 0.45); }
+.estasoft-nd .estasoft-nd-ai-ring__tag { position: absolute; inset-block-start: 100%; inset-inline-start: 50%; transform: translateX(-50%); margin-block-start: var(--space-4); padding: 0 var(--space-8); border-radius: var(--radius-md); background: rgba(25, 33, 44, 0.78); color: #fff; font-size: 12px; line-height: 20px; white-space: nowrap; }
+.estasoft-nd .estasoft-nd-ai-photo { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: var(--space-16); align-items: start; }
+.estasoft-nd .estasoft-nd-ai-thumb { inline-size: 100%; }
+
+/* Reports: AI log. */
+.estasoft-nd .estasoft-nd-ai-filters { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--space-8) var(--space-16); padding: var(--space-12) var(--space-20) var(--space-16); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ai-filters .estasoft-nd-field { min-inline-size: 150px; }
+.estasoft-nd .estasoft-nd-cols-ai-log { --cols: 84px minmax(170px, 2fr) minmax(150px, 1.4fr) minmax(150px, 1.2fr) minmax(110px, 1fr); }
+
+/* Reports: Translation draft. */
+.estasoft-nd .estasoft-nd-ai-keep { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8); max-inline-size: 560px; }
+.estasoft-nd .estasoft-nd-ai-keep .estasoft-nd-field { inline-size: 100%; box-sizing: border-box; }
+.estasoft-nd .estasoft-nd-ai-source { display: inline-flex; align-items: center; gap: var(--space-8); }
+.estasoft-nd .estasoft-nd-ai-draftcard { display: flex; flex-direction: column; gap: var(--space-16); padding: var(--space-16) var(--space-20); min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-ai-draft { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-16); }
+.estasoft-nd .estasoft-nd-ai-draft__col { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-12) var(--space-16); border: 1px solid var(--border); border-radius: var(--radius-md); overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-ai-draft__col h3 { font-size: 16px; line-height: 22px; font-weight: 600; }
+.estasoft-nd .estasoft-nd-ai-draft__col--new { background: var(--primary-tint); border-color: var(--primary-border); }
+.estasoft-nd .estasoft-nd-ai-review { display: flex; flex-direction: column; gap: var(--space-8); padding-block-start: var(--space-16); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ai-reviewform .estasoft-nd-form-row { display: flex; flex-direction: column; gap: var(--space-4); padding: 0; border: 0; }
+.estasoft-nd .estasoft-nd-ai-reviewform .estasoft-nd-form-label,
+.estasoft-nd .estasoft-nd-ai-reviewform .estasoft-nd-form-control { flex: none; }
+.estasoft-nd .estasoft-nd-ai-queue { display: flex; flex-direction: column; gap: var(--space-8); }
+.estasoft-nd .estasoft-nd-cols-ai-drafts { --cols: minmax(130px, 2fr) minmax(70px, 1fr) minmax(110px, 1.2fr) auto; }
+.estasoft-nd .estasoft-nd-ai-queue__draft { display: flex; flex-direction: column; gap: var(--space-2); min-inline-size: 0; overflow-wrap: anywhere; }
+
+/* SmartNews helper. */
+.estasoft-nd .estasoft-nd-ai-item,
+.estasoft-nd pre.estasoft-nd-code { white-space: pre-wrap; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-ai-item { display: flex; flex-direction: column; gap: var(--space-4); padding-block: var(--space-8); }
+.estasoft-nd .estasoft-nd-ai-item + .estasoft-nd-ai-item { border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ai-facts { display: flex; flex-direction: column; gap: var(--space-12); margin: 0; padding: 0; border: 0; min-inline-size: 0; flex: 1 1 100%; }
+.estasoft-nd .estasoft-nd-ai-fact { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: var(--space-8); }
+.estasoft-nd .estasoft-nd-ai-fact input { margin-block-start: 3px; }
+.estasoft-nd .estasoft-nd-ai-fact label { display: flex; flex-direction: column; gap: var(--space-2); }
+.estasoft-nd .estasoft-nd-ai-email { inline-size: 100%; min-block-size: 260px; padding: var(--space-8); line-height: 20px; font-family: inherit; resize: vertical; }
+
+/* News Break local news. */
+.estasoft-nd .estasoft-nd-ai-places { display: flex; flex-wrap: wrap; gap: var(--space-8); }
+.estasoft-nd .estasoft-nd-ai-places:empty { display: none; }
+.estasoft-nd .estasoft-nd-ai-place { display: inline-flex; align-items: center; gap: var(--space-4); min-block-size: 24px; padding-inline: var(--space-8) var(--space-4); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface); font-size: 12px; line-height: 16px; }
+.estasoft-nd .estasoft-nd-ai-place button { display: inline-flex; align-items: center; justify-content: center; padding: var(--space-2); border: 0; background: transparent; color: var(--text-secondary); cursor: pointer; }
+.estasoft-nd .estasoft-nd-ai-place button:hover { color: var(--text); }
+.estasoft-nd .estasoft-nd-ai-place .estasoft-nd-icon { inline-size: 12px; block-size: 12px; }
+.estasoft-nd .estasoft-nd-ai-recent { display: flex; flex-direction: column; border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ai-recent__head { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-20) var(--space-20) var(--space-12); }
+.estasoft-nd .estasoft-nd-ai-recent__foot { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-12) var(--space-20) var(--space-16); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-cols-ai-local { --cols: minmax(180px, 2fr) minmax(130px, 1.1fr) minmax(90px, 0.8fr) minmax(170px, 2fr) minmax(190px, auto); }
+
+/* Weekly summary. */
+.estasoft-nd .estasoft-nd-ai-digest { display: flex; flex-direction: column; gap: var(--space-16); max-inline-size: 640px; }
+.estasoft-nd .estasoft-nd-cols-ai-people { --cols: minmax(96px, 1.5fr) 72px minmax(120px, 3fr); }
+
+/* Settings, AI assistant. */
+.estasoft-nd .estasoft-nd-ai-provider { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-8) var(--space-16); padding-block: var(--space-8); border-block-end: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ai-provider:first-child { padding-block-start: 0; }
+.estasoft-nd .estasoft-nd-ai-provider:last-child { border-block-end: 0; }
+.estasoft-nd .estasoft-nd-ai-lock { display: flex; align-items: flex-start; gap: var(--space-6); }
+.estasoft-nd .estasoft-nd-ai-lock .estasoft-nd-icon { flex: none; inline-size: 14px; block-size: 14px; margin-block-start: 1px; color: var(--neutral-icon); }
+.estasoft-nd .estasoft-nd-ai-used { max-inline-size: 460px; }
+.estasoft-nd .estasoft-nd-ai-reviewer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-8) var(--space-16); padding-block: var(--space-8); border-block-end: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ai-reviewer:last-child { border-block-end: 0; }
+.estasoft-nd .estasoft-nd-ai-choose { display: flex; flex-direction: column; gap: var(--space-8); margin-block-start: var(--space-12); }
+.estasoft-nd .estasoft-nd-ai-pick { display: flex; flex-direction: column; gap: var(--space-8); margin: 0; padding: var(--space-8) 0; border: 0; border-block-start: 1px solid var(--border); min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-ai-test-result { margin-block-start: var(--space-8); }
+
+/* The states page. */
+.estasoft-nd .estasoft-nd-ai-states { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-16); align-items: stretch; }
+.estasoft-nd .estasoft-nd-ai-states > .estasoft-nd-card { display: flex; flex-direction: column; gap: var(--space-12); }
+.estasoft-nd .estasoft-nd-ai-states .estasoft-nd-message { flex-wrap: nowrap; }
+.estasoft-nd .estasoft-nd-ai-states .estasoft-nd-message .estasoft-nd-icon { flex: none; }
+.estasoft-nd .estasoft-nd-ai-states .estasoft-nd-message .estasoft-nd-grow { min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-ai-states .estasoft-nd-message .estasoft-nd-cluster { flex: none; }
+.estasoft-nd .estasoft-nd-ai-after { margin-block-start: var(--space-8); }
+
+/* The confirmation dialog. */
+.estasoft-nd .estasoft-nd-ai-consent { inline-size: 560px; max-inline-size: 100%; max-block-size: calc(100vh - 48px); overflow-y: auto; }
+.estasoft-nd .estasoft-nd-ai-consent__part { display: flex; flex-direction: column; gap: var(--space-2); }
+.estasoft-nd .estasoft-nd-ai-consent__help { display: flex; align-items: flex-start; gap: var(--space-8); color: var(--text-secondary); }
+.estasoft-nd .estasoft-nd-ai-consent__help .estasoft-nd-icon { flex: none; inline-size: 14px; block-size: 14px; margin-block-start: 1px; color: var(--warning-icon); }
+.estasoft-nd .estasoft-nd-ai-consent__help--need { color: var(--danger-text, var(--text)); font-weight: 600; }
+
+@media (max-width: 1100px) {
+	.estasoft-nd .estasoft-nd-ai-trio { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 960px) {
+	.estasoft-nd .estasoft-nd-ai-grid,
+	.estasoft-nd .estasoft-nd-ai-ask,
+	.estasoft-nd .estasoft-nd-ai-states,
+	.estasoft-nd .estasoft-nd-ai-notes { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 640px) {
+	.estasoft-nd .estasoft-nd-ai-fit .estasoft-nd-table { min-inline-size: 560px; }
+	.estasoft-nd .estasoft-nd-ai-fit--narrow .estasoft-nd-table { min-inline-size: 0; }
+	/* Tables whose last column holds the buttons become cards on a phone, so the buttons never need a sideways scroll. */
+	.estasoft-nd .estasoft-nd-cols-ai-local,
+	.estasoft-nd .estasoft-nd-cols-ai-drafts { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; row-gap: var(--space-8); }
+	.estasoft-nd .estasoft-nd-cols-ai-local > :nth-child(1),
+	.estasoft-nd .estasoft-nd-cols-ai-local > :nth-child(4),
+	.estasoft-nd .estasoft-nd-cols-ai-local > :nth-child(5),
+	.estasoft-nd .estasoft-nd-cols-ai-drafts > :nth-child(1),
+	.estasoft-nd .estasoft-nd-cols-ai-drafts > :nth-child(4) { grid-column: 1 / -1; }
+	.estasoft-nd .estasoft-nd-grid-row--head.estasoft-nd-cols-ai-local,
+	.estasoft-nd .estasoft-nd-grid-row--head.estasoft-nd-cols-ai-drafts { position: absolute; inline-size: 1px; block-size: 1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+	.estasoft-nd select.estasoft-nd-field { max-inline-size: 100%; inline-size: 100%; }
+	.estasoft-nd .estasoft-nd-ai-states .estasoft-nd-message { flex-wrap: wrap; }
+	.estasoft-nd .estasoft-nd-ai-states .estasoft-nd-message .estasoft-nd-grow { flex: 1 1 200px; }
+	.estasoft-nd .estasoft-nd-ai-trio,
+	.estasoft-nd .estasoft-nd-ai-draft,
+	.estasoft-nd .estasoft-nd-ai-photo { grid-template-columns: minmax(0, 1fr); }
+	.estasoft-nd .estasoft-nd-ai-panel { padding-inline: var(--space-16); }
+	.estasoft-nd .estasoft-nd-ai-rows { padding-inline: var(--space-16); }
+	.estasoft-nd .estasoft-nd-ai-filters,
+	.estasoft-nd .estasoft-nd-ai-recent__head,
+	.estasoft-nd .estasoft-nd-ai-recent__foot { padding-inline: var(--space-16); }
+	.estasoft-nd .estasoft-nd-ai-ask__q { max-inline-size: 100%; }
+	.estasoft-nd .estasoft-nd-ai-row { grid-template-columns: minmax(0, 1fr); padding-inline: var(--space-16); }
+	.estasoft-nd .estasoft-nd-ai-row__action { text-align: start; }
+	.estasoft-nd .estasoft-nd-ai-row__action .estasoft-nd-ai-form { justify-content: flex-start; }
+}
+
+/* Empty lines inside a flush card keep the card's padding. */
+.estasoft-nd .estasoft-nd-ai-empty { margin: 0; padding: var(--space-16) var(--space-20); }

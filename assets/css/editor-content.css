@@ -1,0 +1,245 @@
+/* Article editor: the source section (republished content) and the video section. */
+
+.estasoft-nd-ed {
+	--estasoft-nd-ed-muted: #646970;
+	--estasoft-nd-ed-border: #dcdcde;
+	--estasoft-nd-ed-ok: #1a7f37;
+	--estasoft-nd-ed-bad: #c62828;
+	--estasoft-nd-ed-info: #0b5cad;
+	--estasoft-nd-ed-warn-bg: #fff4d6;
+	--estasoft-nd-ed-warn-fg: #5c3d00;
+	--estasoft-nd-ed-warn-border: #e2b93b;
+	--estasoft-nd-ed-warn-icon: #b26a00;
+	--estasoft-nd-ed-info-bg: #eef5fc;
+	--estasoft-nd-ed-info-border: #b9d3ee;
+	--estasoft-nd-ed-error-bg: #fce8e8;
+	--estasoft-nd-ed-error-fg: #8a1c1c;
+	--estasoft-nd-ed-code-bg: #f6f7f7;
+	margin-inline: -16px;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.estasoft-nd-ed-block {
+	padding: 16px;
+	border-block-start: 1px solid var(--estasoft-nd-ed-border);
+}
+
+.estasoft-nd-ed-block:first-child {
+	border-block-start: 0;
+}
+
+.estasoft-nd-ed-block > * + * {
+	margin-block-start: 12px;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-label {
+	margin: 0;
+	padding: 0;
+	font-size: 11px;
+	font-weight: 500;
+	line-height: 1.4;
+	text-transform: none;
+	color: var(--estasoft-nd-ed-muted);
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-sub {
+	margin: 16px 0 6px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-muted {
+	margin: 0;
+	color: var(--estasoft-nd-ed-muted);
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-code {
+	margin: 0 0 8px;
+	padding: 10px 12px;
+	border-radius: 2px;
+	background: var(--estasoft-nd-ed-code-bg);
+	font-size: 12px;
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-code code {
+	padding: 0;
+	background: transparent;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-list__item {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	margin: 0 0 8px;
+}
+
+.estasoft-nd-ed-icon {
+	flex: none;
+	margin-block-start: 2px;
+}
+
+.estasoft-nd-ed-icon--x {
+	color: var(--estasoft-nd-ed-bad);
+}
+
+.estasoft-nd-ed-icon--check {
+	color: var(--estasoft-nd-ed-ok);
+}
+
+.estasoft-nd-ed-icon--info {
+	color: var(--estasoft-nd-ed-info);
+}
+
+.estasoft-nd-ed-icon--warn {
+	color: var(--estasoft-nd-ed-warn-icon);
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-note {
+	margin: 12px 0 0;
+	padding: 8px 12px;
+	border: 1px solid var(--estasoft-nd-ed-warn-border);
+	border-radius: 2px;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-note--warn {
+	background: var(--estasoft-nd-ed-warn-bg);
+	color: var(--estasoft-nd-ed-warn-fg);
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-note--info {
+	border-color: var(--estasoft-nd-ed-info-border);
+	background: var(--estasoft-nd-ed-info-bg);
+	color: var(--estasoft-nd-ed-info);
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-note--error {
+	border-color: var(--estasoft-nd-ed-bad);
+	background: var(--estasoft-nd-ed-error-bg);
+	color: var(--estasoft-nd-ed-error-fg);
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-radios {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-radios legend {
+	margin-block-end: 8px;
+	padding: 0;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-radio {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	margin-block-end: 8px;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-radio input[type="radio"] {
+	flex: none;
+	margin: 2px 0 0;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-radio label {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-radio strong {
+	font-size: 13px;
+	font-weight: 600;
+}
+
+/* Video section. */
+.estasoft-nd-ed .estasoft-nd-ed-thumb {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	border: 1px solid var(--estasoft-nd-ed-border);
+	border-radius: 2px;
+	background: var(--estasoft-nd-ed-code-bg);
+	object-fit: cover;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-kind {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-kind strong {
+	font-size: 13px;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-field-help {
+	margin: 4px 0 0;
+	color: var(--estasoft-nd-ed-muted);
+	font-size: 12px;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-thumb--none {
+	background-image: linear-gradient(135deg, #e6ebf1, #f6f7f7);
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-tag {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	color: var(--estasoft-nd-ed-muted);
+	font-size: 12px;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-tag .estasoft-nd-ed-icon {
+	margin: 0;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-note--lead {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-note--lead p {
+	margin: 0;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-note--lead strong,
+.estasoft-nd-ed .estasoft-nd-ed-note--lead span {
+	display: block;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-video {
+	overflow-wrap: anywhere;
+}
+
+/* WordPress draws field labels in capitals on some versions; the panel's labels are plain words. */
+.estasoft-nd-ed .components-base-control__label {
+	margin-block-end: 4px;
+	font-size: 13px;
+	font-weight: 500;
+	line-height: 1.4;
+	text-transform: none;
+	color: #1e1e1e;
+}
+
+.estasoft-nd-ed .estasoft-nd-ed-use-date {
+	margin-block-start: 0;
+}

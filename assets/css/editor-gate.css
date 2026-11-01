@@ -1,0 +1,154 @@
+/*
+ * The pre-publish gate section of the block editor's "Are you ready to publish?" sidebar.
+ *
+ * The sidebar already pads its panels, so this adds only what the section needs: a list with an icon
+ * per channel, an amber note when publishing is on hold, and the "publish anyway" block.
+ * Logical properties throughout, so the section follows right-to-left languages.
+ */
+.estasoft-nd-gate__body {
+	font-size: 13px;
+	line-height: 1.5;
+	color: #1e1e1e;
+}
+
+.estasoft-nd-gate__body > * {
+	margin: 0;
+}
+
+.estasoft-nd-gate__body > * + * {
+	margin-block-start: 12px;
+}
+
+.estasoft-nd-gate__anyway > p {
+	margin: 0;
+}
+
+.estasoft-nd-gate__muted {
+	color: #646970;
+}
+
+.estasoft-nd-gate__problem {
+	color: #cc1818;
+	font-weight: 500;
+}
+
+.estasoft-nd-gate__lines,
+.estasoft-nd-gate__others {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.estasoft-nd-gate__line {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	margin: 0;
+	padding-block: 6px;
+	border-block-end: 1px solid #f0f0f1;
+}
+
+.estasoft-nd-gate__line:last-child {
+	border-block-end: 0;
+}
+
+.estasoft-nd-gate__icon {
+	flex: none;
+	margin-block-start: 2px;
+	fill: none;
+	stroke: currentcolor;
+	stroke-width: 1.4;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.estasoft-nd-gate__icon--pass {
+	color: #1a7f37;
+}
+
+.estasoft-nd-gate__icon--warn {
+	color: #996800;
+}
+
+.estasoft-nd-gate__icon--block {
+	color: #cc1818;
+}
+
+.estasoft-nd-gate__icon--na {
+	color: #8c8f94;
+}
+
+.estasoft-nd-gate__text {
+	min-inline-size: 0;
+	overflow-wrap: anywhere;
+}
+
+.estasoft-nd-gate__others {
+	list-style: disc;
+	padding-inline-start: 18px;
+	color: #50575e;
+}
+
+.estasoft-nd-gate__others li {
+	margin: 0 0 4px;
+}
+
+.estasoft-nd-gate__hold {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+	padding: 10px 12px;
+	border: 1px solid #f0b849;
+	border-inline-start-width: 4px;
+	border-radius: 2px;
+	background: #fef8ee;
+	color: #1e1e1e;
+}
+
+.estasoft-nd-gate__hold--soft {
+	border-color: #dcdcde;
+	border-inline-start-color: #8c8f94;
+	background: #f6f7f7;
+}
+
+.estasoft-nd-gate__anyway {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding-block-start: 12px;
+	border-block-start: 1px solid #dcdcde;
+}
+
+.estasoft-nd-gate__hold strong {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.estasoft-nd-gate__hold .estasoft-nd-gate__icon {
+	margin-block-start: 0;
+	color: #996800;
+}
+
+.estasoft-nd-gate__anyway .components-base-control__label {
+	margin-block-end: 4px;
+	font-size: 13px;
+	font-weight: 500;
+	text-transform: none;
+}
+
+.estasoft-nd-gate__anyway .components-base-control__help {
+	margin-block-start: 6px;
+	color: #646970;
+}
+
+.estasoft-nd-gate__anyway .components-button {
+	align-self: flex-start;
+}
+
+.estasoft-nd-gate__limits {
+	padding-block-start: 12px;
+	border-block-start: 1px solid #dcdcde;
+	color: #646970;
+	font-size: 12px;
+}

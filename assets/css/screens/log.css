@@ -1,0 +1,38 @@
+/* Delivery log: the table and the line under it. Loaded only on that screen. */
+.estasoft-nd .estasoft-nd-cols-log { --cols: 64px minmax(220px, 2fr) minmax(110px, 1fr) 90px 150px minmax(240px, 2.2fr) 100px; }
+.estasoft-nd .estasoft-nd-table:has(.estasoft-nd-cols-log) { min-inline-size: 1000px; }
+.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-log > [role="cell"] { min-inline-size: 0; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-log time { font-weight: 600; }
+.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-log { align-items: center; padding-block: var(--space-12); }
+
+.estasoft-nd .estasoft-nd-log-article { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+.estasoft-nd .estasoft-nd-log-line { display: block; margin-block-start: var(--space-2); }
+
+.estasoft-nd .estasoft-nd-log-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-8) var(--space-16); }
+
+/* Keep the search box narrow enough that the filters fit on one row. */
+.estasoft-nd .estasoft-nd-commandbar #estasoft-nd-filter-search { inline-size: 150px; max-inline-size: 100%; }
+
+/* On a narrow screen the table scrolls sideways, but the line under it stays in view. */
+.estasoft-nd .estasoft-nd-scroll:has(.estasoft-nd-cols-log) { container-type: inline-size; }
+.estasoft-nd .estasoft-nd-scroll:has(.estasoft-nd-cols-log) .estasoft-nd-table-footer { position: sticky; inset-inline-start: 0; inline-size: 100cqw; }
+
+@media (max-width: 520px) {
+	.estasoft-nd .estasoft-nd-commandbar:has(#estasoft-nd-filter-days) > .estasoft-nd-stack { flex: 1 1 40%; min-inline-size: 0; }
+	.estasoft-nd .estasoft-nd-commandbar:has(#estasoft-nd-filter-days) .estasoft-nd-field { inline-size: 100%; }
+}
+
+/* On a narrow screen each entry stacks: when and where, the article, the status, the answer, then the button. */
+@media (max-width: 782px) {
+	.estasoft-nd .estasoft-nd-table:has(.estasoft-nd-cols-log) { min-inline-size: 0; }
+	.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-log { grid-template-columns: auto auto minmax(0, 1fr); grid-template-areas: "time channel event" "article article article" "status status status" "response response response" "action action action"; row-gap: var(--space-8); justify-items: start; }
+	.estasoft-nd .estasoft-nd-grid-row--head.estasoft-nd-cols-log { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); padding: 0; border: 0; }
+	.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-log > [role="cell"]:nth-child(1) { grid-area: time; }
+	.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-log > [role="cell"]:nth-child(2) { grid-area: article; }
+	.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-log > [role="cell"]:nth-child(3) { grid-area: channel; }
+	.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-log > [role="cell"]:nth-child(4) { grid-area: event; }
+	.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-log > [role="cell"]:nth-child(5) { grid-area: status; }
+	.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-log > [role="cell"]:nth-child(6) { grid-area: response; }
+	.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-log > [role="cell"]:nth-child(7) { grid-area: action; }
+	.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-log > [role="cell"]:nth-child(7):empty { display: none; }
+}

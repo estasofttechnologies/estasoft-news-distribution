@@ -1,0 +1,130 @@
+/*
+ * The Follow block, on the site and in the editor.
+ *
+ * Plain links styled as buttons. Nothing is loaded from another site, and no color is written into the markup.
+ * A theme changes the look through the variables below, set on .estasoft-nd-follow or on a parent of it.
+ */
+.estasoft-nd-follow {
+	--estasoft-nd-follow-accent: #005ece;
+	--estasoft-nd-follow-accent-hover: #004fba;
+	--estasoft-nd-follow-on-accent: #ffffff;
+	--estasoft-nd-follow-border: currentColor;
+	--estasoft-nd-follow-radius: 4px;
+	--estasoft-nd-follow-gap: 0.5rem;
+	--estasoft-nd-follow-focus: currentColor;
+	--estasoft-nd-follow-frame: rgba(128, 128, 128, 0.35);
+	--estasoft-nd-follow-frame-radius: 8px;
+	--estasoft-nd-follow-padding: 1rem 1.25rem;
+	box-sizing: border-box;
+	padding: var(--estasoft-nd-follow-padding);
+	border: 1px solid var(--estasoft-nd-follow-frame);
+	border-radius: var(--estasoft-nd-follow-frame-radius);
+}
+
+.estasoft-nd-follow *,
+.estasoft-nd-follow *::before,
+.estasoft-nd-follow *::after {
+	box-sizing: inherit;
+}
+
+.estasoft-nd-follow__heading {
+	margin: 0 0 0.75rem;
+	font-size: 1.125em;
+	font-weight: 600;
+	line-height: 1.3;
+}
+
+.estasoft-nd-follow__links {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--estasoft-nd-follow-gap);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.estasoft-nd-follow__item {
+	margin: 0;
+	padding: 0;
+}
+
+.estasoft-nd-follow__link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-block-size: 2.75rem;
+	padding-block: 0.25rem;
+	padding-inline: 1rem;
+	border: 1px solid var(--estasoft-nd-follow-border);
+	border-radius: var(--estasoft-nd-follow-radius);
+	color: inherit;
+	font: inherit;
+	font-weight: 600;
+	line-height: 1.3;
+	text-align: center;
+	text-decoration: none;
+}
+
+.estasoft-nd-follow__link:hover {
+	text-decoration: underline;
+}
+
+.estasoft-nd-follow__link:focus-visible {
+	outline: 2px solid var(--estasoft-nd-follow-focus);
+	outline-offset: 2px;
+}
+
+.estasoft-nd-follow__link--primary {
+	border-color: var(--estasoft-nd-follow-accent);
+	background: var(--estasoft-nd-follow-accent);
+	color: var(--estasoft-nd-follow-on-accent);
+}
+
+.estasoft-nd-follow__link--primary:hover {
+	border-color: var(--estasoft-nd-follow-accent-hover);
+	background: var(--estasoft-nd-follow-accent-hover);
+	color: var(--estasoft-nd-follow-on-accent);
+}
+
+/* The list style: links in a column, with no frame. */
+.estasoft-nd-follow--list .estasoft-nd-follow__links {
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.estasoft-nd-follow--list .estasoft-nd-follow__link,
+.estasoft-nd-follow--list .estasoft-nd-follow__link--primary {
+	justify-content: flex-start;
+	min-block-size: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	text-align: start;
+	text-decoration: underline;
+}
+
+.estasoft-nd-follow--list .estasoft-nd-follow__link:hover,
+.estasoft-nd-follow--list .estasoft-nd-follow__link--primary:hover {
+	background: transparent;
+	color: inherit;
+	text-decoration-thickness: 2px;
+}
+
+/* The block in the editor when it has nothing to show. */
+.estasoft-nd-follow--empty {
+	border-style: dashed;
+}
+
+.estasoft-nd-follow--empty .estasoft-nd-follow__heading {
+	margin: 0 0 0.25rem;
+}
+
+.estasoft-nd-follow--empty p:last-child {
+	margin: 0;
+}
+
+/* The block added after the text of an article, by "Add to the end of every article" or the shortcode. */
+.estasoft-nd-follow--end {
+	margin-block: 2rem 0;
+}

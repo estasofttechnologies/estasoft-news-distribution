@@ -1,0 +1,53 @@
+/* Reports, Referrals: visits by source, top articles by source, the switch. Loaded only on that report. */
+
+/* The tables. Each sits inside .estasoft-nd-scroll, so a narrow screen scrolls the table, not the page. */
+.estasoft-nd .estasoft-nd-cols-referrals { --cols: minmax(190px, 2.2fr) minmax(72px, 0.7fr) minmax(220px, 3fr) minmax(130px, 1.2fr); }
+.estasoft-nd .estasoft-nd-cols-referrals-plain { --cols: minmax(190px, 2.2fr) minmax(72px, 0.7fr) minmax(220px, 3fr); }
+.estasoft-nd .estasoft-nd-cols-referrals-articles-1 { --cols: minmax(240px, 3fr) repeat(1, minmax(96px, 1fr)); }
+.estasoft-nd .estasoft-nd-cols-referrals-articles-2 { --cols: minmax(240px, 3fr) repeat(2, minmax(96px, 1fr)); }
+.estasoft-nd .estasoft-nd-cols-referrals-articles-3 { --cols: minmax(240px, 3fr) repeat(3, minmax(96px, 1fr)); }
+.estasoft-nd .estasoft-nd-cols-referrals-articles-4 { --cols: minmax(240px, 3fr) repeat(4, minmax(96px, 1fr)); }
+.estasoft-nd .estasoft-nd-table:has(.estasoft-nd-cols-referrals) { min-inline-size: 720px; }
+.estasoft-nd .estasoft-nd-table:has(.estasoft-nd-cols-referrals-plain) { min-inline-size: 560px; }
+.estasoft-nd .estasoft-nd-table:has([class*="estasoft-nd-cols-referrals-articles-"]) { min-inline-size: 640px; }
+.estasoft-nd .estasoft-nd-grid-row[class*="estasoft-nd-cols-referrals"] > [role="cell"],
+.estasoft-nd .estasoft-nd-grid-row[class*="estasoft-nd-cols-referrals"] > [role="columnheader"] { min-inline-size: 0; overflow-wrap: anywhere; }
+
+/* A source's share: the bar takes the room, the rounded percentage sits at its end. */
+.estasoft-nd .estasoft-nd-referrals-share { display: flex; align-items: center; gap: var(--space-12); }
+.estasoft-nd .estasoft-nd-referrals-share .estasoft-nd-progress { flex: 1 1 auto; min-inline-size: 60px; }
+.estasoft-nd .estasoft-nd-referrals-percent { flex: 0 0 auto; min-inline-size: 3.5ch; text-align: end; font-variant-numeric: tabular-nums; }
+
+/* The change against the period before. The sign and the number carry the meaning; the colour only helps. */
+.estasoft-nd .estasoft-nd-change { font-variant-numeric: tabular-nums; }
+.estasoft-nd .estasoft-nd-change--up { color: var(--success-text); }
+.estasoft-nd .estasoft-nd-change--down { color: var(--danger-text); }
+
+/* The period choice is sent when it changes, so its button is only for people without a script. */
+.estasoft-nd.has-js [data-auto-submit-button] { display: none; }
+
+/* A form in a message bar or beside other buttons keeps its own width. */
+.estasoft-nd .estasoft-nd-inline-form { display: inline-flex; margin: 0; }
+
+/* Words and labels a phone shows in place of the heading row. */
+.estasoft-nd .estasoft-nd-referrals-label,
+.estasoft-nd .estasoft-nd-referrals-vs { display: none; }
+
+@media (max-width: 640px) {
+	/* The tables become cards on a phone, so nothing needs a sideways scroll. The heading row stays for screen readers. */
+	.estasoft-nd .estasoft-nd-table:has([class*="estasoft-nd-cols-referrals"]) { min-inline-size: 0; }
+	.estasoft-nd .estasoft-nd-grid-row--head[class*="estasoft-nd-cols-referrals"] { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); padding: 0; border: 0; }
+
+	.estasoft-nd .estasoft-nd-cols-referrals,
+	.estasoft-nd .estasoft-nd-cols-referrals-plain { grid-template-columns: minmax(0, 1fr) auto; align-items: start; row-gap: var(--space-4); }
+	.estasoft-nd .estasoft-nd-cols-referrals > :nth-child(2),
+	.estasoft-nd .estasoft-nd-cols-referrals-plain > :nth-child(2) { text-align: end; font-variant-numeric: tabular-nums; }
+	.estasoft-nd .estasoft-nd-cols-referrals > :nth-child(n+3),
+	.estasoft-nd .estasoft-nd-cols-referrals-plain > :nth-child(n+3) { grid-column: 1 / -1; }
+	.estasoft-nd .estasoft-nd-cols-referrals > :empty { display: none; }
+	.estasoft-nd .estasoft-nd-cols-referrals .estasoft-nd-referrals-vs { display: inline; margin-inline-start: var(--space-4); font-size: 12px; line-height: 16px; color: var(--text-secondary); }
+
+	.estasoft-nd .estasoft-nd-grid-row[class*="estasoft-nd-cols-referrals-articles-"] { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; row-gap: var(--space-8); }
+	.estasoft-nd .estasoft-nd-grid-row[class*="estasoft-nd-cols-referrals-articles-"] > :nth-child(1) { grid-column: 1 / -1; }
+	.estasoft-nd .estasoft-nd-grid-row[class*="estasoft-nd-cols-referrals-articles-"] .estasoft-nd-referrals-label { display: block; font-size: 12px; line-height: 16px; color: var(--text-secondary); }
+}

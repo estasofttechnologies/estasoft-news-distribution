@@ -1,0 +1,60 @@
+/* Network Admin: Sites, Delivery health and AI policy. Loaded only on those pages. */
+
+/* The three tables. Each sits inside .estasoft-nd-scroll, so a narrow screen scrolls the table, not the page. */
+.estasoft-nd .estasoft-nd-cols-net-sites { --cols: 28px minmax(150px, 1.3fr) minmax(220px, 2fr) minmax(110px, 0.8fr) 110px 110px; }
+.estasoft-nd .estasoft-nd-cols-net-delivery { --cols: minmax(170px, 1.6fr) 150px 80px 80px 80px 130px; }
+.estasoft-nd .estasoft-nd-cols-net-ai { --cols: minmax(150px, 1.4fr) minmax(110px, 1fr) 150px minmax(200px, 2fr); }
+.estasoft-nd .estasoft-nd-table:has(.estasoft-nd-cols-net-sites) { min-inline-size: 860px; }
+.estasoft-nd .estasoft-nd-table:has(.estasoft-nd-cols-net-delivery) { min-inline-size: 760px; }
+.estasoft-nd .estasoft-nd-table:has(.estasoft-nd-cols-net-ai) { min-inline-size: 720px; }
+.estasoft-nd .estasoft-nd-grid-row[class*="estasoft-nd-cols-net-"] > [role="cell"],
+.estasoft-nd .estasoft-nd-grid-row[class*="estasoft-nd-cols-net-"] > [role="columnheader"] { min-inline-size: 0; overflow-wrap: anywhere; }
+
+/* Sites. */
+.estasoft-nd .estasoft-nd-net-search { flex: 0 1 236px; min-inline-size: 160px; }
+.estasoft-nd .estasoft-nd-net-search .estasoft-nd-field { inline-size: 100%; box-sizing: border-box; }
+.estasoft-nd .estasoft-nd-net-block { display: block; }
+.estasoft-nd .estasoft-nd-net-empty { padding: var(--space-16) var(--space-20); }
+.estasoft-nd .estasoft-nd-net-pad { padding: var(--space-12) var(--space-20); }
+.estasoft-nd .estasoft-nd-net-all[hidden] { display: none; }
+.estasoft-nd.has-js .estasoft-nd-net-all { display: flex; }
+
+/* The apply card and the cards beside it. */
+.estasoft-nd .estasoft-nd-net-side { flex: 1 1 320px; min-inline-size: 0; display: flex; flex-direction: column; gap: var(--space-16); }
+.estasoft-nd .estasoft-nd-net-side > .estasoft-nd-card { flex: 0 0 auto; }
+.estasoft-nd .estasoft-nd-net-subtitle { font-size: 12px; line-height: 16px; font-weight: 600; color: var(--text-secondary); }
+.estasoft-nd .estasoft-nd-rule--on .estasoft-nd-icon { color: var(--success-icon); }
+.estasoft-nd .estasoft-nd-net-template { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8) var(--space-12); padding-block-end: var(--space-12); border-block-end: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-net-template > .estasoft-nd-grow { flex: 1 1 200px; min-inline-size: 0; overflow-wrap: anywhere; }
+
+/* The review: one card a site, one tick box a change. */
+.estasoft-nd .estasoft-nd-net-change { display: block; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-net-owner { display: block; margin-block-start: var(--space-4); }
+.estasoft-nd .estasoft-nd-check-row .estasoft-nd-check { flex: 1 1 100%; min-inline-size: 0; }
+
+/* Delivery health: the site cell and the bars. */
+.estasoft-nd .estasoft-nd-net-site { display: flex; flex-direction: column; gap: var(--space-4); align-items: flex-start; }
+.estasoft-nd .estasoft-nd-net-chips { flex-wrap: wrap; }
+.estasoft-nd.has-js [data-auto-submit-button] { display: none; }
+.estasoft-nd .estasoft-nd-net-bars { list-style: none; margin: 0; padding: 0; }
+.estasoft-nd .estasoft-nd-net-bar { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(5.5rem, auto); column-gap: var(--space-12); row-gap: var(--space-4); align-items: center; }
+.estasoft-nd .estasoft-nd-net-bar__track { grid-column: 1 / -1; display: block; inline-size: 100%; block-size: 8px; border: 0; border-radius: 4px; background: var(--surface-hover); overflow: hidden; -webkit-appearance: none; appearance: none; }
+.estasoft-nd .estasoft-nd-net-bar__track::-webkit-progress-bar { background: var(--surface-hover); border-radius: 4px; }
+.estasoft-nd .estasoft-nd-net-bar__track::-webkit-progress-value { background: var(--primary); border-radius: 4px; }
+.estasoft-nd .estasoft-nd-net-bar__track::-moz-progress-bar { background: var(--primary); border-radius: 4px; }
+.estasoft-nd .estasoft-nd-net-bar__count,
+.estasoft-nd .estasoft-nd-net-bar__failed { font-size: 12px; line-height: 16px; white-space: nowrap; }
+.estasoft-nd .estasoft-nd-net-bar__failed { display: flex; justify-content: flex-end; }
+
+/* AI policy. */
+.estasoft-nd .estasoft-nd-net-locked { display: flex; align-items: flex-start; gap: var(--space-6); }
+.estasoft-nd .estasoft-nd-net-locked .estasoft-nd-icon { margin-block-start: 2px; color: var(--text-secondary); }
+.estasoft-nd .estasoft-nd-net-locked + p { margin: 0; }
+.estasoft-nd .estasoft-nd-check input:disabled { cursor: not-allowed; }
+
+@media (max-width: 782px) {
+	.estasoft-nd .estasoft-nd-net-search { flex: 1 1 100%; }
+}
+
+/* The period and site bar of Delivery health: the sentence takes the rest of the row, then wraps under. */
+.estasoft-nd .estasoft-nd-net-showing { flex: 1 1 280px; align-self: center; margin: 0; min-inline-size: 0; }

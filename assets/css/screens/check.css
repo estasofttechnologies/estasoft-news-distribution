@@ -1,0 +1,144 @@
+/*
+ * Article check: the list beside the open article, the result rows, the feed entry and the history.
+ * Loaded only on that screen. Logical properties throughout, so a right-to-left language mirrors it.
+ */
+
+/* Frame: the list of articles on one side, the open article on the other. */
+.estasoft-nd .estasoft-nd-checksplit { display: grid; grid-template-columns: minmax(260px, 340px) minmax(0, 1fr); gap: var(--space-16); align-items: start; }
+.estasoft-nd .estasoft-nd-checksplit__list,
+.estasoft-nd .estasoft-nd-checksplit__main { min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-checksplit__list { position: sticky; inset-block-start: calc(var(--space-16) + 32px); }
+
+.estasoft-nd .estasoft-nd-breadcrumb { display: flex; flex-wrap: wrap; gap: var(--space-4); color: var(--text-secondary); margin-block-end: var(--space-4); }
+.estasoft-nd .estasoft-nd-breadcrumb a { color: var(--primary); }
+
+/* The list. */
+.estasoft-nd .estasoft-nd-list-search { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-8); padding: var(--space-16); }
+.estasoft-nd .estasoft-nd-list-search .estasoft-nd-field { inline-size: 100%; }
+.estasoft-nd .estasoft-nd-artlist { border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-artlist > li + li { border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-artrow { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); padding: var(--space-12) var(--space-16); color: var(--text); }
+.estasoft-nd a.estasoft-nd-artrow:hover { background: var(--surface-subtle); color: var(--text); text-decoration: none; }
+.estasoft-nd a.estasoft-nd-artrow.is-current { background: var(--primary-tint); }
+.estasoft-nd .estasoft-nd-artrow__title { font-weight: 600; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-artrow__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8); font-size: 12px; line-height: 16px; color: var(--text-secondary); }
+.estasoft-nd .estasoft-nd-artrow__foot { display: flex; align-items: center; justify-content: space-between; gap: var(--space-8); inline-size: 100%; }
+.estasoft-nd .estasoft-nd-artrow__icons { display: inline-flex; align-items: center; gap: var(--space-6); }
+.estasoft-nd .estasoft-nd-artrow__note { text-align: end; }
+.estasoft-nd .estasoft-nd-listfoot { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-12) var(--space-16); border-block-start: 1px solid var(--border); background: var(--surface-subtle); }
+
+/* The open article: heading, actions, tabs. */
+.estasoft-nd .estasoft-nd-detail__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: var(--space-8) var(--space-16); padding: var(--space-20) var(--space-20) var(--space-8); }
+.estasoft-nd .estasoft-nd-detail__text { flex: 1 1 280px; min-inline-size: 0; display: flex; flex-direction: column; gap: var(--space-4); }
+.estasoft-nd .estasoft-nd-detail__title { font-size: 22px; line-height: 28px; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-detail__actions { flex: none; }
+.estasoft-nd .estasoft-nd-detail__meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-6); }
+.estasoft-nd .estasoft-nd-detail__tabs { padding: var(--space-8) var(--space-20) var(--space-16); }
+
+/* The tab switcher is a row of links that look like the segmented control. */
+.estasoft-nd .estasoft-nd-seg a { display: inline-flex; align-items: center; min-block-size: calc(var(--size-control) - 2px); padding: 0 var(--space-12); background: var(--surface); color: var(--text); }
+.estasoft-nd .estasoft-nd-seg a + a { border-inline-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-seg a:hover { background: var(--surface-hover); color: var(--text); text-decoration: none; }
+.estasoft-nd .estasoft-nd-seg a.is-on,
+.estasoft-nd .estasoft-nd-seg a[aria-current] { background: var(--primary-tint-strong); color: var(--primary-pressed); font-weight: 600; }
+
+/* The toolbar above the checks. */
+.estasoft-nd .estasoft-nd-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8) var(--space-16); padding: var(--space-12) var(--space-20); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-toolbar > .estasoft-nd-grow { flex: 1 1 240px; }
+.estasoft-nd .estasoft-nd-toolbar [data-live] { flex-basis: 100%; }
+.estasoft-nd .estasoft-nd-runform { margin: 0; }
+.estasoft-nd .estasoft-nd-checkbody[aria-busy="true"] { opacity: .6; }
+.estasoft-nd .estasoft-nd-pad { padding: var(--space-12) var(--space-20); }
+.estasoft-nd .estasoft-nd-checkbody > .estasoft-nd-pad:first-child { padding-block-start: var(--space-12); }
+
+/* A group of rows starts with a gray strip. */
+.estasoft-nd .estasoft-nd-strip { margin: 0; padding: var(--space-8) var(--space-20); border-block: 1px solid var(--border); background: var(--surface-subtle); color: var(--text-secondary); font-size: 12px; line-height: 16px; font-weight: 600; }
+.estasoft-nd .estasoft-nd-checkbody > .estasoft-nd-toolbar + .estasoft-nd-strip,
+.estasoft-nd .estasoft-nd-strip:first-child { border-block-start: 1px solid var(--border); }
+
+/* One row: the name and its status, the sentence, the link. */
+.estasoft-nd .estasoft-nd-resrow { display: grid; grid-template-columns: minmax(150px, 220px) minmax(0, 1fr) auto; align-items: start; gap: var(--space-8) var(--space-16); padding: var(--space-16) var(--space-20); border-block-end: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-resrow:last-child { border-block-end: 0; }
+.estasoft-nd .estasoft-nd-resrow__name { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-6); min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-resrow__title { font-size: 16px; line-height: 22px; font-weight: 600; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-resrow__body { display: flex; flex-direction: column; gap: var(--space-6); min-inline-size: 0; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-resrow__action { font-size: 12px; line-height: 16px; font-weight: 600; text-align: end; white-space: nowrap; padding-block-start: var(--space-2); }
+.estasoft-nd .estasoft-nd-resrow__action .estasoft-nd-muted { font-weight: 400; }
+
+/* Findings under a row or beside an entry. */
+.estasoft-nd .estasoft-nd-findings { display: flex; flex-direction: column; gap: var(--space-6); }
+.estasoft-nd .estasoft-nd-finding { display: flex; align-items: flex-start; gap: var(--space-8); font-size: 13px; line-height: 18px; }
+.estasoft-nd .estasoft-nd-finding__icon { display: inline-flex; flex: none; margin-block-start: 1px; }
+.estasoft-nd .estasoft-nd-finding--success .estasoft-nd-finding__icon { color: var(--success-icon); }
+.estasoft-nd .estasoft-nd-finding--warning .estasoft-nd-finding__icon { color: var(--warning-icon); }
+.estasoft-nd .estasoft-nd-finding--danger .estasoft-nd-finding__icon { color: var(--danger-icon); }
+.estasoft-nd .estasoft-nd-finding--neutral .estasoft-nd-finding__icon,
+.estasoft-nd .estasoft-nd-finding--info .estasoft-nd-finding__icon { color: var(--neutral-icon); }
+.estasoft-nd .estasoft-nd-finding .estasoft-nd-badge { flex: none; }
+.estasoft-nd .estasoft-nd-source { margin: 0; }
+
+/* The feed entry. */
+.estasoft-nd .estasoft-nd-entrybar { margin-block-end: var(--space-16); }
+.estasoft-nd .estasoft-nd-entrybar .estasoft-nd-field { min-inline-size: 200px; }
+.estasoft-nd .estasoft-nd-field--static { display: inline-flex; align-items: center; background: var(--surface-subtle); border-color: var(--border); }
+.estasoft-nd .estasoft-nd-entrycode .estasoft-nd-code { tab-size: 2; max-block-size: 560px; overflow: auto; }
+.estasoft-nd .estasoft-nd-split__side--wide { flex-basis: 300px; }
+
+/* History: the versions. */
+.estasoft-nd .estasoft-nd-timeline > li { padding-block-end: var(--space-16); }
+.estasoft-nd .estasoft-nd-timeline .estasoft-nd-tier { display: inline-flex; align-items: center; min-block-size: 20px; padding: 0 var(--space-6); border: 1px solid var(--primary-border); border-radius: var(--radius-sm); background: var(--primary-tint); color: var(--primary); font-size: 12px; font-weight: 600; line-height: 16px; }
+.estasoft-nd .estasoft-nd-timeline li > div { min-inline-size: 0; overflow-wrap: anywhere; }
+
+/* The author's view. */
+.estasoft-nd .estasoft-nd-cols-yours { --cols: minmax(200px, 2fr) minmax(110px, 1fr) minmax(220px, 2.2fr) minmax(110px, 1fr); }
+.estasoft-nd .estasoft-nd-cols-matrix { --cols: minmax(190px, 2fr) repeat(4, minmax(80px, 1fr)); }
+.estasoft-nd .estasoft-nd-card-yours .estasoft-nd-grid-row,
+.estasoft-nd .estasoft-nd-card-matrix .estasoft-nd-grid-row { align-items: start; }
+.estasoft-nd .estasoft-nd-cell-label { display: none; }
+.estasoft-nd .estasoft-nd-rule--ok { border-inline-start: 3px solid var(--success-icon); padding-inline-start: var(--space-12); }
+
+/* A tablet: the list stacks above the article, and the rows keep their three parts. */
+@media (max-width: 1100px) {
+	.estasoft-nd .estasoft-nd-checksplit { grid-template-columns: minmax(240px, 300px) minmax(0, 1fr); }
+	.estasoft-nd .estasoft-nd-resrow { grid-template-columns: minmax(130px, 170px) minmax(0, 1fr) auto; }
+}
+
+@media (max-width: 782px) {
+	.estasoft-nd .estasoft-nd-checksplit { grid-template-columns: minmax(0, 1fr); }
+	.estasoft-nd .estasoft-nd-checksplit__list { position: static; }
+	.estasoft-nd .estasoft-nd-detail__head { padding-inline: var(--space-16); }
+	.estasoft-nd .estasoft-nd-detail__tabs,
+	.estasoft-nd .estasoft-nd-toolbar,
+	.estasoft-nd .estasoft-nd-pad,
+	.estasoft-nd .estasoft-nd-strip,
+	.estasoft-nd .estasoft-nd-resrow { padding-inline: var(--space-16); }
+	.estasoft-nd .estasoft-nd-resrow { grid-template-columns: minmax(110px, 150px) minmax(0, 1fr) auto; }
+	.estasoft-nd .estasoft-nd-split__side--wide { flex-basis: 100%; }
+}
+
+/* A phone: each row stacks, with the status under the name and the link last. */
+@media (max-width: 520px) {
+	.estasoft-nd .estasoft-nd-resrow { grid-template-columns: minmax(0, 1fr); }
+	.estasoft-nd .estasoft-nd-resrow__name { flex-direction: row; flex-wrap: wrap; align-items: center; gap: var(--space-6) var(--space-8); }
+	.estasoft-nd .estasoft-nd-resrow__action { text-align: start; white-space: normal; }
+	.estasoft-nd .estasoft-nd-detail__actions { inline-size: 100%; }
+	.estasoft-nd .estasoft-nd-seg { inline-size: 100%; }
+	.estasoft-nd .estasoft-nd-seg a { flex: 1 1 auto; justify-content: center; }
+	.estasoft-nd .estasoft-nd-entrybar .estasoft-nd-field { min-inline-size: 0; inline-size: 100%; }
+	.estasoft-nd .estasoft-nd-entrybar > .estasoft-nd-stack { flex: 1 1 100%; }
+	.estasoft-nd .estasoft-nd-cols-yours,
+	.estasoft-nd .estasoft-nd-cols-matrix { --cols: minmax(0, 1fr); }
+	.estasoft-nd .estasoft-nd-card-yours .estasoft-nd-table,
+	.estasoft-nd .estasoft-nd-card-matrix .estasoft-nd-table { min-width: 0; }
+	.estasoft-nd .estasoft-nd-card-yours .estasoft-nd-grid-row--head,
+	.estasoft-nd .estasoft-nd-card-matrix .estasoft-nd-grid-row--head { display: none; }
+	.estasoft-nd .estasoft-nd-card-yours .estasoft-nd-grid-row { row-gap: var(--space-8); }
+	.estasoft-nd .estasoft-nd-card-yours [role="cell"] > .estasoft-nd-cell-label,
+	.estasoft-nd .estasoft-nd-card-matrix [role="cell"] > .estasoft-nd-cell-label { display: block; font-size: 12px; line-height: 16px; font-weight: 600; color: var(--text-secondary); }
+	.estasoft-nd .estasoft-nd-card-matrix .estasoft-nd-grid-row { row-gap: var(--space-4); }
+	.estasoft-nd .estasoft-nd-card-matrix [role="cell"]:not(:first-child) { display: flex; justify-content: space-between; gap: var(--space-12); }
+}
+
+/* The closing note about channels that are off. */
+.estasoft-nd .estasoft-nd-note-row { margin: 0; padding: var(--space-16) var(--space-20); color: var(--text-secondary); }
+@media (max-width: 782px) { .estasoft-nd .estasoft-nd-note-row { padding-inline: var(--space-16); } }

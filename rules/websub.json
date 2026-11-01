@@ -1,0 +1,48 @@
+{
+	"platform": "websub",
+	"version": "2026.09.2",
+	"read_on": "2026-10-21",
+	"source_title": "W3C: WebSub Recommendation",
+	"source_url": "https://www.w3.org/TR/websub/",
+	"limits": {
+		"attempts": 4,
+		"hubs_max": 3
+	},
+	"rules": {
+		"feed.hub_link": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://www.w3.org/TR/websub/",
+			"read_on": null,
+			"note": "A feed names its hub with a link whose rel is hub, and its own address with a link whose rel is self, in the feed and in the HTTP headers. From the WebSub Recommendation; the page was not re-read for this build."
+		},
+		"feed.self_link": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://www.w3.org/TR/websub/",
+			"read_on": null,
+			"note": "Each language feed uses its own exact address as its self link, never a redirect."
+		},
+		"ping.format": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://www.w3.org/TR/websub/",
+			"read_on": null,
+			"note": "A ping is a form POST with hub.mode=publish and hub.url set to the feed address, and a hub answers with a 2xx code. Hubs differ in what else they accept, so the test shows the answer of your own hub."
+		},
+		"ping.queue": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A ping is sent from the background queue, never inside the save. A failed ping is tried again after 1, 5 and 15 minutes, up to 4 attempts, then it shows Failed."
+		},
+		"hub.default": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "There is no default hub. Nothing is sent until the owner enters one."
+		}
+	}
+}

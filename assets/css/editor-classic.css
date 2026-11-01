@@ -1,0 +1,160 @@
+/*
+ * The News Distribution box in the classic editor.
+ *
+ * The box sits in the side column of the post screen, where admin.css is not loaded, so it draws with
+ * WordPress's own controls (button, select, checkbox) and the gray, amber and green the admin already
+ * uses. Everything is scoped to .estasoft-nd-cb.
+ */
+.estasoft-nd-cb {
+	--estasoft-nd-cb-muted: #646970;
+	--estasoft-nd-cb-ok: #1a7f37;
+	--estasoft-nd-cb-warning: #b26200;
+	--estasoft-nd-cb-danger: #c62828;
+	--estasoft-nd-cb-info: #0b5cad;
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.estasoft-nd-cb p {
+	margin: 0 0 10px;
+}
+
+.estasoft-nd-cb .estasoft-nd-icon {
+	width: 16px;
+	height: 16px;
+	flex: none;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.6;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.estasoft-nd-cb__head {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12px;
+}
+
+.estasoft-nd-cb__head--muted {
+	color: var(--estasoft-nd-cb-muted);
+}
+
+.estasoft-nd-cb__head--ok {
+	color: var(--estasoft-nd-cb-ok);
+	font-weight: 600;
+}
+
+.estasoft-nd-cb__head--warn {
+	color: #1d2327;
+}
+
+.estasoft-nd-cb__head--warn .estasoft-nd-icon {
+	color: var(--estasoft-nd-cb-warning);
+}
+
+.estasoft-nd-cb__list {
+	margin: 0 0 10px;
+	padding: 0;
+	list-style: none;
+}
+
+.estasoft-nd-cb__item {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	margin: 0 0 8px;
+}
+
+.estasoft-nd-cb__item .estasoft-nd-icon {
+	margin-block-start: 2px;
+}
+
+.estasoft-nd-cb__item--warning .estasoft-nd-icon {
+	color: var(--estasoft-nd-cb-warning);
+}
+
+.estasoft-nd-cb__item--danger .estasoft-nd-icon {
+	color: var(--estasoft-nd-cb-danger);
+}
+
+.estasoft-nd-cb__item--info .estasoft-nd-icon {
+	color: var(--estasoft-nd-cb-info);
+}
+
+.estasoft-nd-cb__muted,
+.estasoft-nd-cb__note,
+.estasoft-nd-cb__help {
+	color: var(--estasoft-nd-cb-muted);
+	font-size: 12px;
+}
+
+.estasoft-nd-cb__row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 10px;
+}
+
+.estasoft-nd-cb__row .button {
+	margin: 0;
+}
+
+.estasoft-nd-cb__row .estasoft-nd-cb__muted {
+	line-height: 1.4;
+}
+
+.estasoft-nd-cb__status {
+	min-height: 0;
+	margin: 0;
+	font-size: 12px;
+	color: var(--estasoft-nd-cb-muted);
+}
+
+.estasoft-nd-cb__status:not(:empty) {
+	margin-block-end: 10px;
+}
+
+.estasoft-nd-cb__error {
+	color: var(--estasoft-nd-cb-danger);
+	font-weight: 600;
+}
+
+.estasoft-nd-cb__note {
+	margin-block-start: 4px;
+}
+
+.estasoft-nd-cb__field label {
+	display: block;
+	margin-block-end: 6px;
+}
+
+.estasoft-nd-cb__field select {
+	width: 100%;
+	max-width: 100%;
+}
+
+.estasoft-nd-cb__check {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	column-gap: 6px;
+	align-items: start;
+}
+
+.estasoft-nd-cb__check input[type="checkbox"] {
+	margin: 2px 0 0;
+}
+
+.estasoft-nd-cb__check .estasoft-nd-cb__help {
+	grid-column: 2;
+}
+
+.estasoft-nd-cb__more {
+	margin-block-end: 0;
+	font-weight: 600;
+}
+
+[dir="rtl"] .estasoft-nd-cb__check input[type="checkbox"] {
+	margin-inline: 0;
+}

@@ -1,0 +1,68 @@
+/*
+ * Apple News, SmartNews and News Break pages (Admin\Channels\AbstractPartnerScreen).
+ *
+ * The steps, the address rows and the save bar come from admin.css and
+ * channel-steps.css. This file adds what only these pages have: a list that
+ * opens in place, the logo boxes, the chips of the News Break rules and the
+ * list of the latest articles.
+ */
+
+/* "See which articles": a link that opens a list in place. */
+.estasoft-nd .estasoft-nd-which { display: flex; flex-direction: column; gap: var(--space-8); }
+.estasoft-nd .estasoft-nd-which > summary { display: inline-flex; align-items: center; min-block-size: 24px; color: var(--primary); font-weight: 600; cursor: pointer; }
+.estasoft-nd .estasoft-nd-which > summary:hover { color: var(--primary-pressed); text-decoration: underline; }
+.estasoft-nd .estasoft-nd-which > summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: var(--radius-sm); }
+.estasoft-nd .estasoft-nd-which[open] > summary { margin-block-end: var(--space-8); }
+.estasoft-nd .estasoft-nd-which ul { list-style: none; padding: 0; margin: 0; }
+.estasoft-nd .estasoft-nd-which li { overflow-wrap: anywhere; }
+
+/* Link rows under a step keep a 24px target. */
+.estasoft-nd a.estasoft-nd-cluster.estasoft-nd-strong { min-block-size: 24px; }
+
+/* Something that is only useful without a script. */
+.estasoft-nd.has-js .estasoft-nd-nojs-only { display: none; }
+
+/* The logo boxes. The file input stays in the page for the keyboard; its label is the button. */
+.estasoft-nd .estasoft-nd-drop { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-12) var(--space-16); padding: var(--space-12); border: 1px dashed var(--border-strong); border-radius: var(--radius-md); background: var(--surface); }
+.estasoft-nd .estasoft-nd-drop__preview { flex: 1 1 200px; max-inline-size: 280px; min-inline-size: 0; min-block-size: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: var(--space-4); padding: var(--space-8) var(--space-12); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface); color: var(--text-secondary); font-size: 12px; line-height: 16px; text-align: center; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-drop__preview img { display: block; flex: none; max-block-size: 40px; max-inline-size: 100%; inline-size: auto; block-size: auto; object-fit: contain; }
+.estasoft-nd .estasoft-nd-drop__name { max-inline-size: 100%; min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-drop__control { flex: 1 1 200px; display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-8); min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-drop__file { position: absolute; inline-size: 1px; block-size: 1px; margin: -1px; padding: 0; border: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.estasoft-nd .estasoft-nd-drop__file:focus-visible + .estasoft-nd-drop__button { outline: 2px solid var(--primary); outline-offset: 2px; }
+.estasoft-nd .estasoft-nd-drop__button { cursor: pointer; }
+
+/* The chips of a list of categories or tags. A chip is a ticked box; unticking it takes the value out when the form is saved. */
+.estasoft-nd .estasoft-nd-chips { display: flex; flex-wrap: wrap; gap: var(--space-8); list-style: none; padding: 0; margin: 0; }
+.estasoft-nd .estasoft-nd-chips:empty { display: none; }
+.estasoft-nd .estasoft-nd-chip { position: relative; display: inline-flex; align-items: center; gap: var(--space-4); min-block-size: 24px; padding: 0 var(--space-6) 0 var(--space-8); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); background: var(--surface); color: var(--text-secondary); font-size: 12px; line-height: 16px; cursor: pointer; }
+.estasoft-nd .estasoft-nd-chip:hover { background: var(--surface-hover); color: var(--text); }
+.estasoft-nd .estasoft-nd-chip input { position: absolute; inline-size: 1px; block-size: 1px; margin: 0; opacity: 0; }
+.estasoft-nd .estasoft-nd-chip:focus-within { outline: 2px solid var(--primary); outline-offset: 1px; }
+.estasoft-nd .estasoft-nd-chip input:not(:checked) ~ .estasoft-nd-chip__text { text-decoration: line-through; opacity: .6; }
+.estasoft-nd .estasoft-nd-chip__x { color: var(--text-secondary); font-size: 14px; line-height: 16px; }
+.estasoft-nd .estasoft-nd-chip input:not(:checked) ~ .estasoft-nd-chip__x { opacity: .6; }
+.estasoft-nd .estasoft-nd-chip-box .estasoft-nd-field { max-inline-size: 100%; }
+
+/* The rules of News Break sit in a flush card, so the label column keeps its width on a wide screen. */
+.estasoft-nd .estasoft-nd-form-control .estasoft-nd-nested { margin-inline-start: 0; }
+
+/* The latest articles and what the rules do to each. */
+.estasoft-nd .estasoft-nd-nb-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
+.estasoft-nd .estasoft-nd-nb-row { display: flex; flex-direction: column; gap: var(--space-4); padding-block: var(--space-12); border-block-start: 1px solid var(--border); overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-nb-row:first-child { border-block-start: 0; }
+.estasoft-nd .estasoft-nd-nb-row__status .estasoft-nd-status { font-size: 13px; line-height: 18px; color: var(--text); }
+.estasoft-nd .estasoft-nd-which .estasoft-nd-nb-list { border-block-start: 1px solid var(--border); }
+
+/* The readiness report page: the report in a card, and the share address. */
+.estasoft-nd .estasoft-nd-report-card { padding: var(--space-24); }
+.estasoft-nd .estasoft-nd-report-include { border: 0; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-8); min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-report-include legend { padding: 0; margin-block-end: var(--space-8); }
+.estasoft-nd .estasoft-nd-share-url { flex: 0 1 auto; display: block; }
+.estasoft-nd .estasoft-nd-card--note .estasoft-nd-field { max-inline-size: 100%; }
+
+@media (max-width: 520px) {
+	.estasoft-nd .estasoft-nd-drop { padding: var(--space-8); }
+	.estasoft-nd .estasoft-nd-drop__preview { max-inline-size: none; }
+	.estasoft-nd .estasoft-nd-report-card { padding: var(--space-16); }
+}

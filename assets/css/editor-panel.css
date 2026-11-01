@@ -1,0 +1,305 @@
+/*
+ * The News Distribution panel in the block editor.
+ *
+ * The panel sits in the document sidebar, which pads its panels by 16px, so the panel takes that
+ * padding back and draws its own blocks edge to edge, the way the sections other features add do.
+ * Colors are the block editor's own gray and a warm amber for a note that needs a person.
+ */
+.estasoft-nd-pn {
+	--estasoft-nd-pn-muted: #646970;
+	--estasoft-nd-pn-border: #dcdcde;
+	--estasoft-nd-pn-ok: #1a7f37;
+	--estasoft-nd-pn-link: var(--wp-admin-theme-color, #2271b1);
+	margin-inline: -16px;
+	font-size: 13px;
+	line-height: 1.5;
+	color: #1e1e1e;
+}
+
+.estasoft-nd-pn-block {
+	padding: 16px;
+	border-block-start: 1px solid var(--estasoft-nd-pn-border);
+}
+
+.estasoft-nd-pn > .estasoft-nd-pn-block:first-child {
+	border-block-start: 0;
+	padding-block-start: 4px;
+}
+
+.estasoft-nd-pn-block > * + * {
+	margin-block-start: 12px;
+}
+
+.estasoft-nd-pn .estasoft-nd-pn-label {
+	margin: 0;
+	padding: 0;
+	font-size: 11px;
+	font-weight: 500;
+	line-height: 1.4;
+	text-transform: none;
+	color: var(--estasoft-nd-pn-muted);
+}
+
+.estasoft-nd-pn .estasoft-nd-pn-sub {
+	margin: 0 0 8px;
+	font-size: 12px;
+	font-weight: 600;
+	text-transform: none;
+}
+
+.estasoft-nd-pn .estasoft-nd-pn-muted {
+	margin: 0;
+	color: var(--estasoft-nd-pn-muted);
+}
+
+.estasoft-nd-pn p {
+	margin: 0;
+}
+
+.estasoft-nd-pn-block > p + p,
+.estasoft-nd-pn-block > * + p {
+	margin-block-start: 12px;
+}
+
+.estasoft-nd-pn ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.estasoft-nd-pn-cards {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.estasoft-nd-pn-card {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 6px;
+	padding: 12px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+}
+
+.estasoft-nd-pn-card--warning {
+	background: #fff4d6;
+	border-color: #e2b93b;
+	color: #5c3d00;
+}
+
+.estasoft-nd-pn-card--danger {
+	background: #fce8e8;
+	border-color: #e0a0a0;
+	color: #8a1c1c;
+}
+
+.estasoft-nd-pn-card--info {
+	background: #f0f6fc;
+	border-color: #b8d3ec;
+	color: #0b3d6b;
+}
+
+.estasoft-nd-pn-card .estasoft-nd-pn-muted {
+	color: inherit;
+	opacity: .85;
+}
+
+.estasoft-nd-pn-card__head {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.estasoft-nd-pn-card__msg {
+	font-size: 13px;
+}
+
+.estasoft-nd-pn-icon {
+	flex: none;
+}
+
+.estasoft-nd-pn-icon--check {
+	color: var(--estasoft-nd-pn-ok);
+}
+
+.estasoft-nd-pn-ok {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+}
+
+.estasoft-nd-pn-ok .estasoft-nd-pn-icon {
+	margin-block-start: 2px;
+}
+
+.estasoft-nd-pn-note {
+	padding: 8px 12px;
+	background: #f6f7f7;
+	border-inline-start: 3px solid var(--estasoft-nd-pn-border);
+}
+
+.estasoft-nd-pn-run {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 8px 12px;
+}
+
+.estasoft-nd-pn-run .estasoft-nd-pn-note {
+	flex-basis: 100%;
+}
+
+.estasoft-nd-pn-disc {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 8px;
+	inline-size: 100%;
+	padding: 0;
+	border: 0;
+	background: none;
+	color: inherit;
+	font: inherit;
+	text-align: start;
+	cursor: pointer;
+}
+
+.estasoft-nd-pn-disc__text {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.estasoft-nd-pn-disc:focus-visible,
+.estasoft-nd-pn-link:focus-visible {
+	outline: 2px solid var(--wp-admin-theme-color, #2271b1);
+	outline-offset: 2px;
+}
+
+.estasoft-nd-pn-disc__body {
+	margin-block-start: 12px;
+}
+
+.estasoft-nd-pn-disc__body[hidden] {
+	display: none;
+}
+
+.estasoft-nd-pn-rows {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.estasoft-nd-pn-row,
+.estasoft-nd-pn-chrow {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 2px 12px;
+}
+
+.estasoft-nd-pn-chrow {
+	margin-block-end: 12px;
+}
+
+.estasoft-nd-pn-group + .estasoft-nd-pn-group {
+	margin-block-start: 16px;
+}
+
+.estasoft-nd-pn-group .components-toggle-control + .components-toggle-control,
+.estasoft-nd-pn-group .components-base-control + .components-base-control {
+	margin-block-start: 16px;
+}
+
+.estasoft-nd-pn-link {
+	padding: 0;
+	border: 0;
+	background: none;
+	color: var(--estasoft-nd-pn-link);
+	font: inherit;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.estasoft-nd-pn-chip {
+	display: inline-block;
+	padding: 0 4px;
+	border: 1px solid #949494;
+	border-radius: 2px;
+	font-size: 11px;
+	line-height: 1.6;
+}
+
+.estasoft-nd-pn .components-toggle-control + .components-toggle-control {
+	margin-block-start: 16px;
+}
+
+/* A section added by another feature carries its own wrapper and padding; it sits flush in its block. */
+.estasoft-nd-pn-disclosure .estasoft-nd-pn-extbody {
+	margin: 0;
+}
+
+.estasoft-nd-pn-box {
+	padding: 12px;
+	border: 1px solid transparent;
+	border-radius: 2px;
+}
+
+.estasoft-nd-pn-box--warning {
+	background: #fff4d6;
+	border-color: #e2b93b;
+	color: #5c3d00;
+}
+
+.estasoft-nd-pn .estasoft-nd-pn-numbered {
+	margin: 0;
+	padding: 0;
+	padding-inline-start: 20px;
+	list-style: decimal;
+}
+
+.estasoft-nd-pn .estasoft-nd-pn-numbered li + li {
+	margin-block-start: 8px;
+}
+
+.estasoft-nd-pn .estasoft-nd-pn-numbered .components-button.is-link {
+	display: inline;
+	height: auto;
+	min-height: 0;
+	padding: 0;
+	line-height: inherit;
+	color: inherit;
+	text-decoration: underline;
+}
+
+.estasoft-nd-pn-line {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+}
+
+.estasoft-nd-pn-line .estasoft-nd-pn-icon {
+	margin-block-start: 2px;
+}
+
+.estasoft-nd-pn-line--warning .estasoft-nd-pn-icon {
+	color: #b26200;
+}
+
+.estasoft-nd-pn-line--danger .estasoft-nd-pn-icon {
+	color: #c62828;
+}
+
+.estasoft-nd-pn-line--info .estasoft-nd-pn-icon {
+	color: #0b5cad;
+}
+
+.estasoft-nd-pn-actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}

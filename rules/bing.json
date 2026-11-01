@@ -1,0 +1,66 @@
+{
+	"platform": "bing",
+	"version": "2026.09.1",
+	"read_on": "2026-10-21",
+	"fetch": {
+		"interval_hours": 24,
+		"agents": [
+			"bingbot"
+		]
+	},
+	"limits": {
+		"max_urls": 1000,
+		"protocol_max_urls": 50000
+	},
+	"rules": {
+		"sitemap.format": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "https://www.sitemaps.org/protocol.html",
+			"read_on": null,
+			"note": "A standard XML sitemap in UTF-8. The sitemap protocol is the source; Bing's own page was not read."
+		},
+		"sitemap.max_urls": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "https://www.sitemaps.org/protocol.html",
+			"read_on": null,
+			"note": "The protocol allows 50,000 URLs per file. News Distribution keeps its own file to 1,000."
+		},
+		"sitemap.lastmod": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "An accurate last-modified time on every URL. Whether Bing relies on it was not confirmed."
+		},
+		"sitemap.robots": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "https://www.sitemaps.org/protocol.html",
+			"read_on": null,
+			"note": "A Sitemap line in robots.txt is part of the sitemap protocol. It is off until the person turns it on."
+		},
+		"sitemap.language": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Each sitemap holds only articles of its own language."
+		},
+		"fetch.schedule": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "Design review log, Channel-bing: the claim could not be confirmed",
+			"read_on": null,
+			"note": "Bing reads a new sitemap on its own schedule, usually soon after it is submitted. This could not be confirmed, so the copy says usually."
+		},
+		"verify.methods": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://delante.co/how-to-add-a-website-to-bing-webmaster-tools/",
+			"read_on": "2026-10-21",
+			"note": "Bing offers an XML file, a meta tag or a CNAME record. Read through a third-party summary."
+		}
+	}
+}

@@ -1,0 +1,28 @@
+/* Address rows: a copyable address with its checks underneath. */
+.estasoft-nd .estasoft-nd-address { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8) var(--space-12); }
+.estasoft-nd .estasoft-nd-address .estasoft-nd-url { flex: 1 1 220px; }
+.estasoft-nd .estasoft-nd-address--labelled .estasoft-nd-address__label { flex: 0 0 120px; color: var(--text-secondary); }
+.estasoft-nd .estasoft-nd-address-row { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-16) var(--space-20); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-address-facts { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-16); }
+.estasoft-nd .estasoft-nd-address-facts .estasoft-nd-status { font-size: 13px; line-height: 18px; color: var(--text); }
+.estasoft-nd .estasoft-nd-address-facts .estasoft-nd-muted { font-size: 13px; line-height: 18px; }
+.estasoft-nd .estasoft-nd-address-footer { padding: var(--space-12) var(--space-20); border-block-start: 1px solid var(--border); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4) var(--space-16); }
+.estasoft-nd .estasoft-nd-test-result { display: flex; flex-direction: column; gap: var(--space-8); }
+.estasoft-nd .estasoft-nd-test-result ul { display: flex; flex-direction: column; gap: var(--space-4); margin-block-start: var(--space-4); }
+@media (max-width: 520px) {
+	.estasoft-nd .estasoft-nd-address--labelled .estasoft-nd-address__label { flex: 1 1 100%; }
+}
+
+/* The side column on a channel page is a little wider than the default and stacks its cards. */
+.estasoft-nd .estasoft-nd-split__side { flex: 0 0 300px; display: flex; flex-direction: column; gap: var(--space-16); }
+@media (max-width: 782px) {
+	.estasoft-nd .estasoft-nd-split__side { flex: 1 1 100%; }
+}
+
+/* Cards in the page columns take their own height, not the shared note-card basis. */
+.estasoft-nd .estasoft-nd-split__main > .estasoft-nd-card--note,
+.estasoft-nd .estasoft-nd-split__side > .estasoft-nd-card--note { flex: 0 0 auto; }
+.estasoft-nd .estasoft-nd-page-header__text { flex: 1 1 480px; min-width: 0; }
+.estasoft-nd .estasoft-nd-message > .estasoft-nd-grow { flex: 1 1 280px; }
+.estasoft-nd .estasoft-nd-rule--ok .estasoft-nd-icon { color: var(--success-icon); }
+.estasoft-nd .estasoft-nd-stack > .estasoft-nd-card--note { flex: 0 0 auto; }

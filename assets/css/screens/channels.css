@@ -1,0 +1,9 @@
+/* Channels page frame: breadcrumb and the tabs inside a channel page. */
+.estasoft-nd .estasoft-nd-breadcrumb { display: flex; flex-wrap: wrap; gap: var(--space-4); color: var(--text-secondary); margin-block-end: var(--space-4); }
+.estasoft-nd .estasoft-nd-breadcrumb a { color: var(--primary); }
+.estasoft-nd .estasoft-nd-subtabs { display: flex; flex-wrap: wrap; gap: var(--space-4); border-block-end: 1px solid var(--border); margin-block-end: var(--space-16); }
+.estasoft-nd a.estasoft-nd-subtab { display: inline-flex; align-items: center; min-height: var(--size-control); padding: 0 var(--space-12); color: var(--text-secondary); border-block-end: 2px solid transparent; margin-block-end: -1px; }
+.estasoft-nd a.estasoft-nd-subtab:hover { color: var(--text); background: var(--surface-hover); text-decoration: none; }
+.estasoft-nd a.estasoft-nd-subtab.is-current { color: var(--text); font-weight: 600; border-block-end-color: var(--primary); }
+.estasoft-nd .estasoft-nd-channel-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-12); padding: var(--space-12) var(--space-16); border-block-end: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-channel-row .estasoft-nd-channel__link { flex: 1 1 12rem; font-weight: 600; }

@@ -1,0 +1,66 @@
+/*
+ * Control: the Release plan, Takedown and Assign tabs of Article check.
+ * Loaded only on that screen. Logical properties throughout, so a right-to-left language mirrors it.
+ */
+
+/* The tab is a stack of cards with a gap. */
+.estasoft-nd .estasoft-nd-ctl-stack { display: flex; flex-direction: column; gap: var(--space-16); min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-ctl-stack > .estasoft-nd-split { margin: 0; }
+.estasoft-nd .estasoft-nd-ctl-state { align-items: center; }
+.estasoft-nd .estasoft-nd-ctl-stack .estasoft-nd-split__main > .estasoft-nd-card--note,
+.estasoft-nd .estasoft-nd-ctl-stack .estasoft-nd-split__side > .estasoft-nd-card--note { flex: 0 0 auto; }
+.estasoft-nd .estasoft-nd-ctl-stack .estasoft-nd-split__side { display: flex; flex-direction: column; gap: var(--space-16); }
+.estasoft-nd .estasoft-nd-ctl-pad { padding: 0 var(--space-20) var(--space-12); }
+.estasoft-nd .estasoft-nd-ctl-foot { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-8); padding: var(--space-16) var(--space-20) var(--space-20); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-card--note .estasoft-nd-ctl-foot { padding-inline: 0; padding-block-end: 0; border-block-start: 0; padding-block-start: var(--space-12); }
+.estasoft-nd .estasoft-nd-ctl-form { margin: 0; }
+.estasoft-nd .estasoft-nd-ctl-inline { display: inline; }
+.estasoft-nd .estasoft-nd-card--note > .estasoft-nd-title + .estasoft-nd-muted { margin-block-start: var(--space-8); }
+.estasoft-nd .estasoft-nd-card--note .estasoft-nd-ctl-form { margin-block-start: var(--space-12); }
+.estasoft-nd .estasoft-nd-form-row--wide { padding-block: var(--space-12); }
+.estasoft-nd .estasoft-nd-form-row[hidden] { display: none; }
+
+/* The timeline: channel, when, why, and a bar for the first two hours. */
+.estasoft-nd .estasoft-nd-cols-timeline { --cols: minmax(150px, 1.4fr) minmax(130px, 1fr) minmax(220px, 2.6fr) minmax(180px, 2fr); align-items: center; }
+.estasoft-nd .estasoft-nd-ctl-timeline .estasoft-nd-grid-row { align-items: center; }
+.estasoft-nd .estasoft-nd-ctl-bar { display: flex; inline-size: 100%; block-size: 8px; border-radius: 4px; overflow: hidden; background: var(--surface-hover); }
+.estasoft-nd .estasoft-nd-ctl-bar__wait { display: block; block-size: 100%; background: var(--surface-hover); }
+.estasoft-nd .estasoft-nd-ctl-bar__go { display: block; block-size: 100%; }
+.estasoft-nd .estasoft-nd-ctl-bar__go--feed { background: var(--primary); }
+.estasoft-nd .estasoft-nd-ctl-bar__go--site { background: var(--success-icon); }
+
+/* A phone: the timeline keeps its channel and time, and the bar sits under the reason. */
+@media (max-width: 782px) {
+	.estasoft-nd .estasoft-nd-ctl-pad { padding-inline: var(--space-16); }
+	.estasoft-nd .estasoft-nd-ctl-foot { padding-inline: var(--space-16); }
+	.estasoft-nd .estasoft-nd-cols-timeline { --cols: minmax(110px, 1fr) minmax(110px, 1fr) minmax(200px, 2fr) minmax(120px, 1fr); }
+}
+
+/* Takedown and Assign. */
+.estasoft-nd .estasoft-nd-ctl-gap { margin-block-start: var(--space-12); }
+.estasoft-nd .estasoft-nd-rule.estasoft-nd-ctl-line--success .estasoft-nd-icon { color: var(--success-icon); }
+.estasoft-nd .estasoft-nd-rule.estasoft-nd-ctl-line--warning .estasoft-nd-icon { color: var(--warning-icon); }
+.estasoft-nd .estasoft-nd-rule.estasoft-nd-ctl-line--danger .estasoft-nd-icon { color: var(--danger-icon); }
+.estasoft-nd .estasoft-nd-ctl-sum { margin-block-start: var(--space-12); }
+
+/* Assign: the filter, one row for each problem, and a person with their initials. */
+.estasoft-nd .estasoft-nd-ctl-filters { display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: var(--space-8) var(--space-16); text-align: start; }
+.estasoft-nd .estasoft-nd-ctl-fix { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr) auto; align-items: center; gap: var(--space-8) var(--space-16); padding: var(--space-16) var(--space-20); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ctl-fix--own { grid-template-columns: minmax(0, 1fr) auto; }
+.estasoft-nd .estasoft-nd-ctl-fix__what { display: flex; flex-direction: column; gap: var(--space-4); min-inline-size: 0; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-ctl-fix__title { font-size: 14px; line-height: 20px; }
+.estasoft-nd .estasoft-nd-ctl-fix__do { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: var(--space-8); }
+.estasoft-nd .estasoft-nd-ctl-choose { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: var(--space-8); margin: 0; }
+.estasoft-nd .estasoft-nd-ctl-choose .estasoft-nd-field { min-inline-size: 150px; }
+.estasoft-nd .estasoft-nd-ctl-person { display: flex; align-items: center; gap: var(--space-8); min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-ctl-since { display: inline-flex; align-items: center; gap: var(--space-4); }
+.estasoft-nd .estasoft-nd-ctl-since .estasoft-nd-icon { color: var(--primary); }
+.estasoft-nd .estasoft-nd-ctl-avatar { display: inline-flex; flex: none; align-items: center; justify-content: center; inline-size: 28px; block-size: 28px; border-radius: 50%; background: var(--text-secondary); color: var(--text-inverse); font-size: 12px; line-height: 16px; font-weight: 600; }
+.estasoft-nd .estasoft-nd-ctl-avatar--you { background: var(--primary); }
+
+@media (max-width: 782px) {
+	.estasoft-nd .estasoft-nd-ctl-fix { grid-template-columns: minmax(0, 1fr); padding-inline: var(--space-16); }
+	.estasoft-nd .estasoft-nd-ctl-fix--own { grid-template-columns: minmax(0, 1fr); }
+	.estasoft-nd .estasoft-nd-ctl-fix__do,
+	.estasoft-nd .estasoft-nd-ctl-choose { justify-content: flex-start; }
+}

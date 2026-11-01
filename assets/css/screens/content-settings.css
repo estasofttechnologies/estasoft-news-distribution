@@ -1,0 +1,43 @@
+/* Article dates, Authors, Publisher trust and Platform rules. Loaded only on those four settings screens. */
+
+/* A computed row with no label gives its whole width to what it shows. */
+.estasoft-nd .estasoft-nd-form-label:empty{display:none}
+.estasoft-nd .estasoft-nd-block{display:block}
+/* WordPress sets a maximum width on select that beats the width presets, so a wide select spills out of a narrow screen. */
+.estasoft-nd select.estasoft-nd-field{max-width:100%}
+.estasoft-nd .estasoft-nd-pad{padding:var(--space-16) var(--space-20);margin:0}
+
+/* A table inside a card runs edge to edge. */
+.estasoft-nd .estasoft-nd-form-row:has(.estasoft-nd-grid-wrap){padding:0;border-top:0}
+.estasoft-nd .estasoft-nd-form-row:has(.estasoft-nd-grid-wrap) .estasoft-nd-form-control{flex:1 1 100%;gap:0}
+.estasoft-nd .estasoft-nd-grid-wrap{border-top:1px solid var(--border)}
+.estasoft-nd .estasoft-nd-grid-wrap .estasoft-nd-grid-row>[role="cell"]{min-width:0;overflow-wrap:anywhere}
+.estasoft-nd .estasoft-nd-collapse .estasoft-nd-grid-wrap{border-top:0}
+.estasoft-nd .estasoft-nd-collapse .estasoft-nd-table{min-width:720px}
+
+.estasoft-nd-cols-dates{--cols:minmax(200px,2fr) 150px 130px minmax(180px,2fr)}
+.estasoft-nd-cols-trust{--cols:minmax(180px,1.6fr) minmax(220px,2fr) 150px minmax(150px,1.4fr)}
+.estasoft-nd-cols-packs{--cols:minmax(110px,1fr) 96px minmax(160px,2fr) minmax(110px,1fr) minmax(90px,.9fr) 84px;min-width:760px}
+.estasoft-nd-cols-rule{--cols:minmax(200px,2fr) 150px 100px minmax(220px,2.4fr)}
+
+/* Examples of the Publish box line (Article dates). */
+.estasoft-nd-examples{display:flex;flex-wrap:wrap;gap:var(--space-12)}
+.estasoft-nd-example{display:flex;flex-direction:column;gap:var(--space-2);flex:1 1 200px;padding:var(--space-12) var(--space-16);border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface-subtle)}
+.estasoft-nd-form-control>ul.estasoft-nd-stack{margin:0;padding:0;list-style:none}
+.estasoft-nd-form-control>ul.estasoft-nd-stack>li{margin:0}
+
+/* "What the guard cannot do" reads before "Why it matters", as on the board. */
+form[data-section="dates"] .estasoft-nd-notes>.estasoft-nd-card--note:last-child:not(:only-child){order:-1}
+
+/* The WordPress default for code is a grey patch behind every line. */
+.estasoft-nd .estasoft-nd-code code{background:transparent;padding:0}
+.estasoft-nd .estasoft-nd-message{flex-wrap:nowrap;align-items:flex-start}
+
+/* Rule packs: the roll back button is a form of its own. */
+.estasoft-nd-grid-row form{margin:0}
+.estasoft-nd-grid-row .estasoft-nd-btn--subtle{min-height:var(--size-control-sm);padding:0 var(--space-8)}
+.estasoft-nd-grid-row code{font-family:var(--font-mono);font-size:12px;background:transparent;padding:0}
+
+@media (max-width:600px){
+	.estasoft-nd .estasoft-nd-pad{padding:var(--space-12) var(--space-16)}
+}

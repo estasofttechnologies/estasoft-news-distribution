@@ -1,0 +1,104 @@
+/* Media library: the "News Distribution: credit and rights" box in the attachment details. */
+
+.estasoft-nd-media {
+	--estasoft-nd-media-border: #b3d3ff;
+	--estasoft-nd-media-bg: #edf5ff;
+	--estasoft-nd-media-text: #19212c;
+	--estasoft-nd-media-muted: #505966;
+	--estasoft-nd-media-warn: #b16400;
+	--estasoft-nd-media-ok: #005729;
+	box-sizing: border-box;
+	margin: 12px 0;
+	padding: 12px 12px 4px;
+	border: 1px solid var(--estasoft-nd-media-border);
+	border-radius: 8px;
+	background: var(--estasoft-nd-media-bg);
+	color: var(--estasoft-nd-media-text);
+	font-size: 13px;
+	line-height: 1.5;
+}
+
+.estasoft-nd-media__title {
+	margin: 0 0 8px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.estasoft-nd-media .estasoft-nd-media__field {
+	display: block;
+	margin: 0 0 12px;
+}
+
+.estasoft-nd-media .estasoft-nd-media__field label {
+	display: inline;
+	margin: 0;
+	font-weight: 600;
+}
+
+.estasoft-nd-media .estasoft-nd-media__input {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 100%;
+	margin: 4px 0;
+}
+
+.estasoft-nd-media .estasoft-nd-media__input--select {
+	width: auto;
+	min-width: 220px;
+}
+
+.estasoft-nd-media .estasoft-nd-media__help {
+	display: block;
+	margin: 0 0 12px;
+	color: var(--estasoft-nd-media-muted);
+	font-size: 12px;
+}
+
+.estasoft-nd-media .estasoft-nd-media__from {
+	display: inline-block;
+	margin-inline-start: 6px;
+	padding: 0 6px;
+	border: 1px solid var(--estasoft-nd-media-ok);
+	border-radius: 2px;
+	color: var(--estasoft-nd-media-ok);
+	font-size: 11px;
+	font-weight: 400;
+}
+
+.estasoft-nd-media .estasoft-nd-media__actions {
+	margin: 0 0 12px;
+}
+
+.estasoft-nd-media .estasoft-nd-media__status {
+	margin-inline-start: 8px;
+	color: var(--estasoft-nd-media-muted);
+	font-size: 12px;
+}
+
+.estasoft-nd-media .estasoft-nd-media__warn {
+	margin: 0 0 12px;
+	padding-inline-start: 22px;
+	position: relative;
+	font-size: 12px;
+}
+
+.estasoft-nd-media .estasoft-nd-media__warn[hidden] {
+	display: none;
+}
+
+.estasoft-nd-media .estasoft-nd-media__warn::before {
+	content: "!";
+	position: absolute;
+	inset-inline-start: 0;
+	top: 1px;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: var(--estasoft-nd-media-warn);
+	color: #fff;
+	font-size: 10px;
+	font-weight: 700;
+	line-height: 14px;
+	text-align: center;
+}

@@ -1,0 +1,24 @@
+/*
+ * Settings, Alerts: the Chat card (Slack and Microsoft Teams) and the "What to send where" table
+ * with its Email, Slack and Teams columns. Loaded with the operations styles, on the Alerts section only.
+ */
+
+/* One column for the alert and one narrow column of check boxes for each place. */
+.estasoft-nd .estasoft-nd-cols-ops-alerts-chat { --cols: minmax(0, 1fr) 84px 84px 84px; }
+.estasoft-nd .estasoft-nd-cols-ops-alerts-chat > :not(:first-child) { justify-self: center; }
+.estasoft-nd .estasoft-nd-grid-wrap:has(.estasoft-nd-cols-ops-alerts-chat) .estasoft-nd-table { min-width: 0; }
+
+/* A column that is off until its webhook is saved: the box is greyed and cannot be ticked. */
+.estasoft-nd .estasoft-nd-cols-ops-alerts-chat input[type="checkbox"]:disabled { cursor: not-allowed; opacity: 0.5; }
+.estasoft-nd .estasoft-nd-cols-ops-alerts-chat .estasoft-nd-ops-tick:has(input:disabled) { cursor: not-allowed; }
+
+/* The webhook box, its button and the answer to the last test. */
+.estasoft-nd .estasoft-nd-chat-result { margin-block-start: var(--space-8); min-block-size: 24px; }
+.estasoft-nd .estasoft-nd-chat-result:has(.estasoft-nd-ops-result:empty) { margin-block-start: 0; min-block-size: 0; }
+.estasoft-nd .estasoft-nd-chat-result .estasoft-nd-ops-result { display: block; }
+.estasoft-nd .estasoft-nd-chat-result .estasoft-nd-ops-result:empty { display: none; }
+.estasoft-nd .estasoft-nd-chat-row .estasoft-nd-field { flex: 1 1 260px; min-inline-size: 0; max-inline-size: 100%; }
+
+@media (max-width: 600px) {
+	.estasoft-nd .estasoft-nd-cols-ops-alerts-chat { --cols: minmax(0, 1fr) 52px 52px 52px; }
+}

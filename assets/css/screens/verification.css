@@ -1,0 +1,36 @@
+/* Site verification page. */
+.estasoft-nd .estasoft-nd-cols-verify { --cols: minmax(150px, 1.1fr) minmax(190px, 1.5fr) minmax(180px, 1.3fr) minmax(110px, 0.9fr) 72px; }
+.estasoft-nd .estasoft-nd-grid-row--current { background: var(--primary-tint); }
+.estasoft-nd .estasoft-nd-vstate { display: inline-flex; align-items: center; gap: var(--space-8); font-size: 13px; line-height: 18px; }
+.estasoft-nd .estasoft-nd-vstate .estasoft-nd-icon { flex: none; }
+.estasoft-nd .estasoft-nd-vstate--ok .estasoft-nd-icon,
+.estasoft-nd .estasoft-nd-vstate--ok > .estasoft-nd-icon { color: var(--success-icon); }
+.estasoft-nd .estasoft-nd-vstate--bad .estasoft-nd-icon,
+.estasoft-nd .estasoft-nd-vstate--bad > .estasoft-nd-icon { color: var(--warning-icon); }
+.estasoft-nd .estasoft-nd-vstate--fail .estasoft-nd-icon,
+.estasoft-nd .estasoft-nd-vstate--fail > .estasoft-nd-icon { color: var(--danger-icon); }
+.estasoft-nd .estasoft-nd-vstate--off .estasoft-nd-icon,
+.estasoft-nd .estasoft-nd-vstate--off > .estasoft-nd-icon { color: var(--neutral-icon); }
+.estasoft-nd .estasoft-nd-verify { display: flex; flex-wrap: wrap; gap: var(--space-16); align-items: flex-start; }
+.estasoft-nd .estasoft-nd-verify__form { flex: 1 1 440px; min-width: 0; }
+.estasoft-nd .estasoft-nd-verify__side { flex: 1 1 360px; min-width: 0; }
+.estasoft-nd .estasoft-nd-verify__form > .estasoft-nd-card { flex: none; }
+.estasoft-nd .estasoft-nd-verify__method { border: 0; margin: 0; padding: var(--space-16) 0 0; border-block-start: 1px solid var(--border); display: flex; flex-direction: column; gap: var(--space-8); min-width: 0; }
+.estasoft-nd .estasoft-nd-verify__method legend { padding: 0; float: left; width: 100%; margin-block-end: var(--space-8); }
+.estasoft-nd .estasoft-nd-verify__method legend + * { clear: both; }
+.estasoft-nd .estasoft-nd-verify__group { padding-block-start: var(--space-16); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-verify__input { width: 100%; max-width: 320px; }
+.estasoft-nd .estasoft-nd-verify__textarea { max-width: 100%; width: 100%; line-height: 20px; padding-block: var(--space-6); }
+.estasoft-nd .estasoft-nd-verify__after { padding-block-start: var(--space-16); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-verify__error { display: flex; align-items: center; gap: var(--space-4); color: var(--danger-text); }
+.estasoft-nd .estasoft-nd-verify__error .estasoft-nd-icon { color: var(--danger-icon); flex: none; }
+.estasoft-nd .estasoft-nd-verify__input[aria-invalid="true"] { border-color: var(--danger-icon); }
+.estasoft-nd .estasoft-nd-verify__side .estasoft-nd-rule.estasoft-nd-vstate--ok .estasoft-nd-icon { color: var(--success-icon); }
+.estasoft-nd .estasoft-nd-verify__side .estasoft-nd-rule.estasoft-nd-vstate--bad .estasoft-nd-icon { color: var(--warning-icon); }
+.estasoft-nd .estasoft-nd-verify__side .estasoft-nd-rule.estasoft-nd-vstate--fail .estasoft-nd-icon { color: var(--danger-icon); }
+.estasoft-nd .estasoft-nd-verify__side .estasoft-nd-card { flex: none; }
+@media (max-width: 600px) {
+	.estasoft-nd .estasoft-nd-cols-verify { --cols: 150px 200px 180px 120px 72px; }
+}
+.estasoft-nd .estasoft-nd-verify__after h3 { font-size: 14px; line-height: 20px; margin: 0; }
+.estasoft-nd .estasoft-nd-verify__form h2, .estasoft-nd .estasoft-nd-verify__side h2 { margin: 0; }

@@ -1,0 +1,11 @@
+/* Listings page. */
+.estasoft-nd .estasoft-nd-listing__intro { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-4) var(--space-20) var(--space-20); }
+.estasoft-nd .estasoft-nd-listing__send { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-16) var(--space-20); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-listing__send .estasoft-nd-title--sm { font-size: 14px; line-height: 20px; }
+.estasoft-nd .estasoft-nd-listing__status { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--space-12) var(--space-16); padding: var(--space-16) var(--space-20); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-listing__date { width: 150px; }
+.estasoft-nd .estasoft-nd-listing__hint { flex: 1 1 260px; align-self: center; margin: 0; }
+.estasoft-nd .estasoft-nd-listing__error { flex: 1 1 260px; align-self: center; display: flex; gap: var(--space-4); align-items: center; color: var(--danger-text); }
+.estasoft-nd .estasoft-nd-listing__error .estasoft-nd-icon { color: var(--danger-icon); }
+.estasoft-nd .estasoft-nd-listing__date[aria-invalid="true"] { border-color: var(--danger-icon); }
+.estasoft-nd .estasoft-nd-address--labelled .estasoft-nd-url { overflow-wrap: anywhere; }

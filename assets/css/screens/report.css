@@ -1,0 +1,91 @@
+/*
+ * The readiness report.
+ *
+ * Part 1 styles the report itself and is used twice: as the preview inside the
+ * channel page (where admin.css supplies the tokens and utilities) and on the
+ * shared page. Part 2 is only for the shared page, which loads nothing else: it
+ * carries the tokens and the few utilities the report markup uses.
+ */
+
+/* Part 1: the report. */
+.estasoft-nd-report { display: flex; flex-direction: column; gap: var(--space-24); min-inline-size: 0; }
+.estasoft-nd-report .estasoft-nd-headline { font-size: 24px; line-height: 32px; overflow-wrap: anywhere; }
+.estasoft-nd-report__head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--space-8) var(--space-16); }
+.estasoft-nd-report__section { display: flex; flex-direction: column; gap: var(--space-8); min-inline-size: 0; }
+.estasoft-nd-report__section[hidden] { display: none; }
+.estasoft-nd-report__section .estasoft-nd-title { font-size: 16px; line-height: 22px; }
+.estasoft-nd-report__section > .estasoft-nd-title + .estasoft-nd-stack { margin-block-start: var(--space-4); }
+.estasoft-nd-report__section .estasoft-nd-status { font-size: 13px; line-height: 18px; color: var(--text); }
+.estasoft-nd-report__section ul { list-style: none; margin: 0; padding: 0; }
+.estasoft-nd-report .estasoft-nd-url { flex: 0 0 auto; margin: 0; padding: var(--space-6) var(--space-8); border: 1px solid var(--border-strong); border-radius: var(--radius-md); background: var(--surface-subtle); overflow-wrap: anywhere; font-family: var(--font-mono, ui-monospace, Menlo, Consolas, monospace); font-size: 13px; line-height: 18px; }
+.estasoft-nd-report__entry { display: flex; flex-direction: column; gap: var(--space-8); padding-block: var(--space-12); border-block-start: 1px solid var(--border); overflow-wrap: anywhere; }
+.estasoft-nd-report__entry:first-child { border-block-start: 1px solid var(--border); }
+.estasoft-nd-report__entry .estasoft-nd-cluster { font-weight: 600; flex-wrap: nowrap; align-items: baseline; }
+.estasoft-nd-report__foot { padding-block-start: var(--space-12); border-block-start: 1px solid var(--border); }
+
+/* Part 2: the shared page only. */
+.estasoft-nd-public {
+	--surface: #ffffff;
+	--surface-subtle: #f8f9fb;
+	--border: #dce0e4;
+	--border-strong: #c4cacf;
+	--text: #19212c;
+	--text-secondary: #505966;
+	--primary: #005ece;
+	--success-icon: #098b47;
+	--warning-icon: #b16400;
+	--danger-icon: #cc2827;
+	--neutral-icon: #626a73;
+	--space-4: 4px;
+	--space-6: 6px;
+	--space-8: 8px;
+	--space-12: 12px;
+	--space-16: 16px;
+	--space-24: 24px;
+	--space-32: 32px;
+	--radius-sm: 2px;
+	--radius-md: 4px;
+	--font-sans: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+	--font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+	margin: 0;
+	background: var(--surface);
+	color: var(--text);
+	color-scheme: light;
+	font-family: var(--font-sans);
+	font-size: 14px;
+	line-height: 20px;
+}
+.estasoft-nd-public *, .estasoft-nd-public *::before, .estasoft-nd-public *::after { box-sizing: border-box; }
+.estasoft-nd-public :lang(ar), .estasoft-nd-public [lang="ar"] { line-height: 24px; }
+.estasoft-nd-public__page { max-inline-size: 840px; margin-inline: auto; padding: var(--space-32) var(--space-16); display: flex; flex-direction: column; gap: var(--space-16); }
+.estasoft-nd-public h1, .estasoft-nd-public h2, .estasoft-nd-public h3, .estasoft-nd-public p, .estasoft-nd-public ul { margin: 0; padding: 0; }
+.estasoft-nd-public ul { list-style: none; }
+.estasoft-nd-public a { color: var(--primary); }
+.estasoft-nd-public :focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+.estasoft-nd-public .estasoft-nd-title { font-size: 16px; line-height: 22px; font-weight: 600; }
+.estasoft-nd-public .estasoft-nd-headline { font-weight: 600; }
+.estasoft-nd-public .estasoft-nd-muted { color: var(--text-secondary); }
+.estasoft-nd-public .estasoft-nd-small { font-size: 12px; line-height: 16px; }
+.estasoft-nd-public .estasoft-nd-mono { font-family: var(--font-mono); font-size: 13px; line-height: 18px; }
+.estasoft-nd-public .estasoft-nd-stack { display: flex; flex-direction: column; }
+.estasoft-nd-public .estasoft-nd-cluster { display: flex; flex-wrap: wrap; align-items: center; }
+.estasoft-nd-public .estasoft-nd-gap-4 { gap: var(--space-4); }
+.estasoft-nd-public .estasoft-nd-gap-6 { gap: var(--space-6); }
+.estasoft-nd-public .estasoft-nd-gap-8 { gap: var(--space-8); }
+.estasoft-nd-public .estasoft-nd-gap-12 { gap: var(--space-12); }
+.estasoft-nd-public .estasoft-nd-sr { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.estasoft-nd-public .estasoft-nd-icon { inline-size: 16px; block-size: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.estasoft-nd-public .estasoft-nd-status { display: inline-flex; align-items: flex-start; gap: var(--space-6); overflow-wrap: anywhere; }
+.estasoft-nd-public .estasoft-nd-status .estasoft-nd-icon { margin-block-start: 1px; }
+.estasoft-nd-public .estasoft-nd-status--success .estasoft-nd-icon { color: var(--success-icon); }
+.estasoft-nd-public .estasoft-nd-status--warning .estasoft-nd-icon { color: var(--warning-icon); }
+.estasoft-nd-public .estasoft-nd-status--danger .estasoft-nd-icon { color: var(--danger-icon); }
+.estasoft-nd-public .estasoft-nd-status--neutral .estasoft-nd-icon, .estasoft-nd-public .estasoft-nd-status--wait .estasoft-nd-icon { color: var(--neutral-icon); }
+.estasoft-nd-public .estasoft-nd-lang { font-size: 12px; line-height: 16px; font-weight: 600; color: var(--text-secondary); border: 1px solid var(--border-strong); border-radius: var(--radius-sm); padding: 0 var(--space-6); background: var(--surface); }
+.estasoft-nd-public .estasoft-nd-report__expires { padding-block-start: var(--space-8); }
+
+@media print {
+	.estasoft-nd-public__page { max-inline-size: none; padding: 0; }
+	.estasoft-nd-report__section, .estasoft-nd-report__entry { break-inside: avoid; }
+	.estasoft-nd-public a { color: inherit; text-decoration: none; }
+}

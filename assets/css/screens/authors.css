@@ -1,0 +1,35 @@
+/* Authors: the ordered sources and the names that are not people. Loaded only on that settings screen. */
+
+.estasoft-nd-sources-wrap{display:flex;flex-direction:column;gap:var(--space-8);min-width:0}
+.estasoft-nd-sources{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-8)}
+.estasoft-nd-source{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-8) var(--space-16);padding:var(--space-12) var(--space-16);border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface)}
+.estasoft-nd-source.is-dragging{opacity:.5}
+.estasoft-nd-source.is-over{border-color:var(--primary);box-shadow:0 0 0 1px var(--primary)}
+.estasoft-nd-source__handle{flex:none;width:16px;color:var(--text-secondary);cursor:grab;user-select:none;text-align:center;line-height:1}
+.estasoft-nd-source__handle::before{content:"\2261";font-size:18px}
+.estasoft-nd-source--fixed .estasoft-nd-source__handle{opacity:.4;cursor:default}
+.estasoft-nd-source__text{flex:1 1 220px;min-width:0;display:flex;flex-direction:column;gap:var(--space-2)}
+.estasoft-nd-source__text .estasoft-nd-muted{font-size:12px;line-height:16px}
+.estasoft-nd-source__state{display:inline-flex;align-items:center;gap:var(--space-6);font-size:12px;line-height:16px;color:var(--text-secondary)}
+.estasoft-nd-source__state .estasoft-nd-icon{width:16px;height:16px}
+.estasoft-nd-source__state[data-kind] .estasoft-nd-icon{color:var(--neutral-icon)}
+.estasoft-nd-source__order{display:flex;align-items:center;gap:var(--space-8);min-width:80px;justify-content:flex-end}
+.estasoft-nd-source__position{display:inline-flex;align-items:center;gap:var(--space-6)}
+.estasoft-nd-source__position .estasoft-nd-field{width:auto;min-width:64px}
+.estasoft-nd-source__buttons{display:inline-flex;gap:var(--space-4)}
+.estasoft-nd-source__move{min-height:var(--size-control-sm);padding:0 var(--space-8)}
+.estasoft-nd-source__move[disabled]{opacity:.4;cursor:default}
+
+.estasoft-nd-chips{display:flex;flex-wrap:wrap;gap:var(--space-8)}
+.estasoft-nd-chips:empty{display:none}
+.estasoft-nd-chip{position:relative;display:inline-flex;align-items:center;gap:var(--space-6);min-height:28px;padding:0 var(--space-8);border:1px solid var(--border-strong);border-radius:var(--radius-sm);background:var(--surface);font-size:12px;line-height:16px;cursor:pointer}
+.estasoft-nd-chip input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.estasoft-nd-chip__x{display:inline-flex;color:var(--text-secondary)}
+.estasoft-nd-chip__x .estasoft-nd-icon{width:12px;height:12px}
+.estasoft-nd-chip input:not(:checked)~.estasoft-nd-chip__name{text-decoration:line-through;color:var(--text-secondary)}
+.estasoft-nd-chip:focus-within{outline:2px solid var(--primary);outline-offset:1px}
+
+@media (max-width:600px){
+	.estasoft-nd-source{padding:var(--space-12)}
+	.estasoft-nd-source__order{width:100%;justify-content:flex-start}
+}

@@ -1,0 +1,74 @@
+/* Overview: the path to each platform, what needs attention, the channels and the latest articles. */
+
+/* WordPress styles every h1 inside .wrap (23px, regular), which wins over the single-class heading style. */
+.wrap.estasoft-nd h1.estasoft-nd-page-title { font-size: 24px; line-height: 32px; font-weight: 600; padding: 0; }
+
+.estasoft-nd .estasoft-nd-ov-section { display: flex; flex-direction: column; gap: var(--space-12); }
+.estasoft-nd .estasoft-nd-ov-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-4) var(--space-16); }
+.estasoft-nd .estasoft-nd-ov-head h2 { display: flex; align-items: center; gap: var(--space-8); }
+.estasoft-nd .estasoft-nd-ov-checked { white-space: nowrap; }
+.estasoft-nd .estasoft-nd-ov-restore { display: flex; }
+
+/* The language filter at the end of the app bar. */
+.estasoft-nd .estasoft-nd-ov-lang { display: flex; align-items: center; gap: var(--space-8); padding-block: var(--space-8); }
+.estasoft-nd .estasoft-nd-ov-lang label { font-size: 12px; line-height: 16px; color: var(--text-secondary); }
+.estasoft-nd.has-js .estasoft-nd-ov-nojs { display: none; }
+
+/* Needs attention. */
+.estasoft-nd .estasoft-nd-ov-att { flex-wrap: nowrap; align-items: flex-start; }
+.estasoft-nd .estasoft-nd-ov-att > .estasoft-nd-btn { flex: none; align-self: center; }
+.estasoft-nd .estasoft-nd-ov-att__text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.estasoft-nd .estasoft-nd-ov-icon { display: inline-flex; flex: none; margin-block-start: 1px; }
+.estasoft-nd .estasoft-nd-ov-icon--success { color: var(--success-icon); }
+.estasoft-nd .estasoft-nd-ov-icon--warning { color: var(--warning-icon); }
+.estasoft-nd .estasoft-nd-ov-icon--danger { color: var(--danger-icon); }
+.estasoft-nd .estasoft-nd-ov-icon--info { color: var(--primary); }
+.estasoft-nd .estasoft-nd-ov-icon--wait,
+.estasoft-nd .estasoft-nd-ov-icon--neutral { color: var(--neutral-icon); }
+
+/* Channels by connection type. */
+.estasoft-nd .estasoft-nd-ov-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-16); align-items: start; }
+.estasoft-nd .estasoft-nd-ov-columns--one { grid-template-columns: minmax(0, 1fr); }
+.estasoft-nd .estasoft-nd-ov-column { display: flex; flex-direction: column; gap: var(--space-16); min-width: 0; }
+.estasoft-nd .estasoft-nd-ov-folded > .estasoft-nd-collapse:first-child { border-block-start: 0; }
+.estasoft-nd .estasoft-nd-ov-folded .estasoft-nd-group-row { padding-inline: var(--space-20); }
+
+/* Latest articles. */
+.estasoft-nd .estasoft-nd-ov-cols-matrix { --cols: minmax(200px, 2.2fr) 56px repeat(4, minmax(104px, 1fr)); }
+.estasoft-nd .estasoft-nd-ov-cols-result { --cols: minmax(220px, 3fr) 72px minmax(260px, 3fr); }
+.estasoft-nd .estasoft-nd-ov-legend { display: flex; flex-wrap: wrap; gap: var(--space-8) var(--space-20); }
+.estasoft-nd .estasoft-nd-ov-list { display: none; }
+.estasoft-nd .estasoft-nd-ov-articles a.estasoft-nd-strong { color: var(--text); }
+.estasoft-nd .estasoft-nd-ov-articles a.estasoft-nd-strong:hover { color: var(--primary); }
+.estasoft-nd .estasoft-nd-ov-item { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); padding: var(--space-12) var(--space-16); }
+.estasoft-nd .estasoft-nd-ov-item + .estasoft-nd-ov-item { border-block-start: 1px solid var(--border); }
+
+/* Your path to each platform. */
+.estasoft-nd .estasoft-nd-ov-psection > h3 { padding: var(--space-8) var(--space-20); background: var(--surface-subtle); border-block: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ov-prow { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(170px, 2fr) minmax(200px, 3fr) auto; align-items: center; gap: var(--space-8) var(--space-20); padding: var(--space-12) var(--space-20); }
+.estasoft-nd .estasoft-nd-ov-prow + .estasoft-nd-ov-prow { border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ov-prow > .estasoft-nd-btn { justify-self: end; }
+.estasoft-nd .estasoft-nd-ov-prow__text { color: var(--text-secondary); }
+.estasoft-nd .estasoft-nd-ov-pathfoot { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-12) var(--space-24); padding: var(--space-12) var(--space-20); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ov-pathfoot > .estasoft-nd-stack { flex: 1 1 280px; }
+
+@media (max-width: 960px) {
+	.estasoft-nd .estasoft-nd-ov-columns { grid-template-columns: minmax(0, 1fr); }
+	.estasoft-nd .estasoft-nd-ov-prow { grid-template-columns: minmax(0, 1fr) auto; }
+	.estasoft-nd .estasoft-nd-ov-prow > .estasoft-nd-strong { grid-column: 1; }
+	.estasoft-nd .estasoft-nd-ov-prow > .estasoft-nd-btn { grid-column: 2; grid-row: 1; }
+	.estasoft-nd .estasoft-nd-ov-prow > .estasoft-nd-stack,
+	.estasoft-nd .estasoft-nd-ov-prow > .estasoft-nd-ov-prow__text { grid-column: 1 / -1; }
+}
+
+@media (max-width: 520px) {
+	.estasoft-nd .estasoft-nd-ov-att { flex-wrap: wrap; }
+	.estasoft-nd .estasoft-nd-ov-att__text { flex: 1 1 calc(100% - 40px); }
+	.estasoft-nd .estasoft-nd-ov-att > .estasoft-nd-btn { flex: 1 1 100%; align-self: stretch; }
+	.estasoft-nd .estasoft-nd-ov-articles > .estasoft-nd-scroll { display: none; }
+	.estasoft-nd .estasoft-nd-ov-list { display: block; }
+	.estasoft-nd .estasoft-nd-ov-psection > h3,
+	.estasoft-nd .estasoft-nd-ov-prow,
+	.estasoft-nd .estasoft-nd-ov-pathfoot { padding-inline: var(--space-16); }
+	.estasoft-nd .estasoft-nd-ov-head > a { white-space: nowrap; }
+}

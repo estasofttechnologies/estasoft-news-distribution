@@ -1,0 +1,30 @@
+/* Settings, Languages, and the overview of the interface in seven languages. Loaded only there. */
+.estasoft-nd-form-row--wide{display:block;padding:0}
+.estasoft-nd-langlist{display:flex;flex-direction:column}
+.estasoft-nd-langrow{display:grid;grid-template-columns:auto minmax(0,1fr) auto auto;align-items:center;gap:var(--space-8) var(--space-16);padding:var(--space-16) var(--space-20)}
+.estasoft-nd-langrow+.estasoft-nd-langrow{border-top:1px solid var(--border)}
+.estasoft-nd-langrow__text{display:flex;flex-direction:column;gap:var(--space-2);min-width:0}
+.estasoft-nd-langrow__label{display:flex;flex-direction:column;gap:var(--space-2);cursor:pointer}
+.estasoft-nd-langrow__name{font-size:14px;line-height:20px}
+.estasoft-nd-langrow .estasoft-nd-toggle:disabled{opacity:.7;cursor:not-allowed}
+.estasoft-nd-langlist__error{margin:0;padding:0 var(--space-20) var(--space-16)}
+.estasoft-nd-crumbs{font-size:12px;line-height:16px;color:var(--text-secondary)}
+.estasoft-nd-langgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:var(--space-16);align-items:start}
+.estasoft-nd-langcard{overflow:hidden;padding:0}
+.estasoft-nd-langcard__head{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-8) var(--space-12);padding:var(--space-16) var(--space-20);border-bottom:1px solid var(--border)}
+.estasoft-nd-langcard__head .estasoft-nd-title{margin:0}
+.estasoft-nd-langprev{display:flex;flex-direction:column;gap:var(--space-12);padding:var(--space-12) var(--space-16) var(--space-20)}
+.estasoft-nd-langprev__brand{display:flex;align-items:center;gap:var(--space-8);font-size:16px;line-height:24px;font-weight:600}
+.estasoft-nd-langprev__tabs{display:flex;flex-wrap:nowrap;gap:0 var(--space-4);list-style:none;margin:0;padding:0;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none}
+.estasoft-nd-langprev__tabs li{margin:0 0 -1px;padding:var(--space-8) var(--space-12);white-space:nowrap;flex:none;color:var(--text-secondary);border-bottom:2px solid transparent}
+.estasoft-nd-langprev__tabs li.is-current{color:var(--text);font-weight:600;border-bottom-color:var(--primary)}
+.estasoft-nd-langprev__title{margin:0;font-size:20px;line-height:28px;font-weight:600}
+.estasoft-nd-langprev__bar{display:flex;align-items:center;gap:var(--space-12);padding:var(--space-12) var(--space-16);background:var(--warning-tint);border:1px solid var(--warning-border);border-radius:var(--radius-md)}
+.estasoft-nd-langprev__bar .estasoft-nd-icon{color:var(--warning-icon)}
+.estasoft-nd-langprev__bartext{flex:1;display:flex;flex-direction:column;min-width:0}
+.estasoft-nd-langprev__bar .estasoft-nd-btn{cursor:default;pointer-events:none}
+@media (max-width:600px){
+	.estasoft-nd-langrow{grid-template-columns:auto minmax(0,1fr)}
+	.estasoft-nd-langrow .estasoft-nd-lang,.estasoft-nd-langrow .estasoft-nd-badge{grid-column:2;justify-self:start}
+	.estasoft-nd-langprev__bar{flex-wrap:wrap}
+}

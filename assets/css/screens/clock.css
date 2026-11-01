@@ -1,0 +1,18 @@
+/* Settings, Clock and time zone. Loaded only on that screen. */
+.estasoft-nd-form-row--wide{display:block;padding:0}
+.estasoft-nd-findings{display:flex;flex-direction:column}
+.estasoft-nd-finding{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:start;gap:var(--space-8) var(--space-12);padding:var(--space-16) var(--space-20)}
+.estasoft-nd-finding+.estasoft-nd-finding{border-top:1px solid var(--border)}
+.estasoft-nd-finding__icon{margin-top:2px}
+.estasoft-nd-finding__text{display:flex;flex-direction:column;gap:var(--space-2);min-width:0}
+.estasoft-nd-finding__text p{margin:0}
+.estasoft-nd-finding__actions{display:flex;flex-wrap:wrap;gap:var(--space-8);align-items:center}
+.estasoft-nd-cols-clocks{--cols:minmax(140px,1.2fr) minmax(170px,1.4fr) minmax(150px,1.4fr) minmax(90px,.8fr)}
+.estasoft-nd-cols-future{--cols:minmax(220px,2.4fr) minmax(160px,1.4fr) minmax(120px,1fr) minmax(90px,.8fr)}
+.estasoft-nd-clock-more{margin:0;padding:var(--space-8) var(--space-20) var(--space-12)}
+.estasoft-nd-clock-empty{margin:0;padding:var(--space-8) var(--space-20) var(--space-16)}
+.estasoft-nd-rule--success .estasoft-nd-icon{color:var(--success-icon)}
+@media (max-width:600px){
+	.estasoft-nd-finding{grid-template-columns:auto minmax(0,1fr)}
+	.estasoft-nd-finding__actions{grid-column:2}
+}

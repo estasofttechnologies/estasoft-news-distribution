@@ -1,0 +1,76 @@
+/*
+ * Operations screens: Connections, Cache purge, Alerts (with Emails and Weekly summary),
+ * Privacy and data, Backup and uninstall. Loaded only on those screens.
+ */
+
+/* A wide row spans the card: tables and text blocks bring their own padding. */
+.estasoft-nd-form-row--wide { display: block; padding: 0; }
+
+.estasoft-nd .estasoft-nd-ops-pad { padding: var(--space-16) var(--space-20); }
+.estasoft-nd .estasoft-nd-ops-pad + .estasoft-nd-ops-pad,
+.estasoft-nd .estasoft-nd-card-head + .estasoft-nd-ops-pad { border-block-start: 1px solid var(--border); }
+/* A card's status sits at the end of its heading, beside the text, not under it. */
+.estasoft-nd .estasoft-nd-card-head > .estasoft-nd-cluster { flex-wrap: nowrap; align-items: flex-start; }
+.estasoft-nd .estasoft-nd-card-head > .estasoft-nd-cluster > .estasoft-nd-grow { flex-basis: 0; }
+.estasoft-nd .estasoft-nd-ops-foot { padding: var(--space-12) var(--space-20); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ops-actions { border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ops-result { display: inline-flex; align-items: center; min-height: 24px; min-width: 0; }
+.estasoft-nd .estasoft-nd-ops-result:empty { display: none; }
+
+/* Table columns. The grid scrolls sideways inside its card on a narrow screen. */
+.estasoft-nd .estasoft-nd-cols-ops-sitemaps { --cols: minmax(170px, 1.4fr) minmax(200px, 2fr) minmax(140px, 1fr); }
+.estasoft-nd .estasoft-nd-cols-ops-plugins { --cols: minmax(130px, 1.1fr) minmax(130px, 1fr) minmax(170px, 1.6fr) minmax(130px, 1fr); }
+.estasoft-nd .estasoft-nd-cols-ops-log { --cols: minmax(110px, 0.9fr) minmax(190px, 1.5fr) minmax(220px, 2fr) minmax(120px, 1fr); }
+.estasoft-nd .estasoft-nd-cols-ops-alerts { --cols: minmax(220px, 1fr) 84px; }
+.estasoft-nd .estasoft-nd-cols-ops-alerts > :last-child { justify-self: center; }
+.estasoft-nd .estasoft-nd-ops-tick { justify-content: center; min-inline-size: 32px; min-block-size: 32px; cursor: pointer; }
+.estasoft-nd .estasoft-nd-grid-wrap:has(.estasoft-nd-cols-ops-alerts) .estasoft-nd-table { min-width: 0; }
+.estasoft-nd .estasoft-nd-cols-ops-when { --cols: minmax(170px, 1.2fr) minmax(190px, 1.4fr) minmax(200px, 1.6fr) minmax(150px, 1fr); }
+.estasoft-nd .estasoft-nd-cols-ops-stored { --cols: minmax(130px, 1fr) minmax(150px, 1.1fr) minmax(240px, 2.4fr) minmax(150px, 1fr); min-width: 0; }
+.estasoft-nd .estasoft-nd-cols-ops-services { --cols: minmax(210px, 1.6fr) minmax(110px, 0.8fr) minmax(260px, 2.4fr); }
+.estasoft-nd .estasoft-nd-cols-ops-import { --cols: minmax(180px, 1.6fr) minmax(110px, 1fr) minmax(110px, 1fr) minmax(130px, 1fr); }
+.estasoft-nd .estasoft-nd-cols-ops-points { --cols: minmax(150px, 1fr) minmax(200px, 1.6fr) minmax(100px, 0.8fr) 96px; }
+.estasoft-nd .estasoft-nd-cols-ops-delete { --cols: minmax(220px, 2fr) minmax(110px, 1fr) minmax(220px, 1.8fr); }
+.estasoft-nd .estasoft-nd-ops-same > summary { padding: var(--space-12) var(--space-16); cursor: pointer; color: var(--primary); border-block-start: 1px solid var(--border); min-height: 24px; }
+.estasoft-nd .estasoft-nd-ops-same[open] > summary { border-block-end: 1px solid var(--border); }
+
+/* Connections */
+.estasoft-nd .estasoft-nd-ops-connect > summary { display: inline-flex; list-style: none; cursor: pointer; }
+.estasoft-nd .estasoft-nd-ops-connect > summary::-webkit-details-marker { display: none; }
+.estasoft-nd .estasoft-nd-ops-connect[open] > summary { background: var(--surface-hover); }
+.estasoft-nd .estasoft-nd-ops-connect__form { margin-block-start: var(--space-12); padding: var(--space-16); border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface-subtle); max-inline-size: 640px; }
+.estasoft-nd .estasoft-nd-ops-key { inline-size: 100%; max-inline-size: 520px; font-family: var(--font-mono); font-size: 13px; }
+.estasoft-nd textarea.estasoft-nd-ops-key { padding: var(--space-8); min-block-size: 120px; resize: vertical; line-height: 18px; }
+.estasoft-nd ol.estasoft-nd-ops-steps { list-style: decimal; padding-inline-start: 24px; display: flex; flex-direction: column; gap: var(--space-8); }
+.estasoft-nd ol.estasoft-nd-ops-steps > li { display: list-item; }
+
+/* Emails and the weekly summary */
+.estasoft-nd .estasoft-nd-ops-crumbs { color: var(--text-secondary); }
+.estasoft-nd .estasoft-nd-ops-emails { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-16); }
+.estasoft-nd .estasoft-nd-ops-emails > :nth-child(3) { grid-column: 1 / -1; }
+.estasoft-nd .estasoft-nd-ops-email__head { display: flex; flex-direction: column; gap: 2px; padding: var(--space-12) var(--space-20); background: var(--surface-subtle); border-block-end: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ops-email__body { display: flex; flex-direction: column; gap: var(--space-12); padding: var(--space-20); overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-ops-email__body > p > .estasoft-nd-btn { align-self: flex-start; }
+.estasoft-nd .estasoft-nd-ops-email__foot { padding-block-start: var(--space-12); border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ops-digest { display: flex; justify-content: center; }
+.estasoft-nd .estasoft-nd-ops-email--digest { inline-size: 100%; max-inline-size: 640px; }
+.estasoft-nd .estasoft-nd-ops-mark { display: inline-block; inline-size: 24px; block-size: 24px; border-radius: 6px; background: var(--primary); }
+.estasoft-nd .estasoft-nd-headline-sm { font-size: 22px; line-height: 30px; font-weight: 600; }
+.estasoft-nd .estasoft-nd-ops-digest-row { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-16); padding-block: var(--space-4); }
+.estasoft-nd .estasoft-nd-ops-digest-item { display: flex; align-items: flex-start; gap: var(--space-12); padding-block: var(--space-12); border-block-end: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-ops-digest-item:last-child { border-block-end: 0; }
+.estasoft-nd .estasoft-nd-ops-digest-item .estasoft-nd-icon { margin-block-start: 2px; }
+.estasoft-nd .estasoft-nd-ops-digest-line { padding-block: var(--space-2); }
+.estasoft-nd .estasoft-nd-ops-list { padding-inline-start: 20px; list-style: disc; }
+.estasoft-nd .estasoft-nd-ops-list > li { display: list-item; }
+.estasoft-nd .estasoft-nd-ops-checks .estasoft-nd-icon { color: var(--success-icon); }
+
+/* Privacy */
+.estasoft-nd .estasoft-nd-ops-policy { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-12) var(--space-16); border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--surface-subtle); }
+
+@media (max-width: 782px) {
+	.estasoft-nd .estasoft-nd-ops-emails { grid-template-columns: minmax(0, 1fr); }
+	.estasoft-nd .estasoft-nd-ops-emails > :nth-child(3) { grid-column: auto; }
+	.estasoft-nd .estasoft-nd-ops-digest-row { flex-wrap: wrap; }
+	.estasoft-nd .estasoft-nd-ops-pad { padding-inline: var(--space-16); }
+}

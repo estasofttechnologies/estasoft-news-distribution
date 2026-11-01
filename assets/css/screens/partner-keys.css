@@ -1,0 +1,32 @@
+/* Partners tab of the Channels page: the list of partners, the forms and the key. Loaded only on that tab. */
+.estasoft-nd .estasoft-nd-cols-partners { --cols: minmax(200px, 1.6fr) 100px minmax(150px, 1.2fr) 130px 100px 190px; }
+.estasoft-nd .estasoft-nd-table:has(.estasoft-nd-cols-partners) { min-inline-size: 880px; }
+.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-partners > [role="cell"] { min-inline-size: 0; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-grid-row.estasoft-nd-cols-partners:has(a[aria-current="true"]) { background: var(--primary-tint); }
+
+/* The partner's name with its On or Off pill under it. */
+.estasoft-nd .estasoft-nd-partner-name { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-4); }
+
+/* Manage and the on/off button side by side. */
+.estasoft-nd .estasoft-nd-partner-actions-cell { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8) var(--space-12); }
+.estasoft-nd .estasoft-nd-partner-inline { margin: 0; }
+
+/* The row of buttons at the foot of a form card. */
+.estasoft-nd .estasoft-nd-partner-footer { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8); padding: var(--space-16) var(--space-20); background: var(--surface-subtle); border-block-start: 1px solid var(--border); }
+
+/* The form cards sit one under another with the page's usual space. */
+.estasoft-nd .estasoft-nd-partner-form { margin: 0; }
+.estasoft-nd .estasoft-nd-partner-form .estasoft-nd-form-row:first-of-type { border-block-start: 1px solid var(--border); }
+
+/* The masked key is plain text, without the grey box other code values get. */
+.estasoft-nd .estasoft-nd-partner-key { overflow-wrap: anywhere; padding: 0; background: none; }
+
+/* The key and the feed address are plain text a person can select; Copy needs the script. */
+.estasoft-nd:not(.has-js) .estasoft-nd-partner-copy { display: none; }
+
+/* The cards that explain the screen sit side by side, then stack. */
+.estasoft-nd .estasoft-nd-notes > .estasoft-nd-card--note { flex: 1 1 280px; }
+
+#estasoft-nd-partner-new,
+#estasoft-nd-partner-manage,
+#estasoft-nd-partner-confirm { scroll-margin-block-start: var(--space-48); }

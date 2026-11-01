@@ -1,0 +1,110 @@
+/* First-run setup: a narrow guided path with its own header. The app bar and the WordPress menu are out of the way. */
+
+/* The WordPress menu and footer are not part of the guided path. The admin bar stays. */
+body.estasoft-nd-setup-screen { background: #f4f6f8; }
+body.estasoft-nd-setup-screen #wpwrap { background: #f4f6f8; }
+body.estasoft-nd-setup-screen #adminmenumain,
+body.estasoft-nd-setup-screen #wpfooter { display: none; }
+body.estasoft-nd-setup-screen #wpcontent { margin-inline-start: 0; padding-inline-start: 0; }
+.estasoft-nd[data-page="estasoft-nd-setup"] .estasoft-nd-appbar { display: none; }
+
+.estasoft-nd .estasoft-nd-setup { max-width: 864px; margin-inline: auto; padding: var(--space-32) var(--space-16) var(--space-48); display: flex; flex-direction: column; gap: var(--space-24); }
+.estasoft-nd .estasoft-nd-setup > * { min-width: 0; }
+.estasoft-nd .estasoft-nd-setup__header { display: flex; flex-direction: column; gap: var(--space-4); }
+/* WordPress styles every h1 inside .wrap (23px, regular), which wins over the single-class heading style. */
+.wrap.estasoft-nd .estasoft-nd-setup__header h1 { font-size: 28px; line-height: 36px; font-weight: 600; padding: 0; }
+.estasoft-nd .estasoft-nd-setup form#estasoft-nd-setup-form { display: flex; flex-direction: column; gap: var(--space-24); margin: 0; }
+.estasoft-nd .estasoft-nd-setup__stack { display: flex; flex-direction: column; gap: var(--space-24); }
+
+/* The name of the product with its mark. */
+.estasoft-nd .estasoft-nd-setup__brand { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-12); font-size: 18px; line-height: 24px; font-weight: 600; }
+
+/* The small outlined chip: Setup, Recommended. */
+.estasoft-nd .estasoft-nd-setup .estasoft-nd-tier { display: inline-flex; align-items: center; min-block-size: 20px; padding: 0 var(--space-6); border: 1px solid var(--primary-border); border-radius: var(--radius-sm); background: var(--primary-tint); color: var(--primary); font-size: 12px; font-weight: 600; line-height: 16px; }
+
+/* Choice cards: round buttons for one choice among several. */
+.estasoft-nd .estasoft-nd-setup fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+.estasoft-nd .estasoft-nd-setup__modes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-16); }
+.estasoft-nd .estasoft-nd-setup__preset-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-16); margin-block-start: var(--space-12); }
+.estasoft-nd .estasoft-nd-setup__choice { align-items: flex-start; min-height: 100%; }
+.estasoft-nd .estasoft-nd-setup__choice:has( input:checked ) { border-color: var(--primary); background: var(--primary-tint); box-shadow: 0 0 0 1px var(--primary); }
+.estasoft-nd .estasoft-nd-setup__choice:has( input:focus-visible ) { outline: 2px solid var(--primary); outline-offset: 2px; }
+.estasoft-nd .estasoft-nd-setup__choice input { margin-block-start: 2px; }
+.estasoft-nd .estasoft-nd-setup__choice-body { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-6); min-width: 0; }
+.estasoft-nd .estasoft-nd-setup__choice-title { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8); }
+.estasoft-nd .estasoft-nd-setup__choice-body > strong { font-size: 14px; line-height: 20px; }
+.estasoft-nd .estasoft-nd-setup__presets > legend { float: none; padding: 0; margin: 0; }
+
+/* The demo card. */
+.estasoft-nd .estasoft-nd-setup__demo { gap: var(--space-12); }
+.estasoft-nd .estasoft-nd-setup__banner .estasoft-nd-globalbar { padding-inline: var(--space-16); border: 0; border-block-end: 1px solid var(--warning-border); }
+.estasoft-nd .estasoft-nd-setup__banner .estasoft-nd-end { color: var(--primary); }
+.estasoft-nd .estasoft-nd-setup__demo .estasoft-nd-rule .estasoft-nd-icon { color: var(--success-icon); }
+
+/* The row of buttons. */
+.estasoft-nd .estasoft-nd-setup__actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-12); }
+.estasoft-nd .estasoft-nd-setup__actions-start,
+.estasoft-nd .estasoft-nd-setup__actions-end { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8); }
+.estasoft-nd .estasoft-nd-setup__actions-end { margin-inline-start: auto; }
+.estasoft-nd .estasoft-nd-setup__skip { margin: 0; }
+.estasoft-nd .estasoft-nd-setup__note { text-align: end; margin-block-start: calc(var(--space-8) * -1); }
+
+/* The publication card. */
+.estasoft-nd .estasoft-nd-setup .estasoft-nd-card--flush > .estasoft-nd-form-row:first-child { border-block-start: 0; }
+.estasoft-nd .estasoft-nd-setup .estasoft-nd-form-label { flex: 0 0 220px; }
+.estasoft-nd .estasoft-nd-setup .estasoft-nd-form-row > * { min-width: 0; }
+.estasoft-nd .estasoft-nd-setup .estasoft-nd-field { box-sizing: border-box; width: 100%; max-width: 360px; }
+.estasoft-nd .estasoft-nd-setup__langs .estasoft-nd-check { flex-wrap: wrap; }
+.estasoft-nd .estasoft-nd-setup .estasoft-nd-field-error .estasoft-nd-icon { margin-block-start: 2px; }
+
+/* Channels. */
+.estasoft-nd .estasoft-nd-setup__rows { display: flex; flex-direction: column; }
+.estasoft-nd .estasoft-nd-setup__rows > .estasoft-nd-group-row:first-child { border-block-start: 0; }
+.estasoft-nd .estasoft-nd-setup__row { flex-wrap: nowrap; align-items: flex-start; gap: var(--space-16); cursor: pointer; }
+.estasoft-nd .estasoft-nd-setup__row:hover { background: var(--surface-subtle); }
+.estasoft-nd .estasoft-nd-setup__row > input { flex: none; width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--primary); }
+.estasoft-nd .estasoft-nd-setup__row-note { display: inline-flex; align-items: flex-start; gap: var(--space-6); margin-inline-start: auto; max-width: 280px; text-align: end; }
+.estasoft-nd .estasoft-nd-setup__row-note .estasoft-nd-icon { margin-block-start: 1px; }
+.estasoft-nd .estasoft-nd-setup__rows > div.estasoft-nd-group-row a svg { margin-inline-start: var(--space-4); vertical-align: -2px; }
+.estasoft-nd .estasoft-nd-setup__fold { border-block-start: 0; }
+.estasoft-nd .estasoft-nd-setup__fold-title { display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; }
+.estasoft-nd .estasoft-nd-setup__fold-end { display: flex; align-items: center; gap: var(--space-16); }
+.estasoft-nd .estasoft-nd-setup__toggle { color: var(--primary); }
+.estasoft-nd .estasoft-nd-setup__hide { display: none; }
+.estasoft-nd .estasoft-nd-setup__fold[open] .estasoft-nd-setup__show { display: none; }
+.estasoft-nd .estasoft-nd-setup__fold[open] .estasoft-nd-setup__hide { display: inline; }
+
+/* The first check. */
+.estasoft-nd .estasoft-nd-setup__stats { display: flex; flex-wrap: wrap; }
+.estasoft-nd .estasoft-nd-setup__stats > .estasoft-nd-result + .estasoft-nd-result { border-inline-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-setup__figure { display: flex; align-items: center; gap: var(--space-8); font-size: 24px; line-height: 32px; font-weight: 600; }
+.estasoft-nd .estasoft-nd-setup__figure-icon { display: inline-flex; }
+.estasoft-nd .estasoft-nd-setup__figure-icon .estasoft-nd-icon { width: 20px; height: 20px; }
+.estasoft-nd .estasoft-nd-setup__figure-icon--ok { color: var(--success-icon); }
+.estasoft-nd .estasoft-nd-setup__figure-icon--warn { color: var(--warning-icon); }
+.estasoft-nd .estasoft-nd-setup__result .estasoft-nd-message { border-radius: 0; border-inline: 0; border-block-end: 0; }
+.estasoft-nd .estasoft-nd-setup__next-title { margin-block-end: var(--space-12); }
+.estasoft-nd .estasoft-nd-setup__block { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-16) var(--space-20); }
+.estasoft-nd .estasoft-nd-setup__block + .estasoft-nd-setup__block { border-block-start: 1px solid var(--border); }
+.estasoft-nd .estasoft-nd-setup__block h3 { font-size: 16px; line-height: 22px; }
+.estasoft-nd .estasoft-nd-setup__block-links { display: flex; flex-wrap: wrap; gap: var(--space-4) var(--space-16); }
+.estasoft-nd .estasoft-nd-setup__block-links svg { margin-inline-start: var(--space-4); vertical-align: -2px; }
+
+@media (max-width: 720px) {
+	.estasoft-nd .estasoft-nd-setup__preset-cards { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 600px) {
+	.estasoft-nd .estasoft-nd-setup__modes { grid-template-columns: minmax(0, 1fr); }
+	.estasoft-nd .estasoft-nd-setup__stats > .estasoft-nd-result + .estasoft-nd-result { border-inline-start: 0; border-block-start: 1px solid var(--border); }
+	.estasoft-nd .estasoft-nd-setup__row { flex-wrap: wrap; }
+	.estasoft-nd .estasoft-nd-setup__row-note { margin-inline-start: 0; max-width: none; text-align: start; padding-inline-start: 34px; flex: 1 1 100%; }
+	.estasoft-nd .estasoft-nd-setup__row > .estasoft-nd-group-row__name { flex: 1 1 0; }
+	.estasoft-nd .estasoft-nd-setup__actions { flex-direction: column; align-items: stretch; }
+	.estasoft-nd .estasoft-nd-setup__actions-start,
+	.estasoft-nd .estasoft-nd-setup__actions-end { flex-direction: column; align-items: stretch; margin-inline-start: 0; }
+	.estasoft-nd .estasoft-nd-setup__actions .estasoft-nd-btn { width: 100%; }
+	.estasoft-nd .estasoft-nd-setup__skip { display: flex; }
+	.estasoft-nd .estasoft-nd-setup .estasoft-nd-form-label { flex-basis: 100%; }
+	.estasoft-nd .estasoft-nd-setup__fold-end { width: 100%; justify-content: space-between; }
+}

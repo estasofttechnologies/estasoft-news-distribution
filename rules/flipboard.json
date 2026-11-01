@@ -1,0 +1,49 @@
+{
+	"platform": "flipboard",
+	"version": "2026.10.1",
+	"read_on": "2026-10-21",
+	"fetch": {
+		"interval_hours": 6,
+		"agents": [ "flipboard" ]
+	},
+	"limits": {
+		"items": 25
+	},
+	"rules": {
+		"program.publisher": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://about.flipboard.com/inside-flipboard/flipboards-self-service-platform-opens-for-publishers-around-the-world/",
+			"read_on": "2026-10-21",
+			"note": "Flipboard has a publisher program on its own site, where publishers apply and its team reviews submitted feeds. News Distribution needs no application for the feed itself."
+		},
+		"topic.suggestion": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "https://about.flipboard.com/inside-flipboard/flipboards-self-service-platform-opens-for-publishers-around-the-world/",
+			"read_on": "2026-10-21",
+			"note": "Flipboard indexes and tags stories by subject itself. News Distribution adds a suggested topic as a plain category element; Flipboard does not document that it reads it, and makes the final choice."
+		},
+		"feed.full_text": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Full text in every item. Flipboard's own feed page was not read."
+		},
+		"image.size": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "The feed carries the width and height of the featured image. Flipboard's own feed page was not read."
+		},
+		"feed.items": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "The feed holds the latest 25 articles. This is News Distribution's own size, not a Flipboard limit."
+		}
+	}
+}

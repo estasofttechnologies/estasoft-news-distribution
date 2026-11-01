@@ -1,0 +1,12 @@
+/* Shared by the site screens: Languages, Clock, Environment, Compatibility, Page markup, Developers. */
+/* WordPress styles input[type=checkbox] with more weight than .estasoft-nd-toggle, so the switch is restated here. */
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle{-webkit-appearance:none;appearance:none;box-sizing:border-box;width:var(--size-toggle-w);min-width:var(--size-toggle-w);height:var(--size-toggle-h);margin:0;border:1px solid var(--border-control);border-radius:var(--radius-pill);background:var(--surface);box-shadow:none;position:relative;flex:none;cursor:pointer}
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle::before{content:none;display:none}
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle::after{content:"";position:absolute;top:2px;inset-inline-start:3px;width:14px;height:14px;border-radius:var(--radius-round);background:var(--text-secondary);transition:none}
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle:checked{background:var(--primary);border-color:var(--primary)}
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle:checked::before{content:none;display:none}
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle:checked::after{inset-inline-start:21px;background:var(--text-inverse)}
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle:disabled{opacity:.5;cursor:not-allowed}
+.estasoft-nd-crumbs{font-size:12px;line-height:16px;color:var(--text-secondary)}
+/* A select with a fixed width must not run past a narrow card (padding counts inside the width). */
+.estasoft-nd select.estasoft-nd-field{box-sizing:border-box;max-width:100%}

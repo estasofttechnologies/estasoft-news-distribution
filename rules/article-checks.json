@@ -1,0 +1,227 @@
+{
+	"platform": "article-checks",
+	"version": "2026.10.1",
+	"read_on": null,
+	"source_title": "News Distribution's own article checks",
+	"limits": {
+		"title_max": 110,
+		"title_min": 10,
+		"image_min_width": 640,
+		"image_min_height": 360,
+		"image_ratio_min": 1,
+		"image_ratio_max": 2.5,
+		"body_min_words": 50
+	},
+	"rules": {
+		"image.missing": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Most platforms show a thumbnail with each headline. A platform that skips articles without one says so in its own pack."
+		},
+		"image.too_small": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "The smallest featured image News Distribution accepts without a tip is 640 by 360 px. A platform that asks for more says so in its own pack."
+		},
+		"image.bad_ratio": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A featured image between square and 2.5 times as wide as it is tall crops well in most thumbnails. A platform that asks for a different shape says so in its own pack."
+		},
+		"image.alt_missing": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Alt text describes the image for people who cannot see it. It is the text a platform or a screen reader falls back on."
+		},
+		"credit.missing": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A credit says who made the image. The Image credits settings decide whether one is required and what happens when it is missing."
+		},
+		"title.missing": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Every platform needs a title."
+		},
+		"title.long": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A limit of 110 characters set by News Distribution. Platforms that state their own limit say so in their packs."
+		},
+		"title.short": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A limit of 10 characters set by News Distribution. A very short title says little in a feed."
+		},
+		"title.publication_name": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Titles read better in a feed without the publication name. A platform that asks for this says so in its own pack."
+		},
+		"title.author": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Titles read better in a feed without the author name. A platform that asks for this says so in its own pack."
+		},
+		"title.date": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Titles read better in a feed without the date. News Distribution looks for a written date such as 21/10/2026 or 2026-10-21, so it can miss a date written in words."
+		},
+		"date.invalid": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A published article needs a publication date after 1990."
+		},
+		"date.future": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A publication date in the future is not a date a platform can accept yet."
+		},
+		"date.modified_before_published": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A modified date earlier than the publication date contradicts itself."
+		},
+		"body.empty": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "An article with no text and no media has nothing to send."
+		},
+		"body.short": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A limit of 50 words set by News Distribution. Platforms that state their own minimum say so in their packs."
+		},
+		"body.shortcode_left_as_text": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A shortcode that no active plugin handles prints as plain text in a feed. News Distribution reads the saved text only and cannot run a shortcode to see its result."
+		},
+		"body.broken_markup": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Unclosed or stray tags can cut a feed entry short or break it."
+		},
+		"duplicate.title": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Two articles in one language with the same title look like a duplicate to a platform."
+		},
+		"clash.title": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "The same title in two languages often means a translation was copied without being translated."
+		},
+		"clash.address": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Two articles on one web address leave a platform with one page for both."
+		},
+		"byline.missing": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Many platforms ask for an author on each article."
+		},
+		"byline.not_a_person": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "An account such as admin is not a person. The Authors settings say what is sent instead."
+		},
+		"republished.address_missing": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A copy that points to its source needs the source's address. Without it the copy is kept out of search instead, so it is never sent out unprotected."
+		},
+		"republished.no_source": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A line at the end of a republished article says where it came from. Without a source name no line is added."
+		},
+		"republished.duplicate_risk": {
+			"severity": "warn",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A copy of another source's article that is still sent to a partner feed or an outlet may be treated as a duplicate of the original. Whether a platform does is its own decision."
+		},
+		"video.upload_date_missing": {
+			"severity": "warn",
+			"confidence": "confirmed",
+			"source": "https://developers.google.com/search/docs/appearance/structured-data/video",
+			"read_on": "2026-10-22",
+			"note": "Google asks for an upload date for a video. News Distribution never uses the article's date in its place, because that would tell search the video is newer than it is."
+		},
+		"video.name_missing": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://developers.google.com/search/docs/appearance/structured-data/video",
+			"read_on": "2026-10-22",
+			"note": "Google asks for a name for a video. A video with no name gets no video markup."
+		},
+		"video.thumbnail_missing": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://developers.google.com/search/docs/appearance/structured-data/video",
+			"read_on": "2026-10-22",
+			"note": "Google asks for a thumbnail for a video. A video with none gets no video markup."
+		},
+		"video.unavailable": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A video that its site says is private or removed gets no video markup. This is known only when the lookup of video details is on."
+		}
+	}
+}

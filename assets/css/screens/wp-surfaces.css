@@ -1,0 +1,119 @@
+/*
+ * News Distribution on two WordPress screens that are not its own: the dashboard box and the Posts column.
+ *
+ * admin.css is not loaded on those screens, so this file stands alone. It holds only the colors and sizes
+ * the two surfaces use, copied from the design tokens, and every rule sits under .estasoft-nd-wp so it cannot
+ * change anything else in wp-admin.
+ */
+.estasoft-nd-wp {
+	--text: #19212c;
+	--text-secondary: #505966;
+	--primary: #005ece;
+	--primary-hover: #004fba;
+	--primary-pressed: #0041a2;
+	--primary-tint-strong: #d4e8ff;
+	--primary-border: #b3d3ff;
+	--success-icon: #098b47;
+	--success-text: #005729;
+	--success-tint: #e7faeb;
+	--success-border: #b6e5c1;
+	--warning-icon: #b16400;
+	--warning-text: #6e3c0d;
+	--warning-tint: #fff6d8;
+	--warning-border: #f1d798;
+	--danger-icon: #cc2827;
+	--neutral-icon: #626a73;
+	box-sizing: border-box;
+	color: var(--text);
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.estasoft-nd-wp *,
+.estasoft-nd-wp *::before,
+.estasoft-nd-wp *::after {
+	box-sizing: inherit;
+}
+
+.estasoft-nd-wp .estasoft-nd-icon {
+	flex: none;
+	width: 16px;
+	height: 16px;
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.6;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.estasoft-nd-wp .estasoft-nd-muted { color: var(--text-secondary); }
+.estasoft-nd-wp .estasoft-nd-small { font-size: 12px; line-height: 16px; }
+
+/* A status: an icon and a few words. The word always comes with the icon, so color is never the only signal. */
+.estasoft-nd-wp .estasoft-nd-status {
+	display: inline-flex;
+	align-items: flex-start;
+	gap: 6px;
+	font-size: 12px;
+	line-height: 16px;
+	white-space: normal;
+	overflow-wrap: anywhere;
+}
+
+.estasoft-nd-wp .estasoft-nd-status .estasoft-nd-icon { margin-block-start: 1px; }
+.estasoft-nd-wp .estasoft-nd-status--success .estasoft-nd-icon { color: var(--success-icon); }
+.estasoft-nd-wp .estasoft-nd-status--wait .estasoft-nd-icon,
+.estasoft-nd-wp .estasoft-nd-status--info .estasoft-nd-icon,
+.estasoft-nd-wp .estasoft-nd-status--neutral .estasoft-nd-icon { color: var(--neutral-icon); }
+.estasoft-nd-wp .estasoft-nd-status--warning .estasoft-nd-icon { color: var(--warning-icon); }
+.estasoft-nd-wp .estasoft-nd-status--danger .estasoft-nd-icon { color: var(--danger-icon); }
+.estasoft-nd-wp .estasoft-nd-status--neutral { color: var(--text-secondary); }
+
+/* A pill. */
+.estasoft-nd-wp .estasoft-nd-badge {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	min-height: 20px;
+	padding-block: 0;
+	padding-inline: 6px 8px;
+	border: 1px solid transparent;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 600;
+	line-height: 16px;
+	white-space: nowrap;
+}
+
+.estasoft-nd-wp .estasoft-nd-badge .estasoft-nd-icon { width: 14px; height: 14px; }
+.estasoft-nd-wp .estasoft-nd-badge--success { background: var(--success-tint); border-color: var(--success-border); color: var(--success-text); }
+.estasoft-nd-wp .estasoft-nd-badge--warning { background: var(--warning-tint); border-color: var(--warning-border); color: var(--warning-text); }
+
+/* The dashboard box. */
+.estasoft-nd-wp--widget { display: flex; flex-direction: column; gap: 12px; }
+.estasoft-nd-wp .estasoft-nd-wp-widget__head { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 8px; margin: 0; }
+.estasoft-nd-wp .estasoft-nd-wp-widget__list { display: flex; flex-direction: column; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.estasoft-nd-wp .estasoft-nd-wp-widget__row { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin: 0; }
+.estasoft-nd-wp .estasoft-nd-wp-widget__name { flex: none; }
+.estasoft-nd-wp .estasoft-nd-wp-widget__result { min-width: 0; max-width: 70%; text-align: end; }
+.estasoft-nd-wp .estasoft-nd-wp-widget__result .estasoft-nd-status { justify-content: flex-end; text-align: end; }
+.estasoft-nd-wp .estasoft-nd-wp-widget__link { align-self: flex-start; font-weight: 600; text-decoration: none; }
+.estasoft-nd-wp .estasoft-nd-wp-widget__link:hover { text-decoration: underline; }
+
+/* The Posts column. */
+.wp-list-table th.column-estasoft_nd_distribution,
+.wp-list-table td.column-estasoft_nd_distribution { width: 15%; }
+.estasoft-nd-wp .estasoft-nd-wp-col { display: flex; flex-direction: column; gap: 4px; }
+.estasoft-nd-wp .estasoft-nd-wp-col__icons { display: inline-flex; align-items: center; gap: 6px; }
+.estasoft-nd-wp .estasoft-nd-wp-col__icon.estasoft-nd-status { display: inline-flex; align-items: center; }
+.estasoft-nd-wp .estasoft-nd-wp-col__icon .estasoft-nd-icon { margin-block-start: 0; }
+.estasoft-nd-wp .estasoft-nd-wp-col__line { color: var(--text-secondary); font-size: 12px; line-height: 16px; }
+
+/* The key under the list. */
+.estasoft-nd-wp--legend { clear: both; padding-block-start: 8px; }
+.estasoft-nd-wp .estasoft-nd-wp-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0; }
+
+@media (max-width: 782px) {
+	.wp-list-table th.column-estasoft_nd_distribution,
+	.wp-list-table td.column-estasoft_nd_distribution { width: auto; }
+}

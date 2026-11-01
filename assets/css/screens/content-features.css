@@ -1,0 +1,81 @@
+/* Settings: Page labels, Republished content, Image credits and Video. Loaded only on those four screens. */
+
+/* WordPress styles input[type=checkbox] with more weight than .estasoft-nd-toggle, so the switch is restated here. */
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle{-webkit-appearance:none;appearance:none;box-sizing:border-box;width:var(--size-toggle-w);min-width:var(--size-toggle-w);height:var(--size-toggle-h);margin:0;border:1px solid var(--border-control);border-radius:var(--radius-pill);background:var(--surface);box-shadow:none;position:relative;flex:none;cursor:pointer}
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle::before{content:none;display:none}
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle::after{content:"";position:absolute;top:2px;inset-inline-start:3px;width:14px;height:14px;border-radius:var(--radius-round);background:var(--text-secondary);transition:none}
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle:checked{background:var(--primary);border-color:var(--primary)}
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle:checked::before{content:none;display:none}
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle:checked::after{inset-inline-start:21px;background:var(--text-inverse)}
+.estasoft-nd input[type=checkbox].estasoft-nd-toggle:disabled{opacity:.5;cursor:not-allowed}
+.estasoft-nd-switch{display:flex;align-items:center;gap:var(--space-12);cursor:pointer}
+
+/* A computed row with no label gives its whole width to what it shows. */
+.estasoft-nd-form-row--wide{display:block;padding:0}
+.estasoft-nd select.estasoft-nd-field{max-width:100%}
+.estasoft-nd .estasoft-nd-pad{padding:var(--space-16) var(--space-20);margin:0}
+.estasoft-nd .estasoft-nd-code code{background:transparent;padding:0}
+.estasoft-nd .estasoft-nd-message{flex-wrap:nowrap;align-items:flex-start}
+.estasoft-nd-rule--ok .estasoft-nd-icon{color:var(--success-icon)}
+
+/* "What it cannot do" reads before "Good to know", as on the board. */
+form[data-section="labels"] .estasoft-nd-notes>.estasoft-nd-card--note:last-child:not(:only-child){order:-1}
+
+/* Page labels: the English and Arabic samples. */
+.estasoft-nd-samples{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:var(--space-16);padding:var(--space-16) var(--space-20) var(--space-20)}
+.estasoft-nd-sample{display:flex;flex-direction:column;gap:var(--space-8);padding:var(--space-16);border:1px solid var(--border);border-radius:var(--radius-md);background:var(--surface);color:var(--text);min-width:0}
+.estasoft-nd-sample:lang(ar){font-family:var(--font-arabic)}
+.estasoft-nd-sample .estasoft-nd-sample__title{margin:0;font-size:20px;line-height:28px;font-weight:600}
+.estasoft-nd-sample .estasoft-nd-sample__byline{margin:0;display:flex;flex-wrap:wrap;gap:var(--space-4) var(--space-12);font-size:12px;line-height:16px}
+.estasoft-nd-sample .estasoft-nd-sample__text{margin:0}
+.estasoft-nd-sample .estasoft-nd-labels{margin-block:var(--space-4) 0;font-size:12px;line-height:18px}
+.estasoft-nd-sample .estasoft-nd-labels--top{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-4) var(--space-8)}
+.estasoft-nd-sample .estasoft-nd-labels--top p{margin:0}
+.estasoft-nd-sample .estasoft-nd-label.estasoft-nd-label--ai{font-size:12px;line-height:16px}
+.estasoft-nd-sample .estasoft-nd-correction{font-size:12px;line-height:18px;margin-block:var(--space-8) 0}
+.estasoft-nd-sample .estasoft-nd-source{font-size:12px;line-height:18px}
+.estasoft-nd-sample .estasoft-nd-labels--end{margin-block-start:var(--space-4)}
+.estasoft-nd-sample .estasoft-nd-labels--end p{margin:var(--space-4) 0 0}
+
+/* Republished content. */
+.estasoft-nd-lock-note{display:flex;align-items:flex-start;gap:var(--space-6);margin-inline-start:var(--space-24)}
+.estasoft-nd-lock-note[hidden]{display:none}
+.estasoft-nd-cols-sources{--cols:minmax(200px,2fr) minmax(180px,1.6fr) minmax(160px,1.4fr);min-width:620px}
+.estasoft-nd-sources{border-top:1px solid var(--border)}
+.estasoft-nd-sources .estasoft-nd-grid-wrap{border-top:0}
+.estasoft-nd-sources.is-empty .estasoft-nd-grid-wrap{display:none}
+.estasoft-nd-sources.is-empty{border-top:0}
+.estasoft-nd-pad[hidden]{display:none}
+.estasoft-nd-sources .estasoft-nd-grid-row>[role="cell"]{min-width:0;overflow-wrap:anywhere}
+.estasoft-nd-sources .estasoft-nd-grid-row code{font-family:var(--font-mono);font-size:12px;background:transparent;padding:0}
+.estasoft-nd-sources .estasoft-nd-source__cell{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-8)}
+.estasoft-nd-sources .estasoft-nd-source__edit{display:none;width:100%}
+.estasoft-nd-sources .estasoft-nd-source__edit .estasoft-nd-field{width:100%}
+.estasoft-nd-sources .is-editing .estasoft-nd-source__edit{display:block}
+.estasoft-nd-sources .is-editing .estasoft-nd-source__view{display:none}
+.estasoft-nd-sources .estasoft-nd-grid-row:has([data-source-blank]){display:none}
+/* Without a script every row is a set of inputs, and one blank row is there for a new source. */
+body.no-js .estasoft-nd-sources .estasoft-nd-source__edit{display:block}
+body.no-js .estasoft-nd-sources .estasoft-nd-source__view{display:none}
+body.no-js .estasoft-nd-sources .estasoft-nd-grid-row:has([data-source-blank]){display:grid}
+.estasoft-nd-sources__foot{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-12);padding:var(--space-16) var(--space-20)}
+.estasoft-nd-sources__foot:has([data-add-source][hidden]){padding-block:var(--space-12)}
+
+@media (max-width:600px){
+	.estasoft-nd .estasoft-nd-pad{padding:var(--space-12) var(--space-16)}
+	.estasoft-nd-samples{padding:var(--space-12) var(--space-16) var(--space-16)}
+	.estasoft-nd-sources__foot{padding:var(--space-12) var(--space-16)}
+}
+
+/* Image credits. */
+.estasoft-nd-rule--info .estasoft-nd-icon{color:var(--primary)}
+.estasoft-nd-cols-credits{--cols:minmax(220px,2.2fr) minmax(110px,1fr) minmax(200px,2fr) minmax(110px,1fr);min-width:640px}
+.estasoft-nd-credit-table .estasoft-nd-grid-row:has([data-credit-blank]){display:none}
+.estasoft-nd-credit-table .estasoft-nd-grid-row>[role="cell"]{min-width:0;overflow-wrap:anywhere}
+.estasoft-nd-credit-table code{font-family:var(--font-mono);font-size:12px;background:transparent;padding:0;font-weight:600}
+.estasoft-nd-credit-table .estasoft-nd-status{display:inline-flex;align-items:center;gap:var(--space-6);font-size:12px}
+.estasoft-nd-credit-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-12);padding:var(--space-16) var(--space-20)}
+.estasoft-nd-credit-actions .estasoft-nd-small{flex:1 1 280px}
+.estasoft-nd-credit-status{margin:0}
+.estasoft-nd-link-button{appearance:none;border:0;background:transparent;padding:0;color:var(--primary);font:inherit;text-decoration:underline;cursor:pointer}
+@media (max-width:600px){.estasoft-nd-credit-actions{padding:var(--space-12) var(--space-16)}}

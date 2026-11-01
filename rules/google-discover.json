@@ -1,0 +1,20 @@
+{
+	"platform": "google-discover",
+	"label": "Google Discover",
+	"version": "2026.10.1",
+	"read_on": null,
+	"source_title": "Google Search Central: Google Discover",
+	"source_url": "https://developers.google.com/search/docs/appearance/google-discover",
+	"limits": {
+		"image_recommended_width": 1200
+	},
+	"rules": {
+		"image.below_recommended": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://developers.google.com/search/docs/appearance/google-discover",
+			"read_on": "2026-10-22",
+			"note": "Google recommends images at least 1,200 px wide for Discover, and shows them large when the page allows large previews (max-image-preview:large, or AMP)."
+		}
+	}
+}

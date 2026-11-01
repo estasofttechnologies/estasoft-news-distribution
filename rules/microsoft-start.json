@@ -1,0 +1,92 @@
+{
+	"platform": "microsoft-start",
+	"version": "2026.09.3",
+	"read_on": "2026-10-21",
+	"source_title": "Microsoft Support: Feed content specifications in Partner Hub",
+	"source_url": "https://support.microsoft.com/en-us/msn/partner-hub/feed-content-specifications-in-msn-partner-hub",
+	"fetch": {
+		"interval_hours": 24,
+		"agents": [ "microsoft-start" ],
+		"note": "A watch window News Distribution uses to say a fetch is later than usual. It is not a Microsoft schedule."
+	},
+	"limits": {
+		"image_min_width": 640,
+		"image_min_height": 360,
+		"image_recommended_width": 1280,
+		"image_recommended_height": 720,
+		"window_hours": 168,
+		"max_items": 100
+	},
+	"rules": {
+		"image.missing": {
+			"severity": "block",
+			"confidence": "confirmed",
+			"source": "https://support.microsoft.com/en-us/msn/partner-hub/feed-content-specifications-in-msn-partner-hub",
+			"read_on": "2026-10-21",
+			"note": "Items need an image to be auto-published. News Distribution leaves an article without a featured image out of the feeds."
+		},
+		"image.below_minimum": {
+			"severity": "warn",
+			"confidence": "confirmed",
+			"source": "https://support.microsoft.com/en-us/msn/partner-hub/feed-content-specifications-in-msn-partner-hub",
+			"read_on": "2026-10-21",
+			"note": "The thumbnail should be at least 640 x 360 px. The article stays in the feeds; Microsoft decides what to do with a smaller image."
+		},
+		"image.below_recommended": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://support.microsoft.com/en-us/msn/partner-hub/feed-content-specifications-in-msn-partner-hub",
+			"read_on": "2026-10-21",
+			"note": "Microsoft recommends a 1280 x 720 px thumbnail."
+		},
+		"item.unique_id": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://support.microsoft.com/en-us/msn/partner-hub/msn-feed-item-metadata-requirements",
+			"read_on": "2026-10-21",
+			"note": "Items with the same unique ID are treated as one article and skipped unless the Updated or Published date changes. News Distribution keeps the ID of an article for good."
+		},
+		"item.updated_element": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "The Updated date is written as the Atom updated element on each item. Microsoft's page names the date; the exact element it reads was not confirmed."
+		},
+		"feed.format": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "https://support.microsoft.com/en-us/msn/partner-hub/feed-content-specifications-in-msn-partner-hub",
+			"read_on": null,
+			"note": "News Distribution writes RSS 2.0, one feed per language. The list of formats Microsoft accepts was not re-read."
+		},
+		"feed.size": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Each feed holds the articles of the last 7 days, at most 100. This is News Distribution's own size, not a Microsoft limit."
+		},
+		"title.missing": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "An item without a title cannot be read, so the article is left out."
+		},
+		"link.missing": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "An item without a public address cannot be read, so the article is left out."
+		},
+		"partner_hub.invitation": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://helpcenter.msn.com/kb/articles/1-set-up-your-account",
+			"read_on": "2026-10-21",
+			"note": "Partner Hub is invitation-only. Microsoft sends an invitation code after it approves the site."
+		}
+	}
+}

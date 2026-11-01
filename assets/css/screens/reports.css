@@ -1,0 +1,75 @@
+/* Reports page: the grids, bars and small parts the report screens share. */
+.estasoft-nd .estasoft-nd-cols-fetch { --cols: minmax(220px, 2.4fr) minmax(96px, 1fr) minmax(110px, 1.1fr) 112px minmax(140px, 1fr); }
+.estasoft-nd .estasoft-nd-indent { padding-inline-start: var(--space-24); }
+
+/* Seven bars, oldest on the left. The height is a class from 0 to 10, so no inline style is needed. */
+.estasoft-nd .estasoft-nd-bars { display: inline-flex; align-items: flex-end; gap: 2px; block-size: 24px; }
+.estasoft-nd .estasoft-nd-bar { inline-size: 10px; min-block-size: 2px; background: var(--primary); border-radius: 1px; }
+.estasoft-nd .estasoft-nd-bar--0 { block-size: 2px; }
+.estasoft-nd .estasoft-nd-bar--1 { block-size: 10%; }
+.estasoft-nd .estasoft-nd-bar--2 { block-size: 20%; }
+.estasoft-nd .estasoft-nd-bar--3 { block-size: 30%; }
+.estasoft-nd .estasoft-nd-bar--4 { block-size: 40%; }
+.estasoft-nd .estasoft-nd-bar--5 { block-size: 50%; }
+.estasoft-nd .estasoft-nd-bar--6 { block-size: 60%; }
+.estasoft-nd .estasoft-nd-bar--7 { block-size: 70%; }
+.estasoft-nd .estasoft-nd-bar--8 { block-size: 80%; }
+.estasoft-nd .estasoft-nd-bar--9 { block-size: 90%; }
+.estasoft-nd .estasoft-nd-bar--10 { block-size: 100%; }
+
+/* A message bar keeps its icon, its text and its button on one line when there is room. */
+.estasoft-nd .estasoft-nd-reports .estasoft-nd-message > .estasoft-nd-grow { flex: 1 1 20rem; }
+.estasoft-nd .estasoft-nd-reports .estasoft-nd-legend { padding: var(--space-12) var(--space-20); background: var(--surface-subtle); }
+
+/* Translations: the article, one column per language (2 to 6), the action. */
+.estasoft-nd .estasoft-nd-cols-translations-2 { --cols: minmax(220px, 2fr) repeat(2, minmax(110px, 1fr)) minmax(150px, 1fr); }
+.estasoft-nd .estasoft-nd-cols-translations-3 { --cols: minmax(220px, 2fr) repeat(3, minmax(110px, 1fr)) minmax(150px, 1fr); }
+.estasoft-nd .estasoft-nd-cols-translations-4 { --cols: minmax(220px, 2fr) repeat(4, minmax(110px, 1fr)) minmax(150px, 1fr); }
+.estasoft-nd .estasoft-nd-cols-translations-5 { --cols: minmax(220px, 2fr) repeat(5, minmax(110px, 1fr)) minmax(150px, 1fr); }
+.estasoft-nd .estasoft-nd-cols-translations-6 { --cols: minmax(220px, 2fr) repeat(6, minmax(110px, 1fr)) minmax(150px, 1fr); }
+.estasoft-nd .estasoft-nd-card-pad { padding: var(--space-16) var(--space-20); }
+
+/* Hreflang: the article, one column per language (2 to 6), the result. */
+.estasoft-nd .estasoft-nd-cols-hreflang-2 { --cols: minmax(180px, 2fr) repeat(2, minmax(112px, 1fr)) minmax(150px, 1.3fr); }
+.estasoft-nd .estasoft-nd-cols-hreflang-3 { --cols: minmax(180px, 2fr) repeat(3, minmax(112px, 1fr)) minmax(150px, 1.3fr); }
+.estasoft-nd .estasoft-nd-cols-hreflang-4 { --cols: minmax(180px, 2fr) repeat(4, minmax(112px, 1fr)) minmax(150px, 1.3fr); }
+.estasoft-nd .estasoft-nd-cols-hreflang-5 { --cols: minmax(180px, 2fr) repeat(5, minmax(112px, 1fr)) minmax(150px, 1.3fr); }
+.estasoft-nd .estasoft-nd-cols-hreflang-6 { --cols: minmax(180px, 2fr) repeat(6, minmax(112px, 1fr)) minmax(150px, 1.3fr); }
+
+/* Discover, Clashes, Rendering and Self-test grids. */
+.estasoft-nd .estasoft-nd-cols-discover { --cols: minmax(160px, 2fr) minmax(88px, 1fr) minmax(112px, 1.2fr) minmax(96px, 1fr) minmax(100px, 1fr) minmax(120px, 1.2fr); }
+.estasoft-nd .estasoft-nd-cols-clashes { --cols: minmax(170px, 1.2fr) minmax(240px, 2.4fr) minmax(220px, 2fr) minmax(140px, 1fr); }
+.estasoft-nd .estasoft-nd-cols-rendering { --cols: minmax(220px, 2fr) minmax(150px, 1.2fr) minmax(180px, 1.6fr) minmax(160px, 1.2fr); }
+.estasoft-nd .estasoft-nd-cols-selftest { --cols: minmax(190px, 2.4fr) 60px minmax(160px, 1.5fr) 68px 72px minmax(150px, 1.5fr); }
+.estasoft-nd .estasoft-nd-cols-crawlers { --cols: minmax(92px, 0.9fr) minmax(120px, 1.1fr) minmax(120px, 1.1fr); }
+/* A table in a side card is narrow on purpose: its own columns carry the minimum, not the shared 640px. */
+.estasoft-nd .estasoft-nd-reports .estasoft-nd-notes .estasoft-nd-table { min-width: 0; }
+.estasoft-nd .estasoft-nd-cols-system { --cols: minmax(150px, 1fr) minmax(130px, 1fr) minmax(240px, 3fr); }
+
+/* Buttons and links in a cell keep their own width instead of stretching. */
+.estasoft-nd .estasoft-nd-reports .estasoft-nd-start { align-items: flex-start; }
+
+/* The words a leftover was found as, and the saved text around it. */
+.estasoft-nd .estasoft-nd-found { padding: 2px var(--space-6); background: var(--surface-subtle); border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 13px; line-height: 18px; overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-detail-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: var(--space-16); padding: var(--space-16); border-top: 1px solid var(--border); }
+
+/* A list of what a check looks for: green checks, not the neutral dash. */
+.estasoft-nd .estasoft-nd-rule--ok .estasoft-nd-icon { color: var(--success-icon); }
+
+/* Cards beside each other: a flush card (with a table) is also a flex item there, and they start at the top. */
+.estasoft-nd .estasoft-nd-reports .estasoft-nd-notes > .estasoft-nd-card--flush { flex: 1 1 320px; }
+.estasoft-nd .estasoft-nd-reports .estasoft-nd-notes--top { align-items: flex-start; }
+
+/* Progress of a check that runs in the queue. */
+.estasoft-nd .estasoft-nd-meter { display: block; inline-size: 100%; block-size: 8px; appearance: none; border: 0; border-radius: 4px; background: var(--surface-hover); overflow: hidden; }
+.estasoft-nd .estasoft-nd-meter::-webkit-progress-bar { background: var(--surface-hover); border-radius: 4px; }
+.estasoft-nd .estasoft-nd-meter::-webkit-progress-value { background: var(--primary); border-radius: 4px; }
+.estasoft-nd .estasoft-nd-meter::-moz-progress-bar { background: var(--primary); border-radius: 4px; }
+
+/* A code block shows its own colours, not the grey WordPress gives a code element. */
+.estasoft-nd .estasoft-nd-reports .estasoft-nd-code code { padding: 0; background: transparent; }
+
+/* A card with a long line of code or a table may become narrower than its content; the content scrolls. */
+.estasoft-nd .estasoft-nd-reports .estasoft-nd-notes > .estasoft-nd-card { min-inline-size: 0; }
+.estasoft-nd .estasoft-nd-reports .estasoft-nd-notes--wide-first > .estasoft-nd-card:first-child { flex: 2 1 420px; }
+.estasoft-nd .estasoft-nd-reports .estasoft-nd-notes--top > .estasoft-nd-card--flush { flex: 2 1 420px; }

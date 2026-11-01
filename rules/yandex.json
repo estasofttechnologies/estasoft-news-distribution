@@ -1,0 +1,74 @@
+{
+	"platform": "yandex",
+	"version": "2026.09.1",
+	"read_on": "2026-10-21",
+	"fetch": {
+		"interval_hours": 168,
+		"agents": [ "yandex" ]
+	},
+	"limits": {
+		"max_urls": 1000,
+		"url_max_chars": 2048,
+		"first_read_days": 14,
+		"reread_requests": 10,
+		"reread_wait_days": 30
+	},
+	"rules": {
+		"url.length": {
+			"severity": "warn",
+			"confidence": "confirmed",
+			"source": "https://www.yandex.com/support/webmaster/en/indexing-options/sitemap",
+			"read_on": "2026-10-21",
+			"note": "Each URL is at most 2,048 characters."
+		},
+		"sitemap.first_read": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://www.yandex.com/support/webmaster/en/indexing-options/sitemap",
+			"read_on": "2026-10-21",
+			"note": "Yandex downloads a newly added sitemap file within two weeks."
+		},
+		"sitemap.reread": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://www.yandex.com/support/webmaster/en/indexing-options/sitemap",
+			"read_on": "2026-10-21",
+			"note": "After a change you can ask Yandex to read a file again, up to 10 times for each site address. After that, try again 30 days after the first try."
+		},
+		"sitemap.standard_elements": {
+			"severity": "warn",
+			"confidence": "softened",
+			"source": "https://www.yandex.com/support/webmaster/en/indexing-options/sitemap",
+			"read_on": "2026-10-21",
+			"note": "A plain sitemap with only standard elements. Listed on the design board, not separately confirmed."
+		},
+		"sitemap.same_domain": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "https://www.yandex.com/support/webmaster/en/indexing-options/sitemap",
+			"read_on": "2026-10-21",
+			"note": "URLs on the same domain as the site. Listed on the design board, not separately confirmed."
+		},
+		"sitemap.reachable": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "https://www.yandex.com/support/webmaster/en/indexing-options/sitemap",
+			"read_on": "2026-10-21",
+			"note": "The sitemap answers 200 and robots.txt does not block it. Listed on the design board, not separately confirmed."
+		},
+		"sitemap.not_feed": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "https://www.yandex.com/support/webmaster/en/indexing-options/sitemap",
+			"read_on": "2026-10-21",
+			"note": "A sitemap file, never an RSS or Atom feed. Listed on the design board, not separately confirmed."
+		},
+		"verify.methods": {
+			"severity": "info",
+			"confidence": "confirmed",
+			"source": "https://yandex.com/dev/webmaster/doc/en/concepts/verification.md",
+			"read_on": "2026-10-21",
+			"note": "A file named yandex_<code>.html in the site root with a UTF-8 content type and the text Verification: <code>, a yandex-verification meta tag, or a DNS TXT record."
+		}
+	}
+}

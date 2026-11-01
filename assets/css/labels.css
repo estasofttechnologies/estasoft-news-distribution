@@ -1,0 +1,50 @@
+/*
+ * News Distribution page labels: Updated, AI-assisted, correction and source.
+ *
+ * The labels take your theme's text color and fonts. Restyle them in your theme or in
+ * Additional CSS with these classes and variables. Nothing is written into the page itself.
+ */
+:root {
+	--estasoft-nd-accent: #b45309;
+	--estasoft-nd-label-bg: #eef2f7;
+	--estasoft-nd-label-fg: inherit;
+	--estasoft-nd-label-border: #c4cacf;
+}
+
+.estasoft-nd-labels {
+	margin-block: 0.75em;
+	font-size: 0.875em;
+	line-height: 1.5;
+}
+
+.estasoft-nd-labels p {
+	margin: 0 0 0.35em;
+}
+
+.estasoft-nd-label.estasoft-nd-label--ai {
+	display: inline-block;
+	padding: 0.05em 0.6em;
+	border: 1px solid var(--estasoft-nd-label-border);
+	border-radius: 2px;
+	background: var(--estasoft-nd-label-bg);
+	color: var(--estasoft-nd-label-fg);
+	font-size: 0.857em;
+	font-weight: 400;
+	line-height: 1.6;
+}
+
+.estasoft-nd-updated {
+	color: inherit;
+}
+
+.estasoft-nd-correction {
+	margin-block: 1.25em 0.75em;
+	padding: 0.6em 0.9em;
+	border-inline-start: 4px solid var(--estasoft-nd-accent);
+	background: var(--estasoft-nd-label-bg);
+	color: var(--estasoft-nd-label-fg);
+}
+
+.estasoft-nd-source {
+	color: inherit;
+}

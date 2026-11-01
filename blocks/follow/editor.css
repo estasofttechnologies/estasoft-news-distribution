@@ -1,0 +1,4 @@
+/* The Follow block, in the block editor only. Its links do nothing here, so a click selects the block. */
+.wp-block-estasoft-nd-follow .estasoft-nd-follow__link {
+	pointer-events: none;
+}

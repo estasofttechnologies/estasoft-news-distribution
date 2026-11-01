@@ -1,0 +1,70 @@
+/* Outlets page: Medium queue, webhooks, attribution, Telegram, Mastodon and Bluesky. */
+
+/* The switch between the four views. */
+.estasoft-nd .estasoft-nd-outlets-switch { display: flex; max-width: 100%; overflow-x: auto; }
+.estasoft-nd .estasoft-nd-outlets-switch .estasoft-nd-seg { flex: none; }
+.estasoft-nd .estasoft-nd-outlets-switch .estasoft-nd-seg a { white-space: nowrap; }
+
+/* A message keeps its icon beside a long text instead of above it. */
+.estasoft-nd .estasoft-nd-message > .estasoft-nd-grow { flex: 1 1 0; min-width: min(240px, 100%); }
+
+/* Two columns: the form, and what it makes. */
+.estasoft-nd .estasoft-nd-outlets-main { flex: 999 1 560px; min-width: 0; }
+.estasoft-nd .estasoft-nd-outlets-side { flex: 1 1 300px; max-width: 380px; min-width: 0; display: flex; flex-direction: column; gap: var(--space-16); }
+.estasoft-nd .estasoft-nd-outlets-side .estasoft-nd-card--padded > :is(h2, h3, p) { margin: 0; }
+
+/* Inputs. */
+.estasoft-nd .estasoft-nd-outlets-input { width: 100%; max-width: 420px; }
+.estasoft-nd .estasoft-nd-outlets-line { width: 100%; max-width: 460px; }
+.estasoft-nd .estasoft-nd-outlets-select { width: 100%; max-width: 260px; }
+.estasoft-nd .estasoft-nd-outlets-tag { align-self: flex-start; }
+.estasoft-nd .estasoft-nd-outlets-title { align-self: flex-start; }
+.estasoft-nd .estasoft-nd-outlets-plain,
+.estasoft-nd .estasoft-nd-outlets-plain:hover { color: inherit; text-decoration: none; }
+.estasoft-nd .estasoft-nd-outlets-plain:hover { text-decoration: underline; }
+
+/* Rows, footers and notes. */
+.estasoft-nd .estasoft-nd-outlets-foot { background: var(--surface-subtle); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-8) var(--space-12); color: var(--text-secondary); }
+.estasoft-nd .estasoft-nd-outlets-help { margin: 0; }
+.estasoft-nd .estasoft-nd-outlets-bare { border-block-start: 0; padding-block-start: 0; }
+.estasoft-nd .estasoft-nd-outlets-headrow { flex-direction: row; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: var(--space-8) var(--space-16); }
+.estasoft-nd .estasoft-nd-outlets-headrow > .estasoft-nd-grow { flex: 1 1 320px; }
+.estasoft-nd .estasoft-nd-outlets-detail { flex: 1 1 240px; min-width: 0; }
+.estasoft-nd .estasoft-nd-outlets-wide { flex: 1 1 260px; }
+.estasoft-nd .estasoft-nd-outlets-address { display: block; overflow-wrap: anywhere; color: var(--text-secondary); }
+.estasoft-nd .estasoft-nd-outlets-last { flex: 1 1 260px; min-width: 0; display: flex; flex-direction: column; gap: var(--space-2); font-size: 12px; line-height: 16px; color: var(--text-secondary); overflow-wrap: anywhere; }
+
+/* Setup steps (Telegram). */
+.estasoft-nd .estasoft-nd-outlets-step--now { background: var(--primary-tint); }
+.estasoft-nd .estasoft-nd-outlets-step__body { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: var(--space-12); }
+.estasoft-nd .estasoft-nd-outlets-step__body > :is(h2, h3, p) { margin: 0; }
+
+/* Account tables. The widths are classes because inline custom properties are not allowed. */
+.estasoft-nd .estasoft-nd-outlets-cols-chat { --cols: 84px minmax(220px, 1fr) 160px; }
+.estasoft-nd .estasoft-nd-outlets-cols-acc { --cols: 84px minmax(220px, 1fr) 150px; }
+.estasoft-nd .estasoft-nd-outlets-cols-chat > *,
+.estasoft-nd .estasoft-nd-outlets-cols-acc > * { min-width: 0; }
+.estasoft-nd .estasoft-nd-outlets-cols-chat .estasoft-nd-field,
+.estasoft-nd .estasoft-nd-outlets-cols-acc .estasoft-nd-field { width: 100%; max-width: none; }
+
+/* What a post looks like. */
+.estasoft-nd .estasoft-nd-outlets-sample { display: flex; flex-direction: column; gap: var(--space-8); padding: var(--space-12); background: var(--surface-subtle); border: 1px solid var(--border); border-radius: var(--radius-md); overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-outlets-sample p { margin: 0; }
+.estasoft-nd .estasoft-nd-outlets-link { color: var(--primary); overflow-wrap: anywhere; }
+.estasoft-nd .estasoft-nd-outlets-linkcard { display: flex; gap: var(--space-12); align-items: flex-start; padding: var(--space-8); background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); }
+.estasoft-nd .estasoft-nd-outlets-linkcard__text { min-width: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.estasoft-nd .estasoft-nd-outlets-thumb { flex: none; width: 56px; height: 56px; border-radius: var(--radius-md); background: var(--surface-hover); }
+.estasoft-nd .estasoft-nd-outlets-recent { display: grid; grid-template-columns: auto auto 1fr; align-items: center; gap: var(--space-4) var(--space-8); padding-block: var(--space-8); border-block-start: 1px solid var(--border); }
+
+@media (max-width: 782px) {
+	.estasoft-nd .estasoft-nd-outlets-side { flex: 1 1 100%; max-width: none; }
+}
+
+@media (max-width: 640px) {
+	.estasoft-nd .estasoft-nd-outlets-cols-chat,
+	.estasoft-nd .estasoft-nd-outlets-cols-acc { --cols: minmax(0, 1fr); row-gap: var(--space-8); }
+	.estasoft-nd .estasoft-nd-outlets-cols-chat.estasoft-nd-grid-row--head,
+	.estasoft-nd .estasoft-nd-outlets-cols-acc.estasoft-nd-grid-row--head { display: none; }
+	.estasoft-nd .estasoft-nd-outlets-step--now,
+	.estasoft-nd .estasoft-nd-step { padding: var(--space-16); }
+}

@@ -1,0 +1,6 @@
+/* Settings, Follow links. Loaded only on that screen. */
+
+/* An address can be longer than the column on a phone, so the notes under a field break inside it. */
+.estasoft-nd .estasoft-nd-form-control p {
+	overflow-wrap: anywhere;
+}

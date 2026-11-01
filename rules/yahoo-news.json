@@ -1,0 +1,82 @@
+{
+	"platform": "yahoo-news",
+	"version": "2026.08.1",
+	"read_on": "2026-10-21",
+	"source_title": "News Distribution defaults. Yahoo gives its specifications to partners it onboards.",
+	"source_url": "",
+	"fetch": {
+		"interval_hours": 24,
+		"agents": [ "yahoo" ],
+		"note": "A watch window News Distribution uses to say a fetch is later than usual. It is not a Yahoo schedule."
+	},
+	"limits": {
+		"body_min_words": 150,
+		"window_hours": 168,
+		"max_items": 100
+	},
+	"rules": {
+		"feed.format": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "News Distribution writes RSS 2.0 and the address works over HTTPS when the site does. Yahoo's feed specification was not read."
+		},
+		"date.published": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "The publication date is written with a time zone and is never in the future. This is how News Distribution writes dates in RSS; Yahoo's own date rule was not read."
+		},
+		"body.min_words": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Articles under the minimum number of words are left out of this feed. 150 is a News Distribution default the person can change. Yahoo's real minimum is not published here; ask the Yahoo contact."
+		},
+		"html.tags": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "The feed keeps common HTML (paragraphs, headings, links, lists, quotes, images) and removes scripts, frames and styles. Yahoo's own list of allowed tags was not read."
+		},
+		"image.lead": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "The featured image comes first in the article body. Yahoo's own image rule was not read."
+		},
+		"guid.stable": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "An updated article keeps its guid and its original publication date. Whether Yahoo reads an item the same way was not confirmed."
+		},
+		"onboarding.required": {
+			"severity": "info",
+			"confidence": "softened",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "Yahoo has to onboard the feed before it fetches it. This could not be confirmed from a public Yahoo source."
+		},
+		"title.missing": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "An item without a title cannot be read, so the article is left out."
+		},
+		"link.missing": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "An item without a public address cannot be read, so the article is left out."
+		}
+	}
+}

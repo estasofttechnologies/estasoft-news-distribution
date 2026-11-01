@@ -1,0 +1,93 @@
+{
+	"platform": "google-news",
+	"version": "2026.09.2",
+	"read_on": "2026-10-21",
+	"fetch": {
+		"interval_hours": 12,
+		"agents": [ "googlebot-news", "googlebot" ]
+	},
+	"limits": {
+		"window_hours": 48,
+		"max_urls": 1000,
+		"publication_name_max": 80
+	},
+	"rules": {
+		"news.window": {
+			"severity": "warn",
+			"confidence": "confirmed",
+			"source": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap",
+			"read_on": "2026-10-21",
+			"note": "Only articles from the last 2 days belong in a news sitemap."
+		},
+		"news.max_urls": {
+			"severity": "block",
+			"confidence": "confirmed",
+			"source": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap",
+			"read_on": "2026-10-21",
+			"note": "At most 1,000 articles per news sitemap."
+		},
+		"title.has_publication_name": {
+			"severity": "warn",
+			"confidence": "confirmed",
+			"source": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap",
+			"read_on": "2026-10-21",
+			"note": "Titles go in without the publication name."
+		},
+		"title.has_author": {
+			"severity": "warn",
+			"confidence": "confirmed",
+			"source": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap",
+			"read_on": "2026-10-21",
+			"note": "Titles go in without the author. Checked against the author name WordPress holds for the article."
+		},
+		"title.has_date": {
+			"severity": "warn",
+			"confidence": "confirmed",
+			"source": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap",
+			"read_on": "2026-10-21",
+			"note": "Titles go in without the date. News Distribution looks for a written date such as 21/10/2026 or 2026-10-21, so it can miss a date written in words."
+		},
+		"entry.required_tags": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap",
+			"read_on": "2026-10-21",
+			"note": "Publication name, language, publication date and title on every entry. Listed on the design board; the verify log confirms only the window, the 1,000 limit and the title rules."
+		},
+		"publication_name.missing": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap",
+			"read_on": "2026-10-21",
+			"note": "The name must match the one Google News shows on your articles. News Distribution cannot read news.google.com to compare."
+		},
+		"publication_name.long": {
+			"severity": "block",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "A limit of 80 characters set by News Distribution. Google does not state one."
+		},
+		"title.missing": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap",
+			"read_on": "2026-10-21",
+			"note": "Every entry needs a title."
+		},
+		"url.missing": {
+			"severity": "block",
+			"confidence": "softened",
+			"source": "https://developers.google.com/search/docs/crawling-indexing/sitemaps/news-sitemap",
+			"read_on": "2026-10-21",
+			"note": "Every entry needs the article address."
+		},
+		"language.file": {
+			"severity": "info",
+			"confidence": "unverified",
+			"source": "News Distribution",
+			"read_on": null,
+			"note": "One sitemap file per language. Google does not publish which languages Google News accepts, so News Distribution cannot say whether a language is included."
+		}
+	}
+}

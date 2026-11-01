@@ -1,0 +1,13 @@
+/* Settings, Developers. Loaded only on that screen. */
+.estasoft-nd-form-row--wide{display:block;padding:0}
+.estasoft-nd-cols-hooks{--cols:minmax(290px,1.5fr) 64px minmax(0,2.4fr) minmax(0,1.8fr);align-items:start}
+.estasoft-nd-cols-hooks code{font-family:var(--font-mono);font-size:13px;overflow-wrap:break-word}
+.estasoft-nd-dev-examples{display:flex;flex-direction:column;gap:var(--space-12);padding:var(--space-8) var(--space-20) var(--space-20)}
+.estasoft-nd-dev-examples p{margin:0}
+.estasoft-nd-dev-sub{margin:var(--space-8) 0 0;font-size:12px;line-height:16px;font-weight:600;color:var(--text-secondary)}
+.estasoft-nd ul.estasoft-nd-dev-list{margin:0 0 var(--space-12);padding-inline-start:20px;list-style:disc;display:flex;flex-direction:column;gap:var(--space-8)}
+@media (max-width:600px){
+	.estasoft-nd-table:has(.estasoft-nd-cols-hooks){min-width:0}
+	.estasoft-nd-grid-row.estasoft-nd-cols-hooks{--cols:minmax(0,1fr);row-gap:var(--space-8);justify-items:start}
+	.estasoft-nd-grid-row--head.estasoft-nd-cols-hooks{position:absolute;inline-size:1px;block-size:1px;overflow:hidden;clip:rect(0 0 0 0);padding:0;border:0}
+}
